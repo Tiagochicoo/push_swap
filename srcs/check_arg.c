@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2021/10/25 17:53:23 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/10/25 20:19:20 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	check_int(char* arg)
 }
 
 int	check_arg(int argc, char* arg)
-{	
+{
 	if (ft_isnumber(arg) == 0 || check_int(arg) == 0)
 		return (0);
 	else

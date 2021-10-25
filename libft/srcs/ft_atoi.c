@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 13:11:17 by tpereira          #+#    #+#             */
-/*   Updated: 2021/07/05 21:27:02 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/10/25 15:28:48 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_atoi(const char *str)
 		if (num > 2147483647)
 			return (-1);
 		if (num < -2147483648)
-			return (0);
+			return (-1);
 	}
 	return (num);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 19:12:31 by tpereira          #+#    #+#             */
-/*   Updated: 2021/08/19 20:19:40 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/10/25 15:18:42 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_isnumber(char *str)
 	isnumber = 0;
 	while (*str)
 	{
+		if (*str == '-')
+			str++;
 		if (*str >= '0' && *str <= '9')
 			isnumber = 1;
 		else

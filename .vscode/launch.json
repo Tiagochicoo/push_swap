@@ -22,7 +22,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/push_swap",
-            "args": ["1","2"],
+            "args": ["1","a"],
             "stopAtEntry": true,
             "cwd": "${fileDirname}",
             "environment": [],

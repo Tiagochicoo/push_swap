@@ -6,16 +6,11 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2021/10/25 20:19:20 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/10/26 14:47:47 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int	check_dup(char* arg)
-{
-	//check later
-}
 
 int	check_int(char* arg)
 {

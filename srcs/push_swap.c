@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2021/10/26 19:52:56 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/11/02 12:43:44 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,36 @@ int	check_dup(int argc, char** argv)
 //     current->next->next = NULL;
 // }
 
+void	print_args(t_list *head)
+{
+	t_list *temp = head;
+
+	while (temp != NULL)
+	{
+		printf("%s\n", (char *)temp->content);
+		temp = temp->next;
+	}
+}
+
 void	new_stacks(int argc, char** argv)
 {
-	t_list	a;
-	// t_list	b;
-	// int		i;
+	int		i;
+	int		j;
+	t_list	*head;
+	t_list	*temp;
 
-	// i = 2;
-	a = *ft_lstnew(argv[1]);
-	// while (argv[i])
-	// {
-	// 	ft_lstadd_front();
-	// 	push(a, ft_atoi(argv[i]));
-	// 	i++;
-	// }
-	// b = *ft_lstnew("");
+	i = 1;
+	j = 1;
+	head = NULL;
+	while (i < argc)
+	{
+		temp = ft_lstnew(argv[j]);
+		ft_lstadd_back(&head, temp);
+		i++;
+		j++;
+	}
 
-	write(1, (char* )a.content, ft_strlen((char *)a.content));
+	print_args(head);
 }
 
 int	check_args(int argc, char** argv)
@@ -68,8 +81,6 @@ int	check_args(int argc, char** argv)
 	int i = 1;
 	while (i < argc)
 	{
-		// write(1, &argv[i][0], ft_strlen(&argv[i][0]));
-		// write(1, " ", 1);
 		if (check_dup(argc, argv) == 0)
 		{
 			write(1, "Duplicate\n", 10);
@@ -83,7 +94,6 @@ int	check_args(int argc, char** argv)
 		i++;
 	}
 	return (1);
-		//write(1, "\n", 1);
 }
 
 int main(int argc, char** argv)
@@ -92,7 +102,8 @@ int main(int argc, char** argv)
 		write(1, "ERROR: not enough parameters", 28);
 	else if (argc >= 2)
 	{
-		if (check_args(argc, argv) != 1);
+		int i = check_args(argc, argv); 
+		if (i == 1)
 		{
 			new_stacks(argc, argv);
 		}

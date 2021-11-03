@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/03 09:08:43 by tpereira         ###   ########.fr       */
+/*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
+/*   Updated: 2021/11/03 09:12:44 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/push_swap.h"
 
-#include "../libft/includes/libft.h"
-# include <unistd.h>
-# include <stdio.h>
-# include <stdbool.h>
+void	convert_to_int(t_list *a)
+{
+	t_list	*temp;
 
-int		check_args(int argc, char** argv);
-int		check_arg(int argc, char* argv);
-void	convert_to_int(t_list *a);
-
-#endif
+	temp = a;
+	while (temp != NULL)
+	{
+		temp->content = (int)ft_atoi(temp->content);
+		temp = temp->next;
+	}	
+}

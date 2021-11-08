@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/03 09:21:33 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/11/03 12:06:25 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_args(t_list *head)
 
 	while (temp != NULL)
 	{
-		printf("%d\n", (int *)temp->content);
+		printf("%d\n", (int)temp->content);
 		temp = temp->next;
 	}
 }

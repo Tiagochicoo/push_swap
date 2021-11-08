@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/03 12:06:25 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/11/08 20:22:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,7 @@ void	print_args(t_list *head)
 	}
 }
 
-t_list	*init_a(int argc, char** argv)
-{
-	int		i;
-	t_list	*head;
-	t_list	*temp;
 
-	i = 1;
-	head = NULL;
-	while (i < argc)
-	{
-		temp = ft_lstnew(argv[i]);
-		ft_lstadd_back(&head, temp);
-		i++;
-	}
-	return (head);
-}
 
 int main(int argc, char** argv)
 {
@@ -52,9 +37,12 @@ int main(int argc, char** argv)
 		if (check_args(argc, argv) == 1)
 		{
 			a = init_a(argc, argv);
-			b = NULL;
 			convert_to_int(a);
-			print_args(a);
+			if (check_order(a) == 0)
+			{
+				b = NULL;
+				print_args(a);
+			}
 		}
 	}
 	return (0);

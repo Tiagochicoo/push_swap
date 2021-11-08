@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
+#    By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 10:19:16 by tpereira          #+#    #+#              #
-#    Updated: 2021/10/25 09:50:25 by tpereira         ###   ########.fr        #
+#    Updated: 2021/11/08 20:01:16 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,11 @@ all :
 	@printf "\e[38;5;46m✅      Compiled Libft	    ✅ \e[0m\n"
 	@printf "\e[38;5;46m✅   push_swap build successfull  ✅ \e[0m\n"
 
-# cc: all
-# 	./fdf 42.fdf
+yes : all
+	./push_swap 1 2 3 4 5
+
+no : all
+	./push_swap 5 4 3 2 1
 
 clean :
 	@make -s clean -C libft

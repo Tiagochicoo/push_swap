@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/03 08:44:43 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/11/08 20:24:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int     check_order(t_list *a)
+{
+	t_list	*temp;
+
+	temp = a;
+	if (a == NULL)
+		return (1);
+	while (temp->next != NULL)
+	{
+		if (temp->content > temp->next->content)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
 
 int	check_int(char* arg)
 {
@@ -26,7 +42,7 @@ int	check_int(char* arg)
 	return (0);
 }
 
-int	check_arg(int argc, char* arg)
+int	check_arg(char* arg)
 {
 	if (ft_isnumber(arg) == 0 || check_int(arg) == 0)
 		return (0);
@@ -35,7 +51,7 @@ int	check_arg(int argc, char* arg)
 	return (0);
 }
 
-int	check_dup(int argc, char** argv)
+int	check_dup(char** argv)
 {
 	int	i;
 	int	j;
@@ -60,7 +76,12 @@ int	check_args(int argc, char** argv)
 	int i = 1;
 	while (i < argc)
 	{
-		if (check_dup(argc, argv) == 0 || check_arg(argc, argv[i]) == 0)
+		int	flag;
+
+		flag = 0;
+		flag += check_dup(argv);
+		flag += check_arg(argv[i]);
+		if (flag < 2)
 		{
 			write(1, "Error\n", 6);
 			return (0);
@@ -72,3 +93,5 @@ int	check_args(int argc, char** argv)
 //check for errors
 // some arguments aren’t integers, some arguments are
 //bigger/smaller than an integer, and/or there are duplicates.
+
+//check if already ordered!!

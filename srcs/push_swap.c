@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/08 20:22:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/11/08 21:39:59 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	print_args(t_list *head)
 		temp = temp->next;
 	}
 }
-
-
 
 int main(int argc, char** argv)
 {

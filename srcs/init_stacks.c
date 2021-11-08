@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/08 18:52:00 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/11/08 22:38:19 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,21 @@
 
 void	convert_to_int(t_list *a)
 {
+	int		i;
 	t_list	*temp;
 
 	temp = a;
+	i = (int *)malloc(sizeof(int));
 	while (temp != NULL)
 	{
-		temp->content = (int)ft_atoi(temp->content);
+		i = ft_atoi(temp->content);
+		temp->content = i;
 		temp = temp->next;
-	}	
+	}
 }
+
+//TO DO:
+//pass int to void *
 
 t_list	*init_a(int argc, char** argv)
 {

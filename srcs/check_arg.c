@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/08 20:24:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/11/15 21:55:57 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,18 @@ int	check_dup(char** argv)
 {
 	int	i;
 	int	j;
+	int	num;
+	int	num1;
 
 	i = 1;
 	while (argv[i])
 	{
 		j = 2;
+		num = ft_atoi(argv[i]);
 		while (argv[j])
 		{
-			if (i != j && ft_strcmp(argv[i], argv[j]) == 0)
+			num1 = ft_atoi(argv[j]);
+			if (i != j && num == num1)
 				return (0);
 			j++;
 		}

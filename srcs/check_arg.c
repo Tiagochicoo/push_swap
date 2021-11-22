@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/22 19:59:36 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/11/22 20:16:06 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int     check_order(t_list *a)
 		return (0);
 	while (temp->next != NULL)
 	{
-		if (temp->content > temp->next->content)
+		if ((int)temp->content > (int)temp->next->content)
 			return (0);
 		temp = temp->next;
 	}

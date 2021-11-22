@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/08 18:56:12 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/11/22 19:48:56 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdbool.h>
 
 int		check_args(int argc, char** argv);
-int		check_arg(char* argv);
+int		check_arg(char** argv);
 void	convert_to_int(t_list *a);
 t_list	*init_a(int argc, char** argv);
 int     check_order(t_list *a);

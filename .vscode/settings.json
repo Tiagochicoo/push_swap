@@ -4,6 +4,7 @@
 		"mlx.h": "c",
 		"fdf.h": "c",
 		"libft.h": "c",
-		"push_swap.h": "c"
+		"push_swap.h": "c",
+		"complex": "c"
 	}
 }

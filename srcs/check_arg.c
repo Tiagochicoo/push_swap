@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/15 22:24:55 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/11/22 19:59:36 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,25 @@ int	check_int(char* arg)
 	int num;
 
 	num = ft_atoi(arg);
-	if (arg[0] == '-' && arg[1] == '1' && arg[2] == '\0')
-		return (1);
-	if (num != -1)
+	if (num < INT_MAX && num > INT_MIN)
 		return (1);
 	else
 		return (0);
 	return (0);
 }
 
-int	check_arg(char* arg)
+int	check_arg(char** argv)
 {
-	if (ft_isnumber(arg) == 0 || check_int(arg) == 0)
-		return (0);
-	else
-		return (1);
-	return (0);
+	int i;
+
+	i = 1;
+	while (argv[i])
+	{
+		if (ft_isnumber(argv[i]) == 0 || check_int(argv[i]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	check_dup(char** argv)
@@ -77,20 +80,15 @@ int	check_dup(char** argv)
 
 int	check_args(int argc, char** argv)
 {
-	int i = 1;
-	while (i < argc)
-	{
-		int	flag;
+	int	flag;
 
-		flag = 0;
-		flag += check_dup(argv);
-		flag += check_arg(argv[i]);
-		if (flag < 2)
-		{
-			write(1, "Error\n", 6);
-			return (0);
-		}
-		i++;
+	flag = 0;
+	flag += check_dup(argv);
+	flag += check_arg(argv);
+	if (flag < 2)
+	{
+		write(1, "Error\n", 6);
+		return (0);
 	}
 	return (1);
 }

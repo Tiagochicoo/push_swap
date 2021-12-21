@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   order_3_args.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2021/12/21 18:24:50 by tpereira         ###   ########.fr       */
+/*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
+/*   Updated: 2021/12/21 18:31:18 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(t_list *head)
+int		compare_args(void*one, void*two)
 {
-	t_list *temp;
+	if (one > two)
+		return (0);
+	return (1);
+}
 
-	temp = head;
-	head = head->next;
-	head->next = temp;
+void	order_3_args(t_list *a)
+{
+	t_list	*current;
+
+	current = a;
+	while (current->next != NULL)
+	{
+		if (compare_args(current->content, current->next->content))
+		{
+			print_args(a);
+			sa(current);
+			print_args(a);
+		}
+		current = current->next;
+	}
 }

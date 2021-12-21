@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2021/12/21 16:34:12 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:32:13 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 void	order_loop(int argc, char**argv, t_list *a, t_list *b)
 {
-	if (check_order(a))
+	while (!check_order(a) || b != NULL)
 	{
-		b = NULL;
-		ft_printf("Ordered!\n");
+		if (stack_size(a) == 3)
+		{
+			print_args(a);
+			order_3_args(a);
+		}
+		else
+			break;	
 	}
-	else
-		ft_printf("Put some order on this!\n");
+	ft_printf("Ordered!\n");
 }
 
 void	print_args(t_list *head)
@@ -47,6 +51,7 @@ int	main(int argc, char**argv)
 		if (check_args(argc, argv))
 		{
 			a = init_a(argc, argv);
+			b = NULL;
 			convert_to_int(a);
 			order_loop(argc, argv, a, b);
 		}

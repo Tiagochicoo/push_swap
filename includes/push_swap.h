@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2021/12/21 16:01:50 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:29:58 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,9 @@ int		check_arg(char**argv);
 void	convert_to_int(t_list *a);
 t_list	*init_a(int argc, char**argv);
 int		check_order(t_list *a);
+int		stack_size(t_list *head);
+void	order_3_args(t_list *a);
+void	sa(t_list *a);
+void	print_args(t_list *head);
 
 #endif

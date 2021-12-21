@@ -6,11 +6,26 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2021/12/21 16:19:10 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:28:29 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int		stack_size(t_list *head)
+{
+	int	count;
+	t_list *current;
+
+	current = head;
+	count = 0;
+	while (current != NULL)
+	{
+		count++;
+		current = current->next;
+	}
+	return count;
+}
 
 void	convert_to_int(t_list *a)
 {
@@ -26,9 +41,6 @@ void	convert_to_int(t_list *a)
 		temp = temp->next;
 	}
 }
-
-//TO DO:
-//pass int to void *
 
 t_list	*init_a(int argc, char**argv)
 {

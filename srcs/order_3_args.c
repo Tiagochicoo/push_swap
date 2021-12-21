@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2021/12/21 18:31:18 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/12/21 19:30:58 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,47 @@ int		compare_args(void*one, void*two)
 
 void	order_3_args(t_list *a)
 {
-	t_list	*current;
+	void		*first;
+	void		*second;
+	void		*third;
+	t_list		*temp;
 
-	current = a;
-	while (current->next != NULL)
+	temp = a;	
+	first = a->content;
+	second = a->next->content;
+	third = a->next->next->content;
+	if (first > second && second < third)
 	{
-		if (compare_args(current->content, current->next->content))
+		if (third > first)
 		{
-			print_args(a);
-			sa(current);
-			print_args(a);
+			ft_printf("case 1");
+			sa(temp);
+			ft_printf("case 1");
 		}
-		current = current->next;
+		else
+		ft_printf("RA\n");
+	}		
+	else if (first > second && second > third)
+	{
+		//sa(a);
+		ft_printf("SA\n");
+		ft_printf("RRA\n");
+		//rra(a);
+	}
+	else if (first > second && second < third)
+		//ra(a);
+		ft_printf("RA\n");
+	else if (first < second && second > third)
+	{
+		if (third > first)
+		{
+			ft_printf("SA\n");
+			//sa(a);
+			ft_printf("RA\n");
+			//ra(a);
+		}
+		else
+			ft_printf("RRA\n");
+			//rra();	
 	}
 }

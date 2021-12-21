@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2021/12/21 18:32:13 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/12/21 19:47:56 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,9 @@ void	order_loop(int argc, char**argv, t_list *a, t_list *b)
 	while (!check_order(a) || b != NULL)
 	{
 		if (stack_size(a) == 3)
-		{
-			print_args(a);
 			order_3_args(a);
-		}
 		else
-			break;	
+			ft_printf("Not ordered!!!\n");
 	}
 	ft_printf("Ordered!\n");
 }

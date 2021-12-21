@@ -6,13 +6,13 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/22 20:16:06 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/12/21 16:21:18 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int     check_order(t_list *a)
+int	check_order(t_list *a)
 {
 	t_list	*temp;
 
@@ -28,9 +28,9 @@ int     check_order(t_list *a)
 	return (1);
 }
 
-int	check_int(char* arg)
+int	check_int(char*arg)
 {
-	int num;
+	int	num;
 
 	num = ft_atoi(arg);
 	if (num < INT_MAX && num > INT_MIN)
@@ -40,9 +40,9 @@ int	check_int(char* arg)
 	return (0);
 }
 
-int	check_arg(char** argv)
+int	check_arg(char**argv)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (argv[i])
@@ -54,7 +54,7 @@ int	check_arg(char** argv)
 	return (1);
 }
 
-int	check_dup(char** argv)
+int	check_dup(char**argv)
 {
 	int	i;
 	int	j;
@@ -78,7 +78,7 @@ int	check_dup(char** argv)
 	return (1);
 }
 
-int	check_args(int argc, char** argv)
+int	check_args(int argc, char**argv)
 {
 	int	flag;
 
@@ -92,8 +92,3 @@ int	check_args(int argc, char** argv)
 	}
 	return (1);
 }
-//check for errors
-// some arguments aren’t integers, some arguments are
-//bigger/smaller than an integer, and/or there are duplicates.
-
-//check if already ordered!!

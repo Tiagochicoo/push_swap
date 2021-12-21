@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2021/11/15 21:50:54 by tpereira         ###   ########.fr       */
+/*   Updated: 2021/12/21 16:19:10 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	convert_to_int(t_list *a)
 //TO DO:
 //pass int to void *
 
-t_list	*init_a(int argc, char** argv)
+t_list	*init_a(int argc, char**argv)
 {
 	int		i;
 	t_list	*head;

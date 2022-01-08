@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2021/12/21 19:47:56 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/08 11:56:06 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	order_loop(int argc, char**argv, t_list *a, t_list *b)
 			order_3_args(a);
 		else
 			ft_printf("Not ordered!!!\n");
+			return;
 	}
 	ft_printf("Ordered!\n");
 }

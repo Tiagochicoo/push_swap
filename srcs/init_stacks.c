@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2021/12/21 18:28:29 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/11 18:39:48 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		stack_size(t_list *head)
+int	stack_size(t_list *head)
 {
-	int	count;
-	t_list *current;
+	int		count;
+	t_list	*current;
 
 	current = head;
 	count = 0;
@@ -24,7 +24,7 @@ int		stack_size(t_list *head)
 		count++;
 		current = current->next;
 	}
-	return count;
+	return (count);
 }
 
 void	convert_to_int(t_list *a)

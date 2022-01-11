@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/08 11:56:06 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/11 17:35:33 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,18 @@ int	main(int argc, char**argv)
 {
 	t_list	*a;
 	t_list	*b;
-	
-	if (argc <= 2)
+
+	a = init_a(argc, argv);
+	b = NULL;
+	if (argc < 2)
 		write(1, "ERROR: not enough parameters", 28);
 	else if (argc > 2)
 	{
 		if (check_args(argc, argv))
 		{
-			a = init_a(argc, argv);
-			b = NULL;
 			convert_to_int(a);
-			order_loop(argc, argv, a, b);
+			if (check_order(a))
+				print_args(a);
 		}
 	}
 	return (0);

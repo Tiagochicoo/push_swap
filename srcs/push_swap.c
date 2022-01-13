@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/13 22:10:26 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/13 22:22:44 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ void	pop_head(t_list**head)
 	temp = *head;
 	if (head == NULL || *head == NULL)
 		return;
-	
-	if ((*head)->next != NULL)
-		*head = (*head)->next;
+	*head = (*head)->next;
 
 	free(temp);
 }
@@ -43,7 +41,7 @@ t_list	*sort_stack(t_list**a, t_list**b)
 				pa(b, a);
 				pop_head(b);
 			}
-				pa(a, b);
+				pa(a, &b);
 		}
 		check_order(a);
 	}

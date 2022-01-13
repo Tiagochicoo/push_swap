@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/13 22:14:52 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/13 22:31:50 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	print_args(t_list *head);
 void	pop_head(t_list**head);
 void	sa(t_list *a);
 void	ra(t_list *a);
-void	pa(t_list*a, t_list*b);
+void	pa(t_list**a, t_list**b);
 
 #endif

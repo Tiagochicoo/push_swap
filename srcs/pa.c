@@ -6,17 +6,17 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/13 22:12:27 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/13 22:42:05 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pa(t_list*a, t_list*b)
+void	pa(t_list**a, t_list**b)
 {
 	if (b != NULL)
 	{
-		ft_lstadd_front(a, b);
+		ft_lstadd_front(a, *b);
 		pop_head(b);
 	}
 	printf("PA");

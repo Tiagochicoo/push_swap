@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/11 18:39:48 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/13 19:04:31 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_list	*init_a(int argc, char**argv)
 	head = NULL;
 	while (i < argc)
 	{
-		temp = ft_lstnew(argv[i]);
+		temp = ft_lstnew(ft_atoi(argv[i]));
 		ft_lstadd_back(&head, temp);
 		i++;
 	}

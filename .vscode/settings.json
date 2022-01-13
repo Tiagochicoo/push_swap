@@ -6,7 +6,19 @@
 		"libft.h": "c",
 		"push_swap.h": "c",
 		"complex": "c",
-		"stdbool.h": "c"
+		"stdbool.h": "c",
+		"array": "cpp",
+		"*.tcc": "cpp",
+		"deque": "cpp",
+		"list": "cpp",
+		"string": "cpp",
+		"vector": "cpp",
+		"optional": "cpp",
+		"string_view": "cpp",
+		"fstream": "cpp",
+		"istream": "cpp",
+		"streambuf": "cpp",
+		"regex": "cpp"
 	},
 	// The number of spaces a tab is equal to.
 	"editor.tabSize": 4,

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/13 22:31:50 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/14 19:58:55 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ int		stack_size(t_list *head);
 void	sort_2_args(t_list *a);
 void	sort_3_args(t_list *a);
 void	print_args(t_list *head);
-void	pop_head(t_list**head);
+t_list	*pop_head(t_list**head);
 void	sa(t_list *a);
 void	ra(t_list *a);
 void	pa(t_list**a, t_list**b);
+void	pb(t_list**b, t_list**a);
 
 #endif

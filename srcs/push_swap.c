@@ -6,13 +6,27 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/13 22:32:25 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/14 21:01:29 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pop_head(t_list**head)
+void print_stack(t_list*head, char**stack_name)
+{
+    t_list *ptr; 
+	
+	ptr = head;
+	printf("Stack %s\n", stack_name);
+    while (ptr)
+    {
+        printf("%d —> ", ptr->content);
+        ptr = ptr->next;
+    }
+    printf("NULL\n");
+}
+
+t_list	*pop_head(t_list**head)
 {
 	t_list	*temp;
 
@@ -21,30 +35,44 @@ void	pop_head(t_list**head)
 		return;
 	*head = (*head)->next;
 
-	free(temp);
+	return (temp);
 }
 
 t_list	*sort_stack(t_list**a, t_list**b)
 {
-	int	temp;
+	t_list	*temp;
 
-	while(a != NULL)
+	while(a != NULL && *a != NULL)
 	{
-		temp = (*a)->content;
-		pop_head(a);
 		if (b == NULL || (*b)->content == NULL)
-			*b = ft_lstnew(temp);
+		{
+			*b = ft_lstnew(pop_head(a)->content);
+			//printf("pb\n");
+		}
 		else
 		{
-			while(b != NULL && (*b)->content > temp)
+			temp = pop_head(a);
+			//printf("pb\n");
+			while ((*b) != NULL && (*b)->content > temp->content)
 			{
-				pa(b, a);
-				pop_head(b);
-			}
 				pa(a, b);
+				//print_stack(*a, "A");
+				//print_stack(*b, "B");
+			}
+			ft_lstadd_front(b, temp);
+			//print_stack(*a, "A");
+			//print_stack(*b, "B");
 		}
-		check_order(a);
 	}
+	while (b != NULL && *b != NULL)
+		pa(a, b);
+	//printf("loop ended\n");
+	// while (b != NULL)
+	// 	pa(a, b);
+	// if (check_order(a))
+	// 	print_args(a);
+	// else
+	// 	printf("not ordered...");
 }
 
 int main(int argc, char** argv)
@@ -59,5 +87,7 @@ int main(int argc, char** argv)
 		write(1, "ERROR: not enough parameters", 28);
 	else if (check_args(argc, argv))
 		sort_stack(&a, &b);
-	 return (0);
+	print_stack(a, "A");
+	print_stack(b, "B");
+	return (0);
 }

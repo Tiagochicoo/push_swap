@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa.c                                               :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/14 21:00:55 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/14 19:48:31 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pa(t_list**a, t_list**b)
+void	pb(t_list**b, t_list**a)
 {
-	t_list	*new;
+	t_list	*temp;
 
-	new = *b;			// top of B stack
-	if (*b == NULL)
+	temp = *a;
+	if (*a == NULL)
 		return;
-	*b = (*b)->next; 	// Advance the B stack Head pointer
-	new->next = *a;		// Link the old A stack Head with the new A stack Head
-	*a = new;			// move A stack Head by 1 node
-	//printf("pa\n");
+	*a = (*a)->next;
+	temp->next = *b;
+	*b = temp;
+	printf("PA");
 }

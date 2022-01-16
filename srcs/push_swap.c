@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/16 17:49:41 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/16 19:13:24 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void print_stack(t_list*head, char**stack_name)
     t_list *ptr; 
 	
 	ptr = head;
-	printf("Stack %s\n", stack_name);
+	printf("Stack %s\n", *stack_name);
     while (ptr)
     {
         printf("%d —> ", ptr->content);
@@ -42,7 +42,6 @@ t_list	*sort_stack(t_list**a, t_list**b)
 {
 	t_list	*temp;
 
-	
 	*b = NULL;
 	while(a != NULL && *a != NULL)
 	{
@@ -58,18 +57,20 @@ t_list	*sort_stack(t_list**a, t_list**b)
 		}
 		else
 		{
-			temp = pop_head(a);
-			while (*b != NULL && (*b)->content > temp->content)
-			{
-				pa(a, b);
-				printf("sa\n");
+			
+				temp = pop_head(a);
+				while (*b != NULL && (*b)->content > temp->content)
+				{
+					pa(a, b);
+					printf("sa\n");
+					//print_stack(*a, "A");
+					//print_stack(*b, "B");
+				}
+				ft_lstadd_front(b, temp);
+				printf("pb\n");
 				//print_stack(*a, "A");
 				//print_stack(*b, "B");
-			}
-			ft_lstadd_front(b, temp);
-			printf("pb\n");
-			//print_stack(*a, "A");
-			//print_stack(*b, "B");
+
 		}
 	}
 	while (b != NULL && *b != NULL)

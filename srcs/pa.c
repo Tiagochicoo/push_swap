@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/14 21:00:55 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/16 15:34:10 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	pa(t_list**a, t_list**b)
 	*b = (*b)->next; 	// Advance the B stack Head pointer
 	new->next = *a;		// Link the old A stack Head with the new A stack Head
 	*a = new;			// move A stack Head by 1 node
-	//printf("pa\n");
+	printf("pa\n");
 }

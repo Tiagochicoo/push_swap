@@ -18,7 +18,8 @@
 		"fstream": "cpp",
 		"istream": "cpp",
 		"streambuf": "cpp",
-		"regex": "cpp"
+		"regex": "cpp",
+		"random": "c"
 	},
 	// The number of spaces a tab is equal to.
 	"editor.tabSize": 4,

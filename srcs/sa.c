@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/11 18:20:37 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/16 16:54:20 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,4 @@ void	sa(t_list *head)
 	temp = head;
 	head = head->next;
 	head->next = temp;
-	printf("SA");
 }

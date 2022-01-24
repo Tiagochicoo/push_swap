@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/24 17:40:27 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:52:11 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,21 @@
 t_props	*fill_props(t_list*a, int argc)
 {
 	t_props *props;
-	int		index[argc - 2];
+	int		index[argc - 1];
 	int		i;
 	t_list	*temp;
 
 	i = 0;
 	temp = a;
 	props = (t_props*)malloc(sizeof(t_props));
-	props->arg_count = argc - 2;
+	props->arg_count = argc - 1;
 	while (temp->next != NULL)
 	{
 		index[i] = temp->content;
 		temp = temp->next;
 		i++;
-	}	
+	}
+	index[i] = temp->content;
 	return (props);
 }
 

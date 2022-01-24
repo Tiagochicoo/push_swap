@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_args.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/11 19:07:31 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/24 19:30:23 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	compare_args(void*one, void*two)
 	return (1);
 }
 
-void	sort_2_args(t_list*head)
+void	sort_2_args(t_stack*head)
 {
 	int	one;
 	int	two;
@@ -30,12 +30,12 @@ void	sort_2_args(t_list*head)
 		sa(head);
 }
 
-void	sort_3_args(t_list *a)
+void	sort_3_args(t_stack *a)
 {
 	void		*first;
 	void		*second;
 	void		*third;
-	t_list		*temp;
+	t_stack		*temp;
 
 	temp = a;
 	first = a->content;

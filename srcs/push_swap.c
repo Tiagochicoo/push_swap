@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/24 17:49:46 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/24 19:29:57 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print_stack(t_list*head, char**stack_name)
+void	print_stack(t_stack*head, char**stack_name)
 {
-	t_list	*ptr;
+	t_stack	*ptr;
 
 	ptr = head;
 	printf("Stack %s\n", *stack_name);
@@ -26,9 +26,9 @@ void	print_stack(t_list*head, char**stack_name)
 	printf("NULL\n");
 }
 
-t_list	*pop_head(t_list**head)
+t_stack	*pop_head(t_stack**head)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	temp = *head;
 	if (head == NULL || *head == NULL)
@@ -37,9 +37,9 @@ t_list	*pop_head(t_list**head)
 	return (temp);
 }
 
-t_list	*sort_stack(t_list**a, t_list**b)
+t_stack	*sort_stack(t_stack**a, t_stack**b)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	*b = NULL;
 	while(a != NULL && *a != NULL)
@@ -101,16 +101,18 @@ t_list	*sort_stack(t_list**a, t_list**b)
 
 int main(int argc, char** argv)
 {
-	t_list	*a;
-	t_list	*b;
+	t_stack	*a;
+	t_stack	*b;
+	t_props *props;
 
 	a = init_a(argc, argv);
-	b = (t_list*)malloc(sizeof(t_list));
+	b = (t_stack*)malloc(sizeof(t_stack));
+	props = (t_props*)malloc(sizeof(t_props));
 	if (argc < 2)
 		write(1, "ERROR: not enough parameters", 28);
 	else if (check_args(argc, argv))
 	{
-		fill_props(a, argc);
+		props = fill_props(a, argc);
 		sort_stack(&a, &b);
 	}
 	return (0);

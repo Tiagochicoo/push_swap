@@ -6,18 +6,18 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/24 18:10:32 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/24 19:58:29 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_props	*fill_props(t_list*a, int argc)
+t_props	*fill_props(t_stack*a, int argc)
 {
 	t_props *props;
-	int		index[argc - 1];
+	t_stack	*temp;
 	int		i;
-	t_list	*temp;
+	int		index[argc - 1];
 
 	i = 0;
 	temp = a;
@@ -30,14 +30,13 @@ t_props	*fill_props(t_list*a, int argc)
 		i++;
 	}
 	index[i] = temp->content;
-	*props->args = index;
 	return (props);
 }
 
-int	stack_size(t_list *head)
+int	stack_size(t_stack *head)
 {
 	int		count;
-	t_list	*current;
+	t_stack	*current;
 
 	current = head;
 	count = 0;
@@ -49,10 +48,10 @@ int	stack_size(t_list *head)
 	return (count);
 }
 
-// void	convert_to_int(t_list *a)
+// void	convert_to_int(t_stack *a)
 // {
 // 	int		i;
-// 	t_list	*temp;
+// 	t_stack	*temp;
 
 // 	temp = a;
 // 	i = (int)malloc(sizeof(int));
@@ -64,11 +63,11 @@ int	stack_size(t_list *head)
 // 	}
 // }
 
-t_list	*init_a(int argc, char**argv)
+t_stack	*init_a(int argc, char**argv)
 {
 	int		i;
-	t_list	*head;
-	t_list	*temp;
+	t_stack	*head;
+	t_stack	*temp;
 
 	i = 1;
 	head = NULL;

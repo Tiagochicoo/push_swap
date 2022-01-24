@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/13 19:00:12 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/24 19:30:57 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ra(t_list *head)
+void	ra(t_stack *head)
 {
-	t_list *last;
-	t_list *sec_last;
+	t_stack *last;
+	t_stack *sec_last;
 
 	last = head;
 	while (last->next->next != NULL)

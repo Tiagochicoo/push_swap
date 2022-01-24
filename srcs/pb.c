@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/14 19:48:31 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/24 19:31:26 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	pb(t_list**b, t_list**a)
+void	pb(t_stack**b, t_stack**a)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	temp = *a;
 	if (*a == NULL)

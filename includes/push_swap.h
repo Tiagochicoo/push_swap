@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/14 19:58:55 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:38:04 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdbool.h>
+
+typedef struct s_props
+{
+	int	max_a;
+	int	max_b;
+	int min_a;
+	int min_b;
+	int	arg_count;
+	int args[];
+}			t_props;
+
 
 int		check_args(int argc, char**argv);
 int		check_arg(char**argv);
@@ -32,5 +43,6 @@ void	sa(t_list *a);
 void	ra(t_list *a);
 void	pa(t_list**a, t_list**b);
 void	pb(t_list**b, t_list**a);
+t_props	*fill_props(t_list*a, int argc);
 
 #endif

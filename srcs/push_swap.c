@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/16 19:13:24 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:37:32 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void print_stack(t_list*head, char**stack_name)
+void	print_stack(t_list*head, char**stack_name)
 {
-    t_list *ptr; 
-	
+	t_list	*ptr;
+
 	ptr = head;
 	printf("Stack %s\n", *stack_name);
-    while (ptr)
-    {
-        printf("%d —> ", ptr->content);
-        ptr = ptr->next;
-    }
-    printf("NULL\n");
+	while (ptr)
+	{
+		printf("%d —> ", ptr->content);
+		ptr = ptr->next;
+	}
+	printf("NULL\n");
 }
 
 t_list	*pop_head(t_list**head)
@@ -32,9 +32,8 @@ t_list	*pop_head(t_list**head)
 
 	temp = *head;
 	if (head == NULL || *head == NULL)
-		return;
+		return (NULL);
 	*head = (*head)->next;
-
 	return (temp);
 }
 
@@ -110,8 +109,9 @@ int main(int argc, char** argv)
 	if (argc < 2)
 		write(1, "ERROR: not enough parameters", 28);
 	else if (check_args(argc, argv))
+	{
+		fill_props(&a, argc);
 		sort_stack(&a, &b);
-	// print_stack(a, "A");
-	// print_stack(b, "B");
+	}
 	return (0);
 }

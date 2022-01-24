@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/13 19:00:12 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/19 17:49:40 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void	ra(t_list *head)
 	last->next = head->next;
 	head = last->next;
 	head->next = NULL;
-	printf("RA");
 }

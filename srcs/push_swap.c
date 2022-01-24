@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/16 19:13:24 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/19 17:51:51 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,19 @@ t_list	*sort_stack(t_list**a, t_list**b)
 			printf("pb\n");
 		}
 		else
-		{
-			
-				temp = pop_head(a);
-				while (*b != NULL && (*b)->content > temp->content)
-				{
-					pa(a, b);
-					printf("sa\n");
-					//print_stack(*a, "A");
-					//print_stack(*b, "B");
-				}
-				ft_lstadd_front(b, temp);
-				printf("pb\n");
+		{			
+			temp = pop_head(a);
+			while (*b != NULL && (*b)->content > temp->content)
+			{
+				pa(a, b);
+				printf("sa\n");
 				//print_stack(*a, "A");
 				//print_stack(*b, "B");
-
+			}
+			ft_lstadd_front(b, temp);
+			printf("pb\n");
+			//print_stack(*a, "A");
+			//print_stack(*b, "B");
 		}
 	}
 	while (b != NULL && *b != NULL)

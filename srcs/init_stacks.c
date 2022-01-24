@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/24 17:52:11 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/24 18:10:32 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_props	*fill_props(t_list*a, int argc)
 		i++;
 	}
 	index[i] = temp->content;
+	*props->args = index;
 	return (props);
 }
 

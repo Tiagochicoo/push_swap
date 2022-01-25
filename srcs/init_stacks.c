@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/24 19:58:29 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:32:27 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_stack	*init_a(int argc, char**argv)
 	t_stack	*temp;
 
 	i = 1;
-	head = NULL;
+	//head = (t_stack*)malloc(sizeof(t_stack));
 	while (i < argc)
 	{
 		temp = ft_lstnew(ft_atoi(argv[i]));

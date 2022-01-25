@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/24 19:29:57 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:02:54 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,32 +44,23 @@ t_stack	*sort_stack(t_stack**a, t_stack**b)
 	*b = NULL;
 	while(a != NULL && *a != NULL)
 	{
-		if (b == NULL && (*b)->content == NULL)
+		if (*b == NULL)
 		{
 			if ((*a)->content > (*a)->next->content)
-			{
 				sa(a);
-				printf("sa\n");
-			}
 			*b = ft_lstnew(pop_head(a)->content);
 			printf("pb\n");
 		}
 		else
 		{
-			
-				temp = pop_head(a);
-				while (*b != NULL && (*b)->content > temp->content)
-				{
-					pa(a, b);
-					printf("sa\n");
-					//print_stack(*a, "A");
-					//print_stack(*b, "B");
-				}
-				ft_lstadd_front(b, temp);
-				printf("pb\n");
-				//print_stack(*a, "A");
-				//print_stack(*b, "B");
-
+			temp = pop_head(a);
+			while (*b != NULL && (*b)->content > temp->content)
+			{
+				pa(a, b);
+				printf("sa\n");
+			}
+			ft_lstadd_front(b, temp);
+			printf("pb\n");
 		}
 	}
 	while (b != NULL && *b != NULL)
@@ -112,7 +103,7 @@ int main(int argc, char** argv)
 		write(1, "ERROR: not enough parameters", 28);
 	else if (check_args(argc, argv))
 	{
-		props = fill_props(a, argc);
+		//props = fill_props(a, argc);
 		sort_stack(&a, &b);
 	}
 	return (0);

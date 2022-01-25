@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/24 19:57:21 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:04:26 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_stack
 {
-	void			*content;
+	int				content;
 	struct s_stack	*next;
 }				t_stack;
 
@@ -42,7 +42,7 @@ void	sort_2_args(t_stack *a);
 void	sort_3_args(t_stack *a);
 void	print_args(t_stack *head);
 t_stack	*pop_head(t_stack**head);
-void	sa(t_stack *a);
+void	sa(t_stack**a);
 void	ra(t_stack *a);
 void	pa(t_stack**a, t_stack**b);
 void	pb(t_stack**b, t_stack**a);

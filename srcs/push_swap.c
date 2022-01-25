@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/25 17:02:54 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/25 18:48:51 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_stack	*pop_head(t_stack**head)
 	return (temp);
 }
 
-t_stack	*sort_stack(t_stack**a, t_stack**b)
+void	sort_stack(t_stack**a, t_stack**b)
 {
 	t_stack	*temp;
 
@@ -48,7 +48,7 @@ t_stack	*sort_stack(t_stack**a, t_stack**b)
 		{
 			if ((*a)->content > (*a)->next->content)
 				sa(a);
-			*b = ft_lstnew(pop_head(a)->content);
+			*b = ft_lstnew((void*)pop_head(a)->content);
 			printf("pb\n");
 		}
 		else
@@ -101,7 +101,7 @@ int main(int argc, char** argv)
 	props = (t_props*)malloc(sizeof(t_props));
 	if (argc < 2)
 		write(1, "ERROR: not enough parameters", 28);
-	else if (check_args(argc, argv))
+	else if (check_args(argc, argv) && !check_order(a))
 	{
 		//props = fill_props(a, argc);
 		sort_stack(&a, &b);

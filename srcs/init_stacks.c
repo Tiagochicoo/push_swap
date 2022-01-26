@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stacks.c                                      :+:      :+:    :+:   */
+/*   init_lists.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/25 18:39:22 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:19:42 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_props	*fill_props(t_stack*a, int argc)
+t_props	*fill_props(t_list*a, int argc)
 {
 	t_props	*props;
-	t_stack	*temp;
+	t_list	*temp;
 	int		i;
 	int		*index;
 
 	i = 0;
 	temp = a;
-	index = (int)malloc(sizeof(int) * (argc - 1));
+	index = (int*)malloc(sizeof(int) * (argc - 1));
 	props = (t_props*)malloc(sizeof(t_props));
 	props->arg_count = argc - 1;
 	while (temp->next != NULL)
 	{
-		index[i] = temp->content;
+		index[i] = (int)temp->content;
 		temp = temp->next;
 		i++;
 	}
-	index[i] = temp->content;
+	index[i] = (int)temp->content;
 	return (props);
 }
 
-int	stack_size(t_stack *head)
+int	stack_size(t_list *head)
 {
 	int		count;
-	t_stack	*current;
+	t_list	*current;
 
 	current = head;
 	count = 0;
@@ -49,11 +49,11 @@ int	stack_size(t_stack *head)
 	return (count);
 }
 
-// void	convert_to_int(t_stack *a)
+// void	convert_to_int(t_list *a)
 // {
 // 	int		i;
-// 	t_stack	*temp;
-
+// 	t_list	*temp;
+//
 // 	temp = a;
 // 	i = (int)malloc(sizeof(int));
 // 	while (temp != NULL)
@@ -64,17 +64,19 @@ int	stack_size(t_stack *head)
 // 	}
 // }
 
-t_stack	*init_a(int argc, char**argv)
+t_list	*init_a(int argc, char**argv)
 {
 	int		i;
-	t_stack	*head;
-	t_stack	*temp;
+	int		*content;
+	t_list	*head;
+	t_list	*temp;
 
 	i = 1;
-	//head = (t_stack*)malloc(sizeof(t_stack));
+	content = (int*)malloc(sizeof(int));
 	while (i < argc)
 	{
-		temp = ft_lstnew((void*)ft_atoi(argv[i]));
+		*content = ft_atoi(argv[i]);
+		temp = ft_lstnew(&content);
 		ft_lstadd_back(&head, temp);
 		i++;
 	}

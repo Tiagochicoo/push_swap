@@ -6,29 +6,29 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/25 18:48:51 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/26 18:17:22 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print_stack(t_stack*head, char**stack_name)
+void	print_list(t_list*head, char**stack_name)
 {
-	t_stack	*ptr;
+	t_list	*temp;
 
-	ptr = head;
+	temp = head;
 	printf("Stack %s\n", *stack_name);
-	while (ptr)
+	while (temp)
 	{
-		printf("%d —> ", ptr->content);
-		ptr = ptr->next;
+		printf("%d —> ", temp->content);
+		temp = temp->next;
 	}
 	printf("NULL\n");
 }
 
-t_stack	*pop_head(t_stack**head)
+t_list	*pop_head(t_list**head)
 {
-	t_stack	*temp;
+	t_list	*temp;
 
 	temp = *head;
 	if (head == NULL || *head == NULL)
@@ -37,12 +37,12 @@ t_stack	*pop_head(t_stack**head)
 	return (temp);
 }
 
-void	sort_stack(t_stack**a, t_stack**b)
+void	sort_list(t_list**a, t_list**b)
 {
-	t_stack	*temp;
+	t_list	*temp;
 
 	*b = NULL;
-	while(a != NULL && *a != NULL)
+	while(a != NULL && *a != NULL && check_order(*a))
 	{
 		if (*b == NULL)
 		{
@@ -79,32 +79,32 @@ void	sort_stack(t_stack**a, t_stack**b)
 			{
 				pa(b, a);
 				printf("sb\n");
-				//print_stack(*a, "A");
-				//print_stack(*c, "c");
+				//print_list(*a, "A");
+				//print_list(*c, "c");
 			}
 			ft_lstadd_front(a, temp);
 			printf("pa\n");
-			//print_stack(*a, "A");
-			//print_stack(*b, "B");
+			//print_list(*a, "A");
+			//print_list(*b, "B");
 		}
 	}
 }
 
 int main(int argc, char** argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_list	*a;
+	t_list	*b;
 	t_props *props;
 
 	a = init_a(argc, argv);
-	b = (t_stack*)malloc(sizeof(t_stack));
+	b = (t_list*)malloc(sizeof(t_list));
 	props = (t_props*)malloc(sizeof(t_props));
 	if (argc < 2)
-		write(1, "ERROR: not enough parameters", 28);
-	else if (check_args(argc, argv) && !check_order(a))
+		return (0);
+	else if (check_args(argc, argv) && check_order(a))
 	{
 		//props = fill_props(a, argc);
-		sort_stack(&a, &b);
+		sort_list(&a, &b);
 	}
 	return (0);
 }

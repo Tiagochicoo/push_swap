@@ -6,15 +6,15 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/25 18:14:12 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/26 18:19:49 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_order(t_stack *a)
+int	check_order(t_list *a)
 {
-	t_stack	*temp;
+	t_list	*temp;
 
 	temp = a;
 	if (a == NULL)

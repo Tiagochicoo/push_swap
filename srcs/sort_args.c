@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/25 18:21:47 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:21:04 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	compare_args(void*one, void*two)
 	return (1);
 }
 
-// void	sort_2_args(t_stack*head)
+// void	sort_2_args(t_list*head)
 // {
 // 	int	one;
 // 	int	two;
@@ -30,12 +30,12 @@ int	compare_args(void*one, void*two)
 // 		sa(&head);
 // }
 
-// void	sort_3_args(t_stack *a)
+// void	sort_3_args(t_list *a)
 // {
 // 	void		*first;
 // 	void		*second;
 // 	void		*third;
-// 	t_stack		*temp;
+// 	t_list		*temp;
 
 // 	temp = a;
 // 	first = a->content;

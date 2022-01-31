@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/31 18:29:29 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/31 19:25:04 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int main(int argc, char** argv)
 	b = (t_stack*)malloc(sizeof(t_stack));
 	if (argc < 2)
 		return (0);
-	else if (argc < 5)
+	else if (argc <= 5)
 		sort_less_than_5(a, b);
 	else if (check_args(argc, argv) && !check_order(a))
 		sort_stack(&a, &b);

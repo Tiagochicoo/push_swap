@@ -6,19 +6,11 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/31 18:53:25 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/31 19:10:29 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	case_1(t_stack*temp, t_stack*first, t_stack*third)
-{
-	if (third < first)
-			sa(&temp);
-	else
-		ft_printf("sa\n");
-}
 
 void	sort_3_args(t_stack**a)
 {

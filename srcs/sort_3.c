@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_less_than_5.c                                 :+:      :+:    :+:   */
+/*   sort_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/31 18:30:31 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:40:49 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_2_args(t_stack*a)
+void	case_1(t_stack*temp, t_stack*first, t_stack*third)
 {
-	int	one;
-	int	two;
-
-	one = a->content;
-	two = a->next->content;
-	if (one > two)
-		sa(&a);
+	if (third < first)
+			sa(&temp);
+	else
+		ft_printf("sa\n");
 }
 
-void	sort_less_than_5(t_stack*a, t_stack*b)
+void	sort_3_args(t_stack**a)
 {
-	int	size;
+	void		*first;
+	void		*second;
+	void		*third;
 
-	size = ft_stacksize(a);
-	if (size == 2)
-		sort_2_args(a);
-	else if (size == 3)
-		sort_3_args(&a);
-	// else if (size == 4)
-	// 	sort_4_args(a);
-	// else if (size == 5)
-	// 	sort_5_args(a);
+	first = (*a)->content;
+	second = (*a)->next->content;
+	third = (*a)->next->next->content;
+	while (!check_order(a))
+	{
+		if (first > second && first > third)
+			ra(&a);
+		else if (first < second && second > third)
+			rra(a);
+		else if (first > second && second < third)
+			sa(&a);
+	}
 }

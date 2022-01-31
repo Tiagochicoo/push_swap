@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/31 16:27:52 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:29:37 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,15 @@ int		check_args(int argc, char**argv);
 int		check_arg(char**argv);
 void	convert_to_int(t_stack *a);
 t_stack	*init_a(int argc, char**argv);
-int		check_order(t_stack *a);
-int		stack_size(t_stack *head);
-void	sort_2_args(t_stack *a);
-void	sort_3_args(t_stack *a);
+int		check_order(t_stack*a);
+int		stack_size(t_stack*head);
+void	sort_2_args(t_stack*a);
+void	sort_3_args(t_stack**a);
 void	print_args(t_stack *head);
 t_stack	*pop_head(t_stack**head);
 void	sa(t_stack**a);
-void	ra(t_stack *a);
+void	ra(t_stack*a);
+void	rra(t_stack**a);
 void	pa(t_stack**a, t_stack**b);
 void	pb(t_stack**b, t_stack**a);
 t_props	*fill_props(t_stack*a, int argc);

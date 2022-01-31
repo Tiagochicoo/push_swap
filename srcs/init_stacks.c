@@ -12,32 +12,10 @@
 
 #include "../includes/push_swap.h"
 
-t_props	*fill_props(t_list*a, int argc)
-{
-	t_props	*props;
-	t_list	*temp;
-	int		i;
-	int		*index;
-
-	i = 0;
-	temp = a;
-	index = (int*)malloc(sizeof(int) * (argc - 1));
-	props = (t_props*)malloc(sizeof(t_props));
-	props->arg_count = argc - 1;
-	while (temp->next != NULL)
-	{
-		index[i] = (int)temp->content;
-		temp = temp->next;
-		i++;
-	}
-	index[i] = (int)temp->content;
-	return (props);
-}
-
-int	stack_size(t_list *head)
+int	stack_size(t_stack *head)
 {
 	int		count;
-	t_list	*current;
+	t_stack	*current;
 
 	current = head;
 	count = 0;
@@ -64,20 +42,20 @@ int	stack_size(t_list *head)
 // 	}
 // }
 
-t_list	*init_a(int argc, char**argv)
+t_stack	*init_a(int argc, char**argv)
 {
 	int		i;
-	int		*content;
-	t_list	*head;
-	t_list	*temp;
+	int		content;
+	t_stack	*head;
+	t_stack	*temp;
 
 	i = 1;
-	content = (int*)malloc(sizeof(int));
+	head = NULL;
 	while (i < argc)
 	{
-		*content = ft_atoi(argv[i]);
-		temp = ft_lstnew(&content);
-		ft_lstadd_back(&head, temp);
+		content = ft_atoi(argv[i]);
+		temp = ft_stacknew(content);
+		ft_stackadd_back(&head, temp);
 		i++;
 	}
 	return (head);

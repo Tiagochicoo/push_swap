@@ -6,15 +6,15 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/26 18:17:22 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/31 16:31:12 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print_list(t_list*head, char**stack_name)
+void	print_stack(t_stack*head, char**stack_name)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	temp = head;
 	printf("Stack %s\n", *stack_name);
@@ -26,9 +26,9 @@ void	print_list(t_list*head, char**stack_name)
 	printf("NULL\n");
 }
 
-t_list	*pop_head(t_list**head)
+t_stack	*pop_head(t_stack**head)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	temp = *head;
 	if (head == NULL || *head == NULL)
@@ -37,12 +37,12 @@ t_list	*pop_head(t_list**head)
 	return (temp);
 }
 
-void	sort_list(t_list**a, t_list**b)
+void	sort_stack(t_stack**a, t_stack**b)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	*b = NULL;
-	while(a != NULL && *a != NULL && check_order(*a))
+	while(a != NULL && *a != NULL && !check_order(*a))
 	{
 		if (*b == NULL)
 		{
@@ -79,32 +79,29 @@ void	sort_list(t_list**a, t_list**b)
 			{
 				pa(b, a);
 				printf("sb\n");
-				//print_list(*a, "A");
-				//print_list(*c, "c");
+				//print_stack(*a, "A");
+				//print_stack(*c, "c");
 			}
 			ft_lstadd_front(a, temp);
 			printf("pa\n");
-			//print_list(*a, "A");
-			//print_list(*b, "B");
+			//print_stack(*a, "A");
+			//print_stack(*b, "B");
 		}
 	}
 }
 
 int main(int argc, char** argv)
 {
-	t_list	*a;
-	t_list	*b;
-	t_props *props;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = init_a(argc, argv);
-	b = (t_list*)malloc(sizeof(t_list));
-	props = (t_props*)malloc(sizeof(t_props));
+	b = (t_stack*)malloc(sizeof(t_stack));
 	if (argc < 2)
 		return (0);
-	else if (check_args(argc, argv) && check_order(a))
-	{
-		//props = fill_props(a, argc);
-		sort_list(&a, &b);
-	}
+	else if (argc < 5)
+		sort_less_than_5(a, b);
+	else if (check_args(argc, argv) && !check_order(a))
+		sort_stack(&a, &b);
 	return (0);
 }

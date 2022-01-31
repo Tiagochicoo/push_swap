@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_args.c                                        :+:      :+:    :+:   */
+/*   sort_less_than_5.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/26 16:21:04 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/01/31 16:31:42 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@ int	compare_args(void*one, void*two)
 	return (1);
 }
 
-// void	sort_2_args(t_list*head)
-// {
-// 	int	one;
-// 	int	two;
+void	sort_2_args(t_stack*head)
+{
+	int	one;
+	int	two;
 
-// 	one = head->content;
-// 	two = head->next->content;
-// 	if (one > two)
-// 		sa(&head);
-// }
+	one = head->content;
+	two = head->next->content;
+	if (one > two)
+		sa(&head);
+}
 
-// void	sort_3_args(t_list *a)
+// void	sort_3_args(t_stack *a)
 // {
 // 	void		*first;
 // 	void		*second;
 // 	void		*third;
-// 	t_list		*temp;
+// 	t_stack		*temp;
 
 // 	temp = a;
 // 	first = a->content;
@@ -70,3 +70,18 @@ int	compare_args(void*one, void*two)
 // 			//rra();	
 // 	}
 // }
+
+void	sort_less_than_5(t_stack*a, t_stack*b)
+{
+	int	size;
+
+	size = ft_stacksize(a);
+	if (size == 2)
+		sort_2_args(a);
+	// else if (size == 3)
+	// 	sort_3_args(a);
+	// else if (size == 4)
+	// 	sort_4_args(a);
+	// else if (size == 5)
+	// 	sort_5_args(a);
+}

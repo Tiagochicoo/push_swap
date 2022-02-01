@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/31 19:10:29 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:47:28 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	sort_3_args(t_stack**a)
 {
-	void		*first;
-	void		*second;
-	void		*third;
+	int		first;
+	int		second;
+	int		third;
 
 	while (!check_order(*a))
 	{

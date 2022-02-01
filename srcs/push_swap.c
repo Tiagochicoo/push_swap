@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/31 19:25:04 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:58:24 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ void	sort_stack(t_stack**a, t_stack**b)
 		{
 			if ((*a)->content > (*a)->next->content)
 				sa(a);
-			*b = ft_lstnew((void*)pop_head(a)->content);
-			printf("pb\n");
+			pb(b, a);
 		}
 		else
 		{
@@ -59,7 +58,7 @@ void	sort_stack(t_stack**a, t_stack**b)
 				pa(a, b);
 				printf("sa\n");
 			}
-			ft_lstadd_front(b, temp);
+			ft_stackadd_front(b, temp);
 			printf("pb\n");
 		}
 	}
@@ -69,7 +68,7 @@ void	sort_stack(t_stack**a, t_stack**b)
 		{
 			if ((*b)->content < (*b)->next->content)
 				sa(b);
-			*a = ft_lstnew(pop_head(b)->content);
+			*a = ft_stacknew(pop_head(b)->content);
 			printf("pa\n");
 		}
 		else
@@ -79,13 +78,9 @@ void	sort_stack(t_stack**a, t_stack**b)
 			{
 				pa(b, a);
 				printf("sb\n");
-				//print_stack(*a, "A");
-				//print_stack(*c, "c");
 			}
-			ft_lstadd_front(a, temp);
+			ft_stackadd_front(a, temp);
 			printf("pa\n");
-			//print_stack(*a, "A");
-			//print_stack(*b, "B");
 		}
 	}
 }
@@ -96,11 +91,11 @@ int main(int argc, char** argv)
 	t_stack	*b;
 
 	a = init_a(argc, argv);
-	b = (t_stack*)malloc(sizeof(t_stack));
+	b = NULL;
 	if (argc < 2)
 		return (0);
-	else if (argc <= 5)
-		sort_less_than_5(a, b);
+	else if (argc <= 6)
+		sort_5_or_less(a, b);
 	else if (check_args(argc, argv) && !check_order(a))
 		sort_stack(&a, &b);
 	return (0);

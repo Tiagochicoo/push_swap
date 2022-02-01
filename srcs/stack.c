@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:52:37 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/31 16:27:38 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:49:12 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_stackadd_back(t_stack **lst, t_stack *new)
 		*lst = new;
 	else
 	{
-		last = ft_lstlast(*lst);
+		last = ft_stacklast(*lst);
 		if (last != NULL)
 			last->next = new;
 	}
@@ -66,4 +66,10 @@ int	ft_stacksize(t_stack *lst)
 		temp = temp->next;
 	}
 	return (count);
+}
+
+void	ft_stackadd_front(t_stack **lst, t_stack *new)
+{
+	new->next = *lst;
+	*lst = new;
 }

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/02 20:06:00 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/02 20:17:38 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	is_ordered_loop(t_stack**head)
 		loop = loop->next;
 		moves++;
 	}
-	if (flag > 2)
+	if (flag >= 2)
 		moves = 0;
 	stop_loop(*head, *head);
 	return (moves);
@@ -87,6 +87,10 @@ void	sort_5_args(t_stack**a, t_stack**b)
 			if (check_order(*b))
 				sb(b);
 			sort_3_args(a);
+			pa(a, b);
+			sort_4_args(a, b);
+			pa(a, b);
+			//ra(a);
 		}
 	}
 	else

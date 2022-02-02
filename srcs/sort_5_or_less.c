@@ -6,13 +6,13 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/02 20:00:42 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/02 20:06:00 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void stop_loop(t_stack*stack, t_stack*head)
+void	stop_loop(t_stack*stack, t_stack*head)
 {
 	int		i;
 	t_stack	*ptr1;
@@ -65,11 +65,8 @@ int	is_ordered_loop(t_stack**head)
 		loop = loop->next;
 		moves++;
 	}
-	if (flag > 2) // not ordered
-	{
-		stop_loop(*head, *head);
-		return (0);
-	}
+	if (flag > 2)
+		moves = 0;
 	stop_loop(*head, *head);
 	return (moves);
 }

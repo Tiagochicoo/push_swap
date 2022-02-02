@@ -6,11 +6,32 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/01 20:47:46 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/02 20:00:42 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void stop_loop(t_stack*stack, t_stack*head)
+{
+	int		i;
+	t_stack	*ptr1;
+	t_stack	*ptr2;
+
+	i = 1;
+	ptr1 = head;
+	ptr2 = head;
+	while (ptr1->next != ptr2)
+	{
+		ptr1 = ptr1->next;
+		i++;
+	}
+	ptr1 = head;
+	ptr2 = head;
+	while (i-- != 1)
+		ptr2 = ptr2->next;
+	ptr2->next = NULL;
+}
 
 void	sort_2_args(t_stack*head)
 {
@@ -25,34 +46,42 @@ void	sort_2_args(t_stack*head)
 
 int	is_ordered_loop(t_stack**head)
 {
-	int		i;
+	int		size;
 	int		flag;
+	int		moves;
 	t_stack	*loop;
 
-	i = ft_stacksize(*head) + 1;
+	size = ft_stacksize(*head) + 1;
 	loop = *head;
 	flag = 0;
+	moves = 0;
 	while (loop->next != NULL)
 		loop = loop->next;
 	loop->next = *head;
-	while (i-- != 0 && flag < 2)
+	while (flag < 2 && moves < size)
 	{
 		if (loop->content > loop->next->content)
 			flag++;
-		loop = loop->next; //LAST
+		loop = loop->next;
+		moves++;
 	}
-	if (flag == 2)
+	if (flag > 2) // not ordered
+	{
+		stop_loop(*head, *head);
 		return (0);
-	return (1);
+	}
+	stop_loop(*head, *head);
+	return (moves);
 }
-
-//https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/
 
 void	sort_5_args(t_stack**a, t_stack**b)
 {
-	if (is_ordered_loop(a) == 1)
+	int	moves;
+
+	moves = is_ordered_loop(a);
+	if (moves == 1)
 		ra(a);
-	else
+	else if (moves == 0)
 	{
 		while (!check_order(*a))
 		{
@@ -63,6 +92,9 @@ void	sort_5_args(t_stack**a, t_stack**b)
 			sort_3_args(a);
 		}
 	}
+	else
+		while (!check_order(*a))
+			ra(a);
 }
 
 void	sort_5_or_less(t_stack*a, t_stack*b)

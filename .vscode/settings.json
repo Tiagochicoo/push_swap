@@ -30,5 +30,18 @@
 	"editor.insertSpaces": false,
 
 	// When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
-	"editor.detectIndentation": true
+	"editor.detectIndentation": true,
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/Users/tpereira/Desktop/42Cursus/push_swap",
+			"binaryPath": "/Users/tpereira/Desktop/42Cursus/push_swap/push_swap",
+			"binaryArgs": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5"
+			]
+		}
+	]
 }

@@ -1,8 +1,8 @@
-make yes --dry-run --keep-going --print-directory
+make yes --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/tpereira/Desktop/42Cursus/push_swap'
 make -s -C libft
- 
 gcc -g  ./srcs/*.c libft/libft.a -o push_swap
+ 
 printf "\e[38;5;46m✅      Compiled Libft	    ✅ \e[0m\n"
 printf "\e[38;5;46m✅   push_swap build successfull  ✅ \e[0m\n"
 ./push_swap 1 2 3 4 5

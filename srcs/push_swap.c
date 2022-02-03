@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/01 19:58:24 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/03 18:45:02 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,14 @@ int main(int argc, char** argv)
 
 	a = init_a(argc, argv);
 	b = NULL;
-	if (argc < 2)
-		return (0);
-	else if (argc <= 6)
-		sort_5_or_less(a, b);
-	else if (check_args(argc, argv) && !check_order(a))
-		sort_stack(&a, &b);
+	if (check_args(argc, argv) && !check_order(a))
+	{
+		if (argc < 2)
+			return (0);
+		else if (argc <= 6)
+			sort_5_or_less(a, b);
+		else if (!check_order(a))
+			sort_stack(&a, &b);
+	}
 	return (0);
 }

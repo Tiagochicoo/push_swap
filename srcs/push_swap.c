@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/03 18:45:02 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/07 19:30:29 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,7 @@ int main(int argc, char** argv)
 		else if (!check_order(a))
 			sort_stack(&a, &b);
 	}
+	free(a);
+	free(b);
 	return (0);
 }

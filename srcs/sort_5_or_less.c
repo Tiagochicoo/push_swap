@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/03 20:05:28 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/07 19:21:38 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ void	sort_5_args(t_stack**a, t_stack**b)
 		sort_3_args(a);
 		while ((*b) != NULL)
 		{
-			while ((*b)->content > (*a)->content && moves++ < (ft_stacksize(*a) - 1))
+			while ((*b)->content > (*a)->content && moves++ < (ft_stacksize(*a)))
 				ra(a);
 			pa(a, b);
-			while (!(check_order(*a)) && is_ordered_loop(a))
+			while (!(check_order(*a)) && is_ordered_loop(a) && (*b) == NULL)
 				rra(a);
+			moves = 0;
 		}
 	}
 }

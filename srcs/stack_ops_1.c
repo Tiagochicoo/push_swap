@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:52:37 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/14 18:54:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:42:32 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	rra(t_stack*a, t_stack*b)
 void	sa(t_stack*a, t_stack*b)
 {
 	(void)b;
-	if (a->size >1)
+	if (a->size > 1)
 	{
 		ft_putendl_fd("sa", 1);
 		swap(a);

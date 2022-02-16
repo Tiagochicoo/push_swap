@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/14 18:44:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:43:18 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@ void	error(t_list*list)
 
 int main(int argc, char** argv)
 {
-	t_list	*a;
-	t_list	*b;
+	t_stack	a;
+	t_stack	b;
 
-	a = init_a(argc, argv);
-	b = NULL;
-	if (check_args(argc, argv) && !check_order(a))
+	a = (t_stack){init_a(argc, argv), argc - 1};
+	b = (t_stack){NULL, 0};
+	if (check_args(argc, argv) && !check_order(a.head))
 	{
 		if (argc < 2)
-			error(a);
-		else if (argc < 4)
+			error(a.head);
+		else if (argc <= 4)
 			small_sort(&a, &b);
 		// else if (!check_order(a))
 		// 	sort_stack(&a, &b);

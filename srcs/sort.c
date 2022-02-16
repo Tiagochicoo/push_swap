@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:39:55 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/14 18:59:44 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:49:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ void	small_sort(t_stack*a, t_stack*b)
 	void	*content;
 	void	*next_content;
 
-	min = *(int *)find_min(a->head);
-	max = *(int *)find_max(a->head);
-	content = a->head->content;
-	next_content = a->head->next->content;
-	while (!check_order(a))
+	min = (int*)find_min(a->head);
+	max = (int*)find_max(a->head);
+	while (!check_order(a->head))
 	{
-		if (*(int *)content == max && *(int *)next_content == min)
+		content = a->head->content;
+		next_content = a->head->next->content;
+		if ((int *)content == max && (int *)next_content == min)
 			ra(a, b);
-		else if ((*(int *)content == min && *(int *)next_content == max)
-			|| (*(int *)content > *(int *)next_content))
+		else if (((int *)content == min && (int *)next_content == max)
+			|| ((int *)content > (int *)next_content))
 			sa(a, b);
 		else
 			rra(a, b);

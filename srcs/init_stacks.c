@@ -12,6 +12,21 @@
 
 #include "../includes/push_swap.h"
 
+void	convert_to_int(t_list *a)
+{
+	int		i;
+	t_list	*temp;
+
+	temp = a;
+	i = (int)malloc(sizeof(int));
+	while (temp != NULL)
+	{
+		i = ft_atoi(temp->content);
+		temp->content = i;
+		temp = temp->next;
+	}
+}
+
 t_list	*init_a(int argc, char**argv)
 {
 	int		i;

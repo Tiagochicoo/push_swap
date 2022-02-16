@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/14 18:58:22 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:08:35 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,16 @@ t_list	*init_a(int argc, char**argv);
 
 int		check_order(t_list*stack);
 void	small_sort(t_stack*a, t_stack*b);
+void	medium_sort(t_stack*a, t_stack*b);
 
+void	pa(t_stack*a, t_stack*b);
 void	ra(t_stack*a, t_stack*b);
 void	sa(t_stack*a, t_stack*b);
 void	rra(t_stack*a, t_stack*b);
+void	pb(t_stack*a, t_stack*b);
+void	rb(t_stack*a, t_stack*b);
+void	sb(t_stack*a, t_stack*b);
+void	rrb(t_stack*a, t_stack*b);
 void	swap(t_stack*stack);
 void	push(t_stack*stack, void*content);
 void	*pop(t_stack*stack);

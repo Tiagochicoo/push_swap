@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 17:39:55 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/16 16:49:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:53:09 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,32 @@ void	small_sort(t_stack*a, t_stack*b)
 	void	*content;
 	void	*next_content;
 
-	min = (int*)find_min(a->head);
-	max = (int*)find_max(a->head);
+	min = (int)find_min(a->head);
+	max = (int)find_max(a->head);
 	while (!check_order(a->head))
 	{
 		content = a->head->content;
 		next_content = a->head->next->content;
-		if ((int *)content == max && (int *)next_content == min)
+		if ((int)content == max && (int)next_content == min)
 			ra(a, b);
-		else if (((int *)content == min && (int *)next_content == max)
-			|| ((int *)content > (int *)next_content))
+		else if (((int)content == min && (int)next_content == max)
+			|| ((int)content > (int)next_content))
 			sa(a, b);
 		else
 			rra(a, b);
 	}
+}
+
+void	medium_sort(t_stack*a, t_stack*b)
+{
+	int	median;
+
+	median = find_med(a->head);
+	pb(a, b);
+	pb(a, b);
+	small_sort(a, b);
+	if (check_order(b->head))
+		sb(a, b);
+	while (b->size > 0)
+		pa(a, b);
 }

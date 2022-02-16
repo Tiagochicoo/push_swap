@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/16 16:30:27 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:55:01 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,23 @@ void	*find_min(t_list*list)
 		temp = temp->next;
 	}
 	return (min);
+}
+
+void	*find_med(t_list*list)
+{
+	void	*med;
+	t_list	*temp;
+
+	temp = list;
+	if (!temp)
+		return (NULL);
+	med = temp->content;
+	while (temp)
+	{
+		if (temp->content < med)
+			med += (int)temp->content;
+		temp = temp->next;
+	}
+	med /= (int*)ft_lstsize(list);
+	return (med);
 }

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/16 17:36:26 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:44:57 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	error(t_list*list)
 {
 	if (list)
 		ft_lstclear(&list, free);
-	ft_putendl_fd("Erro", 2);
+	ft_putendl_fd("Error", 2);
 	exit(1);
 }
 
@@ -33,9 +33,9 @@ int main(int argc, char** argv)
 			error(a.head);
 		else if (argc <= 4)
 			small_sort(&a, &b);
-		else if (argc <= 4)
-			small_sort(&a, &b);
+		else if (argc <= 6)
+			medium_sort(&a, &b);
 	}
-	ft_lstclear(&a.head, free);
+	//ft_lstclear(&a.head, free);
 	return (0);
 }

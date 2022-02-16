@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/16 16:43:18 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:36:26 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int main(int argc, char** argv)
 			error(a.head);
 		else if (argc <= 4)
 			small_sort(&a, &b);
-		// else if (!check_order(a))
-		// 	sort_stack(&a, &b);
+		else if (argc <= 4)
+			small_sort(&a, &b);
 	}
-	ft_lstclear(&a, free);
+	ft_lstclear(&a.head, free);
 	return (0);
 }

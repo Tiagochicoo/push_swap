@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstpos.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 19:44:39 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/16 17:34:58 by tpereira         ###   ########.fr       */
+/*   Created: 2022/02/16 17:27:15 by tpereira          #+#    #+#             */
+/*   Updated: 2022/02/16 17:27:24 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+t_list	*ft_lstpos(t_list *list, unsigned int num)
 {
-	t_list	*temp;
+	unsigned int	i;
 
-	if ((*lst) == NULL)
-		return ;
-	while (*lst)
+	i = 0;
+	while (i++ < num)
 	{
-		temp = *lst;
-		*lst = (*lst)->next;
-		ft_lstdelone(temp, del);
+		if (!list)
+			return (list);
+		list = list->next;
 	}
+	return (list);
 }

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 23:02:16 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/26 18:03:28 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:29:00 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ char			*ft_itoabase(long num, int base);
 char			*ft_strrev(char *str);
 int				get_next_line(int fd, char **line);
 long long 		ft_word_count(char *str, char charset);
+t_list			*ft_lstpos(t_list *list, unsigned int num);
 
 #endif

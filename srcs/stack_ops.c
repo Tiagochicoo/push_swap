@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:52:37 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/16 16:55:52 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:26:56 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ void	*unshift(t_stack*stack)
 	content = last->content;
 	if (stack->size > 1)
 	{
-		before = ft_lstpos();
+		before = ft_lstpos(stack->head, stack->size - 2);
+		before->next = NULL;
 	}
+	stack->size--;
+	free(last);
+	return (content);
 }

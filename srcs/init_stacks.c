@@ -6,41 +6,27 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/13 19:04:31 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 21:51:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	stack_size(t_list *head)
-{
-	int		count;
-	t_list	*current;
 
-	current = head;
-	count = 0;
-	while (current != NULL)
-	{
-		count++;
-		current = current->next;
-	}
-	return (count);
-}
+// void	convert_to_int(t_list *a)
+// {
+// 	int		i;
+// 	t_list	*temp;
 
-void	convert_to_int(t_list *a)
-{
-	int		i;
-	t_list	*temp;
-
-	temp = a;
-	i = (int)malloc(sizeof(int));
-	while (temp != NULL)
-	{
-		i = ft_atoi(temp->content);
-		temp->content = i;
-		temp = temp->next;
-	}
-}
+// 	temp = a;
+// 	i = (int)malloc(sizeof(int));
+// 	while (temp != NULL)
+// 	{
+// 		i = ft_atoi(temp->content);
+// 		temp->content = i;
+// 		temp = temp->next;
+// 	}
+// }
 
 t_list	*init_a(int argc, char**argv)
 {

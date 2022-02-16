@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/14 19:58:55 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 21:55:31 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	convert_to_int(t_list *a);
 t_list	*init_a(int argc, char**argv);
 int		check_order(t_list *a);
 int		stack_size(t_list *head);
+int		find_min(t_list*list);
+int		find_max(t_list*list);
 void	sort_2_args(t_list *a);
 void	sort_3_args(t_list *a);
 void	print_args(t_list *head);

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   b_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/01/16 16:54:20 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/16 21:52:56 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(t_list *head)
+void	pb(t_list**b, t_list**a)
 {
-	t_list *temp;
+	t_list	*temp;
 
-	temp = head;
-	head = head->next;
-	head->next = temp;
+	temp = *a;
+	if (*a == NULL)
+		return;
+	*a = (*a)->next;
+	temp->next = *b;
+	*b = temp;
+	printf("PA");
 }

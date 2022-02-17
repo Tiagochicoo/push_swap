@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   a_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 21:47:09 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/16 22:11:15 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/17 18:44:46 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,44 @@ void	pa(t_list**a, t_list**b)
 
 void	sa(t_list*head)
 {
-	t_list *temp;
+	int	temp;
 
-	temp = head;
-	head = head->next;
-	temp->next = head->next;
-	head->next = temp;
+	temp = head->content;
+	head->content = head->next->content;
+	head->next->content = temp;
 	ft_putendl_fd("sa", 2);
 }
 
-void	ra(t_list *head)
+void	ra(t_list*head)
+{
+	t_list	*first;
+	t_list	*last;
+
+	first = head;
+	last = head;
+	while (last->next != NULL)
+		last = last->next;
+	head = first->next;
+	first->next = NULL;
+	last->next = first;
+	(*head) = *head;
+	ft_putendl_fd("ra", 2);
+}
+
+void	rra(t_list*a)
 {
 	t_list *last;
 	t_list *sec_last;
 
-	last = head;
-	while (last->next->next != NULL)
+	last = a;
+	sec_last = NULL;
+	while (last->next != NULL)
+	{
+		sec_last = last;
 		last = last->next;
-	sec_last = last->next;
-	last->next = head->next;
-	head = last->next;
-	head->next = NULL;
-	ft_putendl_fd("ra", 2);
+	}
+	sec_last->next = NULL;
+	last->next = a;
+	a = last;	
+	ft_putendl_fd("rra", 2);
 }

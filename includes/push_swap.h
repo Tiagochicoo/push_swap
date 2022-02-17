@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/16 21:55:31 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/17 18:37:22 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ void	sort_2_args(t_list *a);
 void	sort_3_args(t_list *a);
 void	print_args(t_list *head);
 t_list	*pop_head(t_list**head);
-void	sa(t_list *a);
-void	ra(t_list *a);
+void	sa(t_list*a);
+void	ra(t_list*a);
+void	rra(t_list*a);
 void	pa(t_list**a, t_list**b);
 void	pb(t_list**b, t_list**a);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/16 21:56:40 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/17 18:37:00 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,10 @@ void	small_sort(t_list*a, t_list*b)
 		else if ((content == min && next_content == max)
 			|| (content > next_content))
 			sa(a);
-		// else
-		// 	rra(a, b);
+		else
+			rra(a);
 	}
 }
-
 
 int main(int argc, char** argv)
 {
@@ -54,7 +53,7 @@ int main(int argc, char** argv)
 	t_list	*b;
 
 	a = init_a(argc, argv);
-	b = (t_list*)malloc(sizeof(t_list));
+	b = NULL;
 	if (check_args(argc, argv) && !check_order(a))
 	{
 		if (argc < 2)

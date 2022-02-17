@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 21:47:09 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/17 18:44:46 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/17 20:08:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,18 @@ void	sa(t_list*head)
 	ft_putendl_fd("sa", 2);
 }
 
-void	ra(t_list*head)
+void	ra(t_list**head)
 {
 	t_list	*first;
 	t_list	*last;
 
-	first = head;
-	last = head;
+	first = *head;
+	last = *head;
 	while (last->next != NULL)
 		last = last->next;
-	head = first->next;
-	first->next = NULL;
+	*head = first->next;
 	last->next = first;
-	(*head) = *head;
+	first->next = NULL;
 	ft_putendl_fd("ra", 2);
 }
 

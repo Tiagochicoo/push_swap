@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 08:47:47 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/16 21:51:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/17 20:17:36 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,12 @@ t_list	*init_a(int argc, char**argv)
 {
 	int		i;
 	t_list	*head;
-	t_list	*temp;
 
 	i = 1;
 	head = NULL;
 	while (i < argc)
 	{
-		temp = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(&head, temp);
+		ft_lstadd_back(&head, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
 	return (head);

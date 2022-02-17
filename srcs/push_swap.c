@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/17 18:37:00 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/17 20:20:08 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ t_list	*pop_head(t_list**head)
 	return (temp);
 }
 
-void	small_sort(t_list*a, t_list*b)
+void	small_sort(t_list**a, t_list**b)
 {
 	int		max;
 	int		min;
 	int		content;
 	int		next_content;
 
-	min = (int)find_min(a);
-	max = (int)find_max(a);
-	while (!check_order(a))
+	min = (int)find_min(*a);
+	max = (int)find_max(*a);
+	while (!check_order(&a))
 	{
-		content = a->content;
-		next_content = a->next->content;
+		content = (*a)->content;
+		next_content = (*a)->next->content;
 		if (content == max && next_content == min)
-			ra(a);
+			ra(a);	
 		else if ((content == min && next_content == max)
 			|| (content > next_content))
 			sa(a);
@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 		if (argc < 2)
 			ft_putendl_fd("Error", 2);
 		else if (argc < 5)
-			small_sort(a, b);
+			small_sort(&a, &b);
 		// else if (argc < 7)
 		// 	medium_sort(a, b);
 		// else

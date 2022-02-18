@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/03 18:42:43 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/18 19:11:08 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 void	sort_4_args(t_stack**a, t_stack**b)
 {
 	int	i;
+	int	j;
 	int	num;
 
 	i = 0;
+	j = 0;
 	num = 0;
 	while (!check_order(*a))
 	{
@@ -27,10 +29,13 @@ void	sort_4_args(t_stack**a, t_stack**b)
 		while ((*b) != NULL)
 		{
 			while ((*a)->content < (*b)->content && i++ < 3)
+			{
 				ra(a);
+				j++;
+			}
 			pa(a, b);
 		}
-		while ((*a)->content != num)
-			ra(a);
+		while (j-- > 0)
+			rra(a);
 	}
 }

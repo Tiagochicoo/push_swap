@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 11:46:55 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:08:13 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	sort_5_args(t_stack**a, t_stack**b)
 	med = ft_stack_median(a);
 	while (mid)
 	{
-		if ((*a)->content <= med)
+		if ((*a)->content < med)
 		{
 			mid--;
 			pb(b, a);

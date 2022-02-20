@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 11:26:49 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:04:32 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ t_stack	*ft_stacknew(int content);
 void	ft_stackadd_back(t_stack**lst, t_stack*new);
 void	ft_stackadd_front(t_stack**lst, t_stack*new);
 void	free_stack(t_stack **stack);
+void	ft_stacksort(t_stack*head);
+t_stack	*ft_stackdup(t_stack*head);
 t_stack	*ft_stacklast(t_stack*lst);
 int		ft_stacksize(t_stack*lst);
 int		check_args(int argc, char**argv);

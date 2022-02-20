@@ -21,7 +21,8 @@
 		"regex": "cpp",
 		"random": "c",
 		"memory": "c",
-		"utility": "c"
+		"utility": "c",
+		"stdio.h": "c"
 	},
 	// The number of spaces a tab is equal to.
 	"editor.tabSize": 4,

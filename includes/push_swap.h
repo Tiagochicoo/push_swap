@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 16:04:32 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:47:01 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	convert_to_int(t_stack*a);
 t_stack	*init_a(int argc, char**argv, t_stack*a);
 int		check_order(t_stack *a);
 int		check_loop_order(t_stack *a, int size);
-int		stack_size(t_stack*head);
 void	sort_2_args(t_stack*head);
 void	sort_3_args(t_stack**a);
 void	sort_4_args(t_stack**a, t_stack**b);

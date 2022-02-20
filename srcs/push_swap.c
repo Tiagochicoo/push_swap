@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 15:28:45 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:38:49 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,52 +37,11 @@ t_stack	*pop_head(t_stack**head)
 	return (temp);
 }
 
-void	sort_stack(t_stack**a, t_stack**b)
+void	sort_stack(t_stack*a, t_stack*b)
 {
 	t_stack	*temp;
 
-	*b = NULL;
-	while(a != NULL && *a != NULL && !check_order(*a))
-	{
-		if (*b == NULL)
-		{
-			if ((*a)->content > (*a)->next->content)
-				sa(a);
-			pb(b, a);
-		}
-		else
-		{
-			temp = pop_head(a);
-			while (*b != NULL && (*b)->content > temp->content)
-			{
-				pa(a, b);
-				printf("sa\n");
-			}
-			ft_stackadd_front(b, temp);
-			printf("pb\n");
-		}
-	}
-	while (b != NULL && *b != NULL)
-	{
-		if (a == NULL)
-		{
-			if ((*b)->content < (*b)->next->content)
-				sa(b);
-			*a = ft_stacknew(pop_head(b)->content);
-			printf("pa\n");
-		}
-		else
-		{
-			temp = pop_head(b);
-			while ((*a) != NULL && (*a)->content < temp->content)
-			{
-				pa(b, a);
-				printf("sb\n");
-			}
-			ft_stackadd_front(a, temp);
-			printf("pa\n");
-		}
-	}
+	
 }
 
 int main(int argc, char** argv)
@@ -97,10 +56,10 @@ int main(int argc, char** argv)
 	{
 		if (argc < 2)
 			return (0);
-		else if (argc <= 6)
+		else if (argc < 7)
 			sort_5_or_less(a, b);
 		else
-			sort_stack(&a, &b);
+			sort_stack(a, b);
 	}
 	return (0);
 }

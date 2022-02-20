@@ -12,35 +12,21 @@
 
 #include "../includes/push_swap.h"
 
-int	stack_size(t_stack *head)
+int	ft_stacksize(t_stack *lst)
 {
 	int		count;
-	t_stack	*current;
+	t_stack	*temp;
 
-	current = head;
+	temp = lst;
 	count = 0;
-	while (current != NULL)
+	while (temp != NULL)
 	{
 		count++;
-		current = current->next;
+		temp = temp->next;
 	}
 	return (count);
 }
 
-// void	convert_to_int(t_list *a)
-// {
-// 	int		i;
-// 	t_list	*temp;
-//
-// 	temp = a;
-// 	i = (int)malloc(sizeof(int));
-// 	while (temp != NULL)
-// 	{
-// 		i = ft_atoi(temp->content);
-// 		temp->content = i;
-// 		temp = temp->next;
-// 	}
-// }
 
 t_stack	*init_a(int argc, char**argv, t_stack*a)
 {

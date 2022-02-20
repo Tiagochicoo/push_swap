@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   stack_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:52:37 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 11:46:03 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:45:24 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ t_stack	*ft_stacknew(int content)
 	new_list->content = content;
 	new_list->next = NULL;
 	return (new_list);
+}
+
+void	ft_stackadd_front(t_stack **lst, t_stack *new)
+{
+	new->next = *lst;
+	*lst = new;
 }
 
 void	ft_stackadd_back(t_stack **lst, t_stack *new)
@@ -51,27 +57,6 @@ t_stack	*ft_stacklast(t_stack *lst)
 		temp = temp->next;
 	}
 	return (temp);
-}
-
-int	ft_stacksize(t_stack *lst)
-{
-	int		count;
-	t_stack	*temp;
-
-	temp = lst;
-	count = 0;
-	while (temp != NULL)
-	{
-		count++;
-		temp = temp->next;
-	}
-	return (count);
-}
-
-void	ft_stackadd_front(t_stack **lst, t_stack *new)
-{
-	new->next = *lst;
-	*lst = new;
 }
 
 void	free_stack(t_stack **stack)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   b_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/01 18:46:24 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 16:55:13 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,17 @@ void	pb(t_stack**b, t_stack**a)
 	*a = (*a)->next;
 	temp->next = *b;
 	*b = temp;
-	printf("pb\n");
+	ft_putendl_fd("pb", 2);
 }
+
+void	sb(t_stack**head)
+{
+	t_stack *temp;
+
+	temp = *head;
+	*head = (*head)->next;
+	temp->next = (*head)->next;
+	(*head)->next = temp;
+	ft_putendl_fd("sb", 2);
+}
+

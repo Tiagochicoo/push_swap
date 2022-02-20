@@ -12,6 +12,20 @@
 
 #include "../includes/push_swap.h"
 
+void	print_stack(t_stack*head, char**stack_name)
+{
+	t_stack	*temp;
+
+	temp = head;
+	printf("Stack %s\n", *stack_name);
+	while (temp)
+	{
+		printf("%d —> ", temp->content);
+		temp = temp->next;
+	}
+	printf("NULL\n");
+}
+
 int	ft_stacksize(t_stack *lst)
 {
 	int		count;
@@ -26,7 +40,6 @@ int	ft_stacksize(t_stack *lst)
 	}
 	return (count);
 }
-
 
 t_stack	*init_a(int argc, char**argv, t_stack*a)
 {

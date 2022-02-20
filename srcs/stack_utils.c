@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 16:51:42 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:20:30 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_stack	*ft_biggest(t_stack**head)
 {
 	t_stack	*temp;
-	int 	biggest;
+	int		biggest;
 
 	temp = *head;
 	biggest = INT_MIN;
@@ -66,7 +66,7 @@ void	ft_stacksort(t_stack*head)
 	t_stack	*temp;
 
 	temp = head;
-	while(head->next)
+	while (head->next)
 	{
 		if (head->content > head->next->content)
 		{
@@ -76,7 +76,7 @@ void	ft_stacksort(t_stack*head)
 		else
 			head = head->next;
 	}
-		head = temp;
+	head = temp;
 }
 
 t_stack	*ft_stackdup(t_stack*head)

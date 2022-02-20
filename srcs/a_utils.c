@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 16:54:57 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:28:40 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pa(t_stack**a, t_stack**b)
 
 	temp = *b;
 	if (*b == NULL)
-		return;
+		return ;
 	*b = (*b)->next;
 	temp->next = *a;
 	*a = temp;
@@ -27,7 +27,7 @@ void	pa(t_stack**a, t_stack**b)
 
 void	sa(t_stack**head)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *head;
 	*head = (*head)->next;
@@ -38,8 +38,8 @@ void	sa(t_stack**head)
 
 void	ra(t_stack**head)
 {
-	t_stack *first;
-	t_stack *last;
+	t_stack	*first;
+	t_stack	*last;
 
 	first = *head;
 	last = *head;
@@ -53,8 +53,8 @@ void	ra(t_stack**head)
 
 void	rra(t_stack**a)
 {
-	t_stack *last;
-	t_stack *sec_last;
+	t_stack	*last;
+	t_stack	*sec_last;
 
 	last = (*a);
 	sec_last = NULL;
@@ -65,6 +65,6 @@ void	rra(t_stack**a)
 	}
 	sec_last->next = NULL;
 	last->next = (*a);
-	(*a) = last;	
+	(*a) = last;
 	ft_putendl_fd("rra", 2);
 }

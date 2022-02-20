@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 16:51:14 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:21:29 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	sort_4_args(t_stack**a, t_stack**b)
 
 	i = 0;
 	j = 0;
-	num = 0;
 	while (!check_order(*a))
 	{
 		pb(b, a);

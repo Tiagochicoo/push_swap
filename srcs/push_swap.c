@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 16:56:26 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:22:30 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 void	sort_stack(t_stack*a, t_stack*b)
 {
 	t_stack	*temp;
-
-	
 }
 
-int main(int argc, char** argv)
+int	main(int argc, char**argv)
 {
 	t_stack	*a;
 	t_stack	*b;

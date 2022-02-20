@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 17:22:30 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 23:26:46 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 void	sort_stack(t_stack*a, t_stack*b)
 {
-	t_stack	*temp;
+		median_push_b(&a, &b);
+		quarter_push_b(&a, &b);
+	write(1, "ok\n", 3);
+	//sort_3_args(&a);
+	// while (ft_stacksize(b) > 3)
+	// 	median_push_a(&b, &a);
+	// sort_3_args(&b);
+	// quarter_push_b(&a, &b);
+	// quarter_push_a(&b, &a);
 }
 
 int	main(int argc, char**argv)
@@ -34,5 +42,7 @@ int	main(int argc, char**argv)
 		else
 			sort_stack(a, b);
 	}
+	else
+		free_stack(&a);
 	return (0);
 }

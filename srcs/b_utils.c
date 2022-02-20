@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 17:23:34 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 23:07:30 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,19 @@ void	sb(t_stack**head)
 	temp->next = (*head)->next;
 	(*head)->next = temp;
 	ft_putendl_fd("sb", 2);
+}
+
+void	rb(t_stack**head)
+{
+	t_stack	*first;
+	t_stack	*last;
+
+	first = *head;
+	last = *head;
+	while (last->next != NULL)
+		last = last->next;
+	*head = first->next;
+	first->next = NULL;
+	last->next = first;
+	ft_putendl_fd("rb", 2);
 }

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 17:18:29 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/26 15:27:45 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/18 19:33:16 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	free_struct(t_arg *arg_struct)
 		free(arg_struct->modifiers);
 		arg_struct->modifiers = NULL;
 	}
-	if (arg_struct->str)
+	if (arg_struct->type == is_string)
 	{
 		free(arg_struct->str);
 		arg_struct->str = NULL;

@@ -3,37 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/03 19:25:18 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/18 22:23:07 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_loop_order(t_stack *a, int size)
-{
-	int		i;
-	int		flag;
-	t_stack	*temp;
-
-	i = 0;
-	flag = 0;
-	temp = a;
-	if (a == NULL)
-		return (0);
-	while (temp->next != NULL && i < size)
-	{
-		if (temp->content > temp->next->content)
-			flag++;
-		temp = temp->next;
-		if (flag > 1)
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 t_stack	*ft_biggest(t_stack**head)
 {
@@ -57,6 +35,7 @@ t_stack	*ft_smallest(t_stack**head)
 	int		smallest;
 
 	smallest = INT_MAX;
+	temp = *head;
 	while (temp->next != NULL)
 	{
 		if (temp->content < smallest)
@@ -64,6 +43,44 @@ t_stack	*ft_smallest(t_stack**head)
 		temp = temp->next;
 	}
 	return (ft_stacknew(smallest));
+}
+
+int	ft_stack_median(t_stack**head)
+{
+	t_stack	*temp;
+	int		med;
+	int		mid;
+
+	med = 0;
+	mid = ft_stacksize(*head) / 2;
+	temp = *head;
+	while (mid--)
+		temp = temp->next;
+	med = temp->content;
+	return (med);
+}
+
+int	check_loop_order(t_stack *a, int size)
+{
+	int		i;
+	int		flag;
+	t_stack	*temp;
+
+	i = 0;
+	flag = 0;
+	temp = a;
+	if (a == NULL)
+		return (0);
+	while (temp->next != NULL && i < size)
+	{
+		if (temp->content > temp->next->content)
+			flag++;
+		temp = temp->next;
+		if (flag > 1)
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 void	start_loop(t_stack**head)

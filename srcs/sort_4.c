@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/18 19:11:08 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/18 19:22:01 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	sort_4_args(t_stack**a, t_stack**b)
 	int	i;
 	int	j;
 	int	num;
+	int	size;
 
 	i = 0;
 	j = 0;
@@ -28,7 +29,8 @@ void	sort_4_args(t_stack**a, t_stack**b)
 		num = (*a)->content;
 		while ((*b) != NULL)
 		{
-			while ((*a)->content < (*b)->content && i++ < 3)
+			size = ft_stacksize(*a);
+			while ((*a)->content < (*b)->content && i++ < size)
 			{
 				ra(a);
 				j++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:52:37 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/01 18:49:12 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:46:03 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,16 @@ void	ft_stackadd_front(t_stack **lst, t_stack *new)
 {
 	new->next = *lst;
 	*lst = new;
+}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*temp;
+
+	while (*stack)
+	{
+		temp = (*stack)->next;
+		free((*stack));
+		(*stack) = temp;
+	}
 }

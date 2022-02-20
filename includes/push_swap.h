@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/03 18:42:29 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:26:49 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ typedef	struct s_stack
 t_stack	*ft_stacknew(int content);
 void	ft_stackadd_back(t_stack**lst, t_stack*new);
 void	ft_stackadd_front(t_stack**lst, t_stack*new);
+void	free_stack(t_stack **stack);
 t_stack	*ft_stacklast(t_stack*lst);
 int		ft_stacksize(t_stack*lst);
 int		check_args(int argc, char**argv);
 int		check_arg(char**argv);
 void	convert_to_int(t_stack*a);
-t_stack	*init_a(int argc, char**argv);
+t_stack	*init_a(int argc, char**argv, t_stack*a);
 int		check_order(t_stack *a);
 int		check_loop_order(t_stack *a, int size);
 int		stack_size(t_stack*head);
@@ -49,6 +50,8 @@ void	pa(t_stack**a, t_stack**b);
 void	pb(t_stack**b, t_stack**a);
 void	sort_5_or_less(t_stack*a, t_stack*b);
 t_stack	*ft_biggest(t_stack**head);
+t_stack	*ft_smallest(t_stack**head);
+int		ft_stack_median(t_stack**head);
 int		is_ordered_loop(t_stack**head);
 
 #endif

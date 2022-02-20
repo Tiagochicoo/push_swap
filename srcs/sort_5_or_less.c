@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_5_or_less.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/07 19:21:38 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:46:55 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,31 +25,27 @@ void	sort_2_args(t_stack*head)
 
 void	sort_5_args(t_stack**a, t_stack**b)
 {
-	int	moves;
+	int	mid;
+	int	med;
 
-	moves = is_ordered_loop(a);
-	if (moves == 1)
+	mid = ft_stacksize(*a) / 2;
+	med = ft_stack_median(a);
+	while (mid)
 	{
-		while (!check_order(*a))
+		if ((*a)->content <= med)
+		{
+			mid--;
+			pb(b, a);
+		}
+		else
 			ra(a);
 	}
-	else
-	{
-		pb(b, a);
-		pb(b, a);
-		if ((*b) != NULL && check_order(*b))
-			sb(b);
-		sort_3_args(a);
-		while ((*b) != NULL)
-		{
-			while ((*b)->content > (*a)->content && moves++ < (ft_stacksize(*a)))
-				ra(a);
-			pa(a, b);
-			while (!(check_order(*a)) && is_ordered_loop(a) && (*b) == NULL)
-				rra(a);
-			moves = 0;
-		}
-	}
+	sort_3_args(a);
+	if (check_order(*b))
+		sb(b);
+	while ((*b))
+		pa(a, b);
+	free_stack(a);
 }
 
 void	sort_5_or_less(t_stack*a, t_stack*b)

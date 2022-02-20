@@ -42,21 +42,19 @@ int	stack_size(t_stack *head)
 // 	}
 // }
 
-t_stack	*init_a(int argc, char**argv)
+t_stack	*init_a(int argc, char**argv, t_stack*a)
 {
 	int		i;
 	int		content;
-	t_stack	*head;
 	t_stack	*temp;
 
 	i = 1;
-	head = NULL;
 	while (i < argc)
 	{
 		content = ft_atoi(argv[i]);
 		temp = ft_stacknew(content);
-		ft_stackadd_back(&head, temp);
+		ft_stackadd_back(&a, temp);
 		i++;
 	}
-	return (head);
+	return (a);
 }

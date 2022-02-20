@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 17:20:30 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/20 17:33:54 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,19 @@ t_stack	*ft_smallest(t_stack**head)
 int	ft_stack_median(t_stack**head)
 {
 	t_stack	*temp;
+	t_stack	*temp2;
 	int		med;
 	int		mid;
 
 	med = 0;
 	mid = ft_stacksize(*head) / 2;
 	temp = ft_stackdup(*head);
+	temp2 = temp;
 	ft_stacksort(temp);
 	while (mid--)
 		temp = temp->next;
 	med = temp->content;
-	free_stack(&temp);
+	free_stack(&temp2);
 	return (med);
 }
 

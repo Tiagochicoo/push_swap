@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_toupperx.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 17:04:47 by tpereira          #+#    #+#             */
-/*   Updated: 2021/09/17 17:08:25 by tpereira         ###   ########.fr       */
+/*   Created: 2021/07/05 14:55:51 by tpereira          #+#    #+#             */
+/*   Updated: 2021/07/05 14:58:13 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_substr(char const *s, size_t start, size_t len)
+void	ft_toupperx(char *str)
 {
-	size_t	i;
-	char	*sub;
+	int	i;
 
-	if (s == 0)
-		return (NULL);
-	i = ft_strlen(s);
-	(i > len) ? (i = len) : 1;
-	sub = (char *)malloc((i + 1) * sizeof(char));
-	if (sub == NULL)
-		return (NULL);
 	i = 0;
-	while (i < len && (i + start < ft_strlen(s)))
+	while (str[i])
 	{
-		sub[i] = s[start + i];
+		str[i] = ft_toupper(str[i]);
 		i++;
 	}
-	sub[i] = '\0';
-	return (sub);
 }

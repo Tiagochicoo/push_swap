@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/21 16:55:46 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/21 20:17:47 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ void	top_median_push_a(t_stack**b, t_stack**a);
 void	top_median_push_b(t_stack**a, t_stack**b);
 void	quarter_push_a(t_stack**src, t_stack**dest);
 void	quarter_push_b(t_stack**src, t_stack**dest);
+void	order_in_b(t_stack**a, t_stack**b, int chunksize);
 int		check_args(int argc, char**argv);
 int		check_arg(char**argv);
 void	convert_to_int(t_stack*a);
 t_stack	*init_a(int argc, char**argv, t_stack*a);
 int		check_order(t_stack *a);
-int		check_loop_order(t_stack *a, int size);
 void	sort_2_args(t_stack*head);
 void	sort_3_args(t_stack**a);
+void	sort_3_args_b(t_stack**b);
 void	sort_4_args(t_stack**a, t_stack**b);
 void	print_args(t_stack*head);
-t_stack	*pop_head(t_stack**head);
 void	sa(t_stack**a);
 void	sb(t_stack**b);
 void	ra(t_stack**a);

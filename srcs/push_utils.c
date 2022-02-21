@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/21 18:01:26 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/21 20:56:41 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,29 @@ void	low_median_push_a(t_stack**b, t_stack**a)
 	}
 }
 
-void	top_median_push_a(t_stack**src, t_stack**dest)
+void	top_median_push_a(t_stack**b, t_stack**a)
 {
 	int	mid;
 	int	med;
 	int	flag;
 
 	flag = 0;
-	mid = ft_stacksize(*src) / 2;
-	med = ft_stack_median(src);
+	mid = ft_stacksize(*b) / 2;
+	med = ft_stack_median(b);
 	while (mid)
 	{
 		if (mid == 1)
 			flag++;
 		if (flag == 2)
 			return ;
-		if ((*src)->content > med)
+		if ((*b)->content > med && mid--)
 		{
-			mid--;
-			pa(dest, src);
+			while ((*b)->content < (*b)->next->content)
+				sb(b);
+			pa(a, b);
 		}
 		else
-			rb(src);
+			rb(b);
 	}
 }
 
@@ -98,16 +99,19 @@ void	top_median_push_b(t_stack**a, t_stack**b)
 {
 	int	mid;
 	int	med;
+	int	flag;
 
+	flag = 0;
 	mid = ft_stacksize(*a) / 2;
 	med = ft_stack_median(a);
 	while (mid)
 	{
-		if ((*a)->content > med)
-		{
-			mid--;
-			pb(b, a);
-		}
+		if (mid == 1)
+			flag++;
+		if (flag == 2)
+			return ;
+		if ((*a)->content > med && mid--)
+			pa(a, b);
 		else
 			ra(a);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   b_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 23:07:30 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/21 18:28:52 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,22 @@ void	rb(t_stack**head)
 	first->next = NULL;
 	last->next = first;
 	ft_putendl_fd("rb", 2);
+}
+
+void	rrb(t_stack**b)
+{
+	t_stack	*last;
+	t_stack	*sec_last;
+
+	last = (*b);
+	sec_last = NULL;
+	while (last->next != NULL)
+	{
+		sec_last = last;
+		last = last->next;
+	}
+	sec_last->next = NULL;
+	last->next = (*b);
+	(*b) = last;
+	ft_putendl_fd("rrb", 2);
 }

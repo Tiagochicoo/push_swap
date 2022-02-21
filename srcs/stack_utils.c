@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 18:13:54 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/21 20:54:16 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,14 @@ t_stack	*ft_smallest(t_stack**head)
 
 	smallest = INT_MAX;
 	temp = *head;
-	while (temp->next != NULL)
+	while (temp->content || temp->content == 0)
 	{
 		if (temp->content < smallest)
 			smallest = temp->content;
-		temp = temp->next;
+		if (temp->next != NULL)
+			temp = temp->next;
+		else
+			return (ft_stacknew(smallest));
 	}
 	return (ft_stacknew(smallest));
 }
@@ -96,4 +99,32 @@ t_stack	*ft_stackdup(t_stack*head)
 		head = head->next;
 	}
 	return (new);
+}
+
+void	order_in_b(t_stack**a, t_stack**b, int chunksize)
+{
+	int	min;
+	int	size;
+	
+	min = 0;
+	size = 0;
+	while (size < chunksize)
+	{
+		while (*b)
+		{
+			min = ft_smallest(b)->content;
+			while ((*b)->content > min)
+				rb(b);
+			pa(a, b);
+			ra(a);
+		}
+		size = 0;
+		while (size < chunksize)
+		{
+			if ((*a)->content > (*a)->next->content)
+				sa(a);
+			pb(b, a);
+			size = ft_stacksize(*b);
+		}
+	}
 }

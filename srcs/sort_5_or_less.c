@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/21 16:53:27 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/21 18:29:44 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,28 @@ void	sort_3_args(t_stack**a)
 			sa(a);
 		else if (first > second && second > third)
 			sa(a);
+	}
+}
+
+void	sort_3_args_b(t_stack**b)
+{
+	int		first;
+	int		second;
+	int		third;
+
+	while (!check_order(*b))
+	{
+		first = (*b)->content;
+		second = (*b)->next->content;
+		third = (*b)->next->next->content;
+		if (first > second && first > third && second < third)
+			rb(b);
+		else if (first < second && second > third)
+			rra(b);
+		else if (first > second && second < third)
+			sb(b);
+		else if (first > second && second > third)
+			sb(b);
 	}
 }
 

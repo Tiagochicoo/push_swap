@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 23:09:32 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/21 16:55:46 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ void	ft_stacksort(t_stack*head);
 t_stack	*ft_stackdup(t_stack*head);
 t_stack	*ft_stacklast(t_stack*lst);
 int		ft_stacksize(t_stack*lst);
-void	median_push_a(t_stack**b, t_stack**a);
-void	median_push_b(t_stack**a, t_stack**b);
+void	low_median_push_a(t_stack**b, t_stack**a);
+void	low_median_push_b(t_stack**a, t_stack**b);
+void	top_median_push_a(t_stack**b, t_stack**a);
+void	top_median_push_b(t_stack**a, t_stack**b);
 void	quarter_push_a(t_stack**src, t_stack**dest);
 void	quarter_push_b(t_stack**src, t_stack**dest);
 int		check_args(int argc, char**argv);

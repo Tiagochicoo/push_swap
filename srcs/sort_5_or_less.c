@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_5_or_less.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 21:41:36 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/21 16:53:27 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	sort_4_args(t_stack**a, t_stack**b)
 
 void	sort_5_args(t_stack**a, t_stack**b)
 {
-	median_push_b(a, b);
+	low_median_push_b(a, b);
 	sort_3_args(a);
 	if (check_order(*b))
 		sb(b);

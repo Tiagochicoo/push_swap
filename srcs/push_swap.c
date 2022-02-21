@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 23:26:46 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/21 17:52:44 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,25 @@
 
 void	sort_stack(t_stack*a, t_stack*b)
 {
-		median_push_b(&a, &b);
-		quarter_push_b(&a, &b);
-	write(1, "ok\n", 3);
+	int	size;
+
+	low_median_push_b(&a, &b);
+	size = ft_stacksize(b);
+	while (size > 3)
+	{
+		top_median_push_a(&b, &a);
+		size = ft_stacksize(b);
+	}	
+	// while (b)
+	// 	pa(&a, &b);
+	//quarter_push_b(&a, &b);
 	//sort_3_args(&a);
 	// while (ft_stacksize(b) > 3)
 	// 	median_push_a(&b, &a);
 	// sort_3_args(&b);
 	// quarter_push_b(&a, &b);
 	// quarter_push_a(&b, &a);
+	return ;
 }
 
 int	main(int argc, char**argv)

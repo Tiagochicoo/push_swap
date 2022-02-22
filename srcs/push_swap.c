@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/21 20:55:45 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/22 23:01:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,37 @@
 
 void	sort_stack(t_stack*a, t_stack*b)
 {
-	int	size;
-	int	flag;
+	int			size;
+	static int	min = INT_MIN;
+	static int	max = INT_MAX;
+	static int	count = 0;
+	int			median;
 
-	flag = 0;
-	low_median_push_b(&a, &b);
-	size = ft_stacksize(b);
-	while (size > 3)
+	if (count > 5000)
+		return ;
+	median = ft_stack_median(&a);
+	if (min < median)
 	{
-		top_median_push_a(&b, &a);
-		size = ft_stacksize(b);
+		if (!b)
+			low_median_push_b(&a, &b, min);
+		if (ft_stacksize(b) > 20)
+			top_median_push_a(&b, &a);
+		else
+			min = order_in_b(&a, &b);
 	}
-	order_in_b(&a, &b, 3);
-	while(flag++ < 100)
-		order_in_b(&a, &b, 15);
-	free_stack(&a);
-
-	// while (b)
-	// 	pa(&a, &b);
-	//quarter_push_b(&a, &b);
-	//sort_3_args(&a);
-	// while (ft_stacksize(b) > 3)
-	// 	median_push_a(&b, &a);
-	// sort_3_args(&b);
-	// quarter_push_b(&a, &b);
-	// quarter_push_a(&b, &a);
-	return ;
+	else
+	{
+		if (!b)
+			top_median_push_b(&a, &b, max);
+		if (ft_stacksize(b) > 20)
+			low_median_push_a(&b, &a);
+		else
+			max = order_in_b(&a, &b);
+	}
+	
+	count++;
+	if (!check_order(a))
+		sort_stack(a, b);
 }
 
 int	main(int argc, char**argv)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/21 20:56:41 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/22 22:55:12 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,17 @@ void	low_median_push_a(t_stack**b, t_stack**a)
 {
 	int	mid;
 	int	med;
+	int	flag;
 
+	flag = 0;
 	mid = ft_stacksize(*b) / 2;
 	med = ft_stack_median(b);
 	while (mid)
 	{
+		if (mid == 1)
+			flag++;
+		if (flag == 2)
+			return ;
 		if ((*b)->content < med)
 		{
 			mid--;
@@ -76,42 +82,33 @@ void	top_median_push_a(t_stack**b, t_stack**a)
 	}
 }
 
-void	low_median_push_b(t_stack**b, t_stack**a)
+void	low_median_push_b(t_stack**a, t_stack**b, int min)
 {
 	int	mid;
 	int	med;
 
-	mid = ft_stacksize(*b) / 2;
-	med = ft_stack_median(b);
-	while (mid)
+	mid = ft_stacksize(*a) / 2;
+	med = ft_stack_median(a);
+	while (mid && (*a)->content > min)
 	{
-		if ((*b)->content < med)
-		{
-			mid--;
-			pb(a, b);
-		}
+		if ((*a)->content < med && mid--)
+			pb(b, a);
 		else
-			ra(b);
+			ra(a);
 	}
 }
 
-void	top_median_push_b(t_stack**a, t_stack**b)
+void	top_median_push_b(t_stack**a, t_stack**b, int max)
 {
 	int	mid;
 	int	med;
-	int	flag;
 
-	flag = 0;
 	mid = ft_stacksize(*a) / 2;
 	med = ft_stack_median(a);
-	while (mid)
+	while (mid && (*a)->content < max)
 	{
-		if (mid == 1)
-			flag++;
-		if (flag == 2)
-			return ;
-		if ((*a)->content > med && mid--)
-			pa(a, b);
+		if ((*a)->content < med && mid--)
+			pb(b, a);
 		else
 			ra(a);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/21 20:17:47 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/22 22:54:44 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ t_stack	*ft_stackdup(t_stack*head);
 t_stack	*ft_stacklast(t_stack*lst);
 int		ft_stacksize(t_stack*lst);
 void	low_median_push_a(t_stack**b, t_stack**a);
-void	low_median_push_b(t_stack**a, t_stack**b);
+void	low_median_push_b(t_stack**a, t_stack**b, int min);
 void	top_median_push_a(t_stack**b, t_stack**a);
-void	top_median_push_b(t_stack**a, t_stack**b);
+void	top_median_push_b(t_stack**a, t_stack**b, int max);
 void	quarter_push_a(t_stack**src, t_stack**dest);
 void	quarter_push_b(t_stack**src, t_stack**dest);
-void	order_in_b(t_stack**a, t_stack**b, int chunksize);
+int		order_in_b(t_stack**a, t_stack**b);
 int		check_args(int argc, char**argv);
 int		check_arg(char**argv);
 void	convert_to_int(t_stack*a);

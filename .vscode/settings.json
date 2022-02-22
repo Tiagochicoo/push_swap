@@ -22,7 +22,8 @@
 		"random": "c",
 		"memory": "c",
 		"utility": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"limits": "c"
 	},
 	// The number of spaces a tab is equal to.
 	"editor.tabSize": 4,

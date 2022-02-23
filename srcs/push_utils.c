@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/23 22:42:30 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/23 23:00:13 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	top_median_push_a(t_stack**b, t_stack**a, int min)
 		else if ((*b)->content > med && mid--)
 		{
 			while ((*b)->content < (*b)->next->content)
-				sb(b);
+				rb(b);
 			pa(a, b);
 		}
 		else

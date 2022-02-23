@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/22 23:01:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/23 18:40:18 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 void	sort_stack(t_stack*a, t_stack*b)
 {
-	int			size;
+	int			biggest;
 	static int	min = INT_MIN;
 	static int	max = INT_MAX;
-	static int	count = 0;
+	static int	count = 0; //RA COUNT
 	int			median;
 
-	if (count > 5000)
+	biggest = ft_biggest(&a)->content;
+	if (min == biggest) //BASE CASE
+		return ;
+	if (count > 5000) // JUST FOR TESTING RECURSION PROTECTION
 		return ;
 	median = ft_stack_median(&a);
 	if (min < median)
@@ -32,15 +35,15 @@ void	sort_stack(t_stack*a, t_stack*b)
 		else
 			min = order_in_b(&a, &b);
 	}
-	else
-	{
-		if (!b)
-			top_median_push_b(&a, &b, max);
-		if (ft_stacksize(b) > 20)
-			low_median_push_a(&b, &a);
-		else
-			max = order_in_b(&a, &b);
-	}
+	// else
+	// {
+	// 	if (!b)
+	// 		top_median_push_b(&a, &b, max);
+	// 	if (ft_stacksize(b) > 20)
+	// 		low_median_push_a(&b, &a);
+	// 	else
+	// 		max = order_in_b(&a, &b);
+	// }
 	
 	count++;
 	if (!check_order(a))

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/23 18:40:06 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/23 22:42:30 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,92 +31,63 @@ int	ft_stack_quarter(t_stack**head)
 	return (med);
 }
 
-void	low_median_push_a(t_stack**b, t_stack**a)
+int	top_median_push_a(t_stack**b, t_stack**a, int min)
 {
 	int	mid;
 	int	med;
 	int	flag;
+	int	smallest;
 
 	flag = 0;
+	smallest = 0;
 	mid = ft_stacksize(*b) / 2;
-	med = ft_stack_median(b);
+	med = ft_stack_median(b, ft_smallest(b)->content, ft_biggest(b)->content);
 	while (mid)
 	{
-		if (mid == 1)
+		if (mid == 1 || mid == 2)
 			flag++;
 		if (flag == 2)
-			return ;
-		if ((*b)->content < med)
-		{
-			mid--;
+			return (smallest);
+		if (ft_stacksize(*b) == 1 && (*b)->content >= min)
 			pa(a, b);
+		else if ((*b) == ft_smallest(b) && mid--)
+		{
+			pa(a, b);
+			smallest = (*a)->content;
+			ra(a);
 		}
-		else
-			rb(b);
-	}
-}
-
-void	top_median_push_a(t_stack**b, t_stack**a)
-{
-	int	mid;
-	int	med;
-	int	flag;
-
-	flag = 0;
-	mid = ft_stacksize(*b) / 2;
-	med = ft_stack_median(b);
-	while (mid)
-	{
-		if (mid == 1)
-			flag++;
-		if (flag == 2)
-			return ;
-		if ((*b)->content > med && mid--)
+		else if ((*b)->content > med && mid--)
 		{
 			while ((*b)->content < (*b)->next->content)
 				sb(b);
 			pa(a, b);
 		}
-		else if ((*b) == ft_smallest(b))
-		{
-			pa(a, b);
-			ra(a);
-		}
 		else
 			rb(b);
 	}
+	return (smallest);
 }
 
-void	low_median_push_b(t_stack**a, t_stack**b, int min)
+int	low_median_push_b(t_stack**a, t_stack**b, int min, int max)
 {
 	int	mid;
 	int	med;
+	int	ra_count;
 
+	ra_count = 0;
 	mid = ft_stacksize(*a) / 2;
-	med = ft_stack_median(a);
-	while (mid && (*a)->content > min)
+	med = ft_stack_median(a, min, max);
+	while (mid && (*a)->content < max && (*a)->content > min)
 	{
 		if ((*a)->content < med && mid--)
 			pb(b, a);
 		else
+		{
 			ra(a);
+			ra_count++;
+		}
 	}
-}
-
-void	top_median_push_b(t_stack**a, t_stack**b, int max)
-{
-	int	mid;
-	int	med;
-
-	mid = ft_stacksize(*a) / 2;
-	med = ft_stack_median(a);
-	while (mid && (*a)->content < max)
-	{
-		if ((*a)->content < med && mid--)
-			pb(b, a);
-		else
-			ra(a);
-	}
+	return (ra_count);
 }
 
 void	quarter_push_a(t_stack**b, t_stack**a)

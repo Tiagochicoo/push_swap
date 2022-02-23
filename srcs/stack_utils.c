@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/23 18:44:11 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/23 22:39:25 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,19 @@ t_stack	*ft_smallest(t_stack**head)
 	return (ft_stacknew(smallest));
 }
 
-int	ft_stack_median(t_stack**head)
+int	ft_stack_median(t_stack**head, int min, int max)
 {
 	t_stack	*temp;
 	t_stack	*temp2;
 	int		med;
 	int		mid;
 
-	med = 0;
-	mid = ft_stacksize(*head) / 2;
 	temp = ft_stackdup(*head);
 	temp2 = temp;
 	ft_stacksort(temp);
+	while (temp->content < min || temp->content > max && temp->next)
+		temp = temp->next;
+	mid = ft_stacksize(temp) / 2;
 	while (mid--)
 		temp = temp->next;
 	med = temp->content;
@@ -101,7 +102,7 @@ t_stack	*ft_stackdup(t_stack*head)
 	return (new);
 }
 
-int	order_in_b(t_stack**a, t_stack**b)
+int	order_in_b(t_stack**a, t_stack**b, int min_a)
 {
 	int	min;
 	int	size;
@@ -112,21 +113,18 @@ int	order_in_b(t_stack**a, t_stack**b)
 	while (*b)
 	{
 		min = ft_smallest(b)->content;
-		while ((*b)->content > min)
+		if (ft_stacksize(*b) == 1 && (*b)->content > min_a)
+			pa(a, b);
+		while ((*b) && (*b)->content > min)
 			rb(b);
-		while ((*a)->content < (*b)->content)
+		while ((*b) && (*a)->content < (*b)->content)
 			ra(a);
-		pa(a, b);
-		smallest = (*a)->content;
-		ra(a);
+		if (ft_stacksize(*b) > 1)
+		{
+			pa(a, b);
+			smallest = (*a)->content;
+			ra(a);
+		}
 	}
-	// size = ft_stacksize(*b);
-	// while (size < chunksize)
-	// {
-	// 	if ((*a)->content > (*a)->next->content)
-	// 		sa(a);
-	// 	pb(b, a);
-	// 	size = ft_stacksize(*b);
-	// }
 	return (smallest);
 }

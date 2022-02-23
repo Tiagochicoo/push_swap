@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/23 18:40:15 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/23 22:12:10 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ t_stack	*ft_stackdup(t_stack*head);
 t_stack	*ft_stacklast(t_stack*lst);
 int		ft_stacksize(t_stack*lst);
 void	low_median_push_a(t_stack**b, t_stack**a);
-void	low_median_push_b(t_stack**a, t_stack**b, int min);
-void	top_median_push_a(t_stack**b, t_stack**a);
+int		low_median_push_b(t_stack**a, t_stack**b, int min, int max);
+int		top_median_push_a(t_stack**b, t_stack**a, int min);
 void	top_median_push_b(t_stack**a, t_stack**b, int max);
 void	quarter_push_a(t_stack**src, t_stack**dest);
 void	quarter_push_b(t_stack**src, t_stack**dest);
-int		order_in_b(t_stack**a, t_stack**b);
+int		order_in_b(t_stack**a, t_stack**b, int min);
 int		check_args(int argc, char**argv);
 int		check_arg(char**argv);
 void	convert_to_int(t_stack*a);
@@ -59,7 +59,7 @@ void	pb(t_stack**b, t_stack**a);
 void	sort_5_or_less(t_stack*a, t_stack*b);
 t_stack	*ft_biggest(t_stack**head);
 t_stack	*ft_smallest(t_stack**head);
-int		ft_stack_median(t_stack**head);
+int		ft_stack_median(t_stack**head, int min, int max);
 int		is_ordered_loop(t_stack**head);
 
 #endif

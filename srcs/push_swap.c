@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/23 22:34:19 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/24 14:53:23 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ void	sort_stack(t_stack*a, t_stack*b)
 {
 	int			biggest;
 	int			median;
-	static int	min = INT_MIN;
-	static int	max = INT_MAX;
-	static int	safe = 0; 
+	static int	chunk_min = INT_MIN;
+	static int	chunk_max = INT_MAX;
+	static int	safe = 0;
 	static int	ra_count = 0; //RA count
 
 	biggest = ft_biggest(&a)->content;
-	if (min == biggest) //BASE CASE
+	if (chunk_min == biggest) //BASE CASE
 		return ;
 	if (safe > 5000) // JUST FOR TESTING RECURSION PROTECTION
 		return ;
-	median = ft_stack_median(&a, min, max);
-	if (min < median)
+	median = ft_stack_median(&a, chunk_min, chunk_max);
+	if (chunk_min < median)
 	{
 		if (!b)
-			ra_count = low_median_push_b(&a, &b, min, max);
+			low_median_push_b(&a, &b, chunk_min, chunk_max);
 		if (ft_stacksize(b) > 20)
-			min = top_median_push_a(&b, &a, min);
+			chunk_min = top_median_push_a(&b, &a, chunk_min);
 		else
-			min = order_in_b(&a, &b, min);
+			chunk_min = order_in_b(&a, &b, chunk_min);
 	}
 
 	

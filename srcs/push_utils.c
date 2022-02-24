@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/24 15:37:54 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:25:16 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,6 @@ int	low_median_push_b(t_stack**a, t_stack**b, int min, int max)
 	med = ft_stack_median(a, min, max);
 	while (mid > 0 && (*a)->content < max && (*a)->content > min)
 	{
-		if ((*a)->content == min)
-			return (ra_count);
 		if ((*a)->content < med && mid--)
 			pb(b, a);
 		else

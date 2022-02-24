@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/24 15:31:47 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:29:14 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 void	sort_stack(t_stack*a, t_stack*b)
 {
-	int			biggest;
+	int static	biggest = INT_MAX;
 	int			median;
 	static int	chunk_min = INT_MIN;
 	static int	chunk_max = INT_MAX;
 	static int	safe = 0;
 	static int	ra_count = 0; //RA count
 
-	biggest = ft_biggest(&a)->content;
 	if (chunk_min == biggest) //BASE CASE
 		return ;
 	if (safe > 5000) // JUST FOR TESTING RECURSION PROTECTION
@@ -39,6 +38,7 @@ void	sort_stack(t_stack*a, t_stack*b)
 
 	
 	safe++;
+	chunk_min = ft_smallest(&a);
 	if (!check_order(a))
 		sort_stack(a, b);
 }

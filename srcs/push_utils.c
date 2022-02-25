@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/24 15:37:54 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/25 17:43:44 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	top_median_push_a(t_stack**b, t_stack**a, int min)
 			flag++;
 		if (flag == 2)
 			return (smallest);
-		if (ft_stacksize(*b) == 1 && (*b)->content >= min)
-			pa(a, b);
+		// if (ft_stacksize(*b) == 1 && (*b)->content >= min)
+		// 	pa(a, b);
 		else if ((*b) == ft_smallest(b) && mid--)
 		{
 			pa(a, b);
@@ -68,28 +68,26 @@ int	top_median_push_a(t_stack**b, t_stack**a, int min)
 	return (smallest);
 }
 
-int	low_median_push_b(t_stack**a, t_stack**b, int min, int max)
+void	low_median_push_b(t_stack**a, t_stack**b, int min, int max)
 {
 	int	mid;
 	int	med;
-	int	ra_count;
+	static int	iter = 1;
 
-	ra_count = 0;
-	mid = ft_stacksize(*a) / 2;
+	mid = (ft_stacksize(*a) * (iter % 2)) / 2;
 	med = ft_stack_median(a, min, max);
-	while (mid > 0 && (*a)->content < max && (*a)->content > min)
+	if (min == INT_MIN)
+		min = INT_MAX;
+	while (mid > 0 && (*a)->content < min)
 	{
 		if ((*a)->content == min)
-			return (ra_count);
+			return ;
 		if ((*a)->content < med && mid--)
 			pb(b, a);
 		else
-		{
 			ra(a);
-			ra_count++;
-		}
 	}
-	return (ra_count);
+	iter++;
 }
 
 void	quarter_push_a(t_stack**b, t_stack**a)

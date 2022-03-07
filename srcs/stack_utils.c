@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/05 12:49:11 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/07 20:06:33 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_stack	*ft_smallest(t_stack**head)
 
 	smallest = INT_MAX;
 	temp = *head;
-	while (temp->content || temp->content == 0)
+	while (temp && temp->next != NULL)
 	{
 		if (temp->content < smallest)
 			smallest = temp->content;
@@ -101,42 +101,17 @@ t_stack	*ft_stackdup(t_stack*head)
 	return (new);
 }
 
-t_stack	*ft_to_order(t_stack*a)
-{
-	t_stack	*temp;
-	t_stack	*to_order;
-
-	temp = a;
-	while (temp->next != NULL)
-	{
-		if (temp->ordered == 0)
-			ft_stackadd_back(&a, temp);
-		temp = temp->next;
-	}
-	return (to_order);
-}
-
-int	order_in_b(t_stack**a, t_stack**b)
+void	order_in_b(t_stack**a, t_stack**b)
 {
 	int	min;
-	int	size;
-	int	smallest;
 	
 	min = 0;
-	smallest = 0;	
 	while (*b)
 	{
-		if (ft_stacksize(*b) == 1)
-		{
-			pa(a, b);
-			return (smallest);
-		}
 		min = ft_smallest(b)->content;
 		while ((*b)->content > min)
 			rb(b);
 		pa(a, b);
-		smallest = (*a)->content;
 		ra(a);
 	}
-	return (smallest);
 }

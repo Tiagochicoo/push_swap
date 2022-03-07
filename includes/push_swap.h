@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/05 12:40:47 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/07 19:25:28 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 typedef struct s_stack
 {
 	int				content;
-	int				ordered;
 	struct s_stack	*next;
 }			t_stack;
 
@@ -36,12 +35,12 @@ int		ft_stacksize(t_stack*lst);
 int		ft_count_to_push(t_stack*head, int median, int min);
 t_stack	*ft_to_order(t_stack*a);
 void	low_median_push_a(t_stack**b, t_stack**a);
-void	low_median_push_b(t_stack**a, t_stack**b, int mid, int median, int min);
+void	low_median_push_b(t_stack**a, t_stack**b);
 void	top_median_push_a(t_stack**b, t_stack**a);
-void	top_median_push_b(t_stack**a, t_stack**b, int max);
+void	top_median_push_b(t_stack**a, t_stack**b);
 void	quarter_push_a(t_stack**src, t_stack**dest);
 void	quarter_push_b(t_stack**src, t_stack**dest);
-int		order_in_b(t_stack**a, t_stack**b);
+void	order_in_b(t_stack**a, t_stack**b);
 int		check_args(int argc, char**argv);
 int		check_arg(char**argv);
 void	convert_to_int(t_stack*a);

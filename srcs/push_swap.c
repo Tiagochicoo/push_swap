@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/22 23:01:17 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/05 12:48:17 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,33 @@ void	sort_stack(t_stack*a, t_stack*b)
 	static int	min = INT_MIN;
 	static int	max = INT_MAX;
 	static int	count = 0;
-	int			median;
+	static int	median = 0;
+	static int	num_to_push = 0;
+	t_stack		*to_order;
 
 	if (count > 5000)
 		return ;
-	median = ft_stack_median(&a);
-	if (min < median)
+	if (count == 0)
 	{
-		if (!b)
-			low_median_push_b(&a, &b, min);
-		if (ft_stacksize(b) > 20)
-			top_median_push_a(&b, &a);
-		else
-			min = order_in_b(&a, &b);
+		min = ft_smallest(&a)->content;
+		median = ft_stack_median(&a);
+		num_to_push = ft_count_to_push(a, median, min);
+		to_order = ft_to_order(a);
 	}
-	else
+	if (!b)
 	{
-		if (!b)
-			top_median_push_b(&a, &b, max);
-		if (ft_stacksize(b) > 20)
-			low_median_push_a(&b, &a);
-		else
-			max = order_in_b(&a, &b);
+		low_median_push_b(&a, &b, num_to_push, median, min);
+		median = ft_stack_median(&a);
 	}
+	if (ft_stacksize(b) > 20)
+	{
+		top_median_push_a(&b, &a);
+		median = ft_stack_median(&a);
+		num_to_push = ft_count_to_push(a, median, min);
+	}
+	if (ft_stacksize(b) <= 20)
+		min = order_in_b(&a, &b);
+	
 	
 	count++;
 	if (!check_order(a))

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/22 22:00:33 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/02/28 20:51:51 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	sort_4_args(t_stack**a, t_stack**b)
 
 void	sort_5_args(t_stack**a, t_stack**b)
 {
-	low_median_push_b(a, b, ft_smallest(a)->content);
+	low_median_push_b(a, b, ft_stacksize(*a) / 2, ft_stack_median(a), ft_smallest(a)->content);
 	sort_3_args(a);
 	if (check_order(*b))
 		sb(b);

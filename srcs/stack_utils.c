@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/22 22:55:28 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/05 12:49:11 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,21 @@ t_stack	*ft_stackdup(t_stack*head)
 	return (new);
 }
 
+t_stack	*ft_to_order(t_stack*a)
+{
+	t_stack	*temp;
+	t_stack	*to_order;
+
+	temp = a;
+	while (temp->next != NULL)
+	{
+		if (temp->ordered == 0)
+			ft_stackadd_back(&a, temp);
+		temp = temp->next;
+	}
+	return (to_order);
+}
+
 int	order_in_b(t_stack**a, t_stack**b)
 {
 	int	min;
@@ -111,6 +126,11 @@ int	order_in_b(t_stack**a, t_stack**b)
 	smallest = 0;	
 	while (*b)
 	{
+		if (ft_stacksize(*b) == 1)
+		{
+			pa(a, b);
+			return (smallest);
+		}
 		min = ft_smallest(b)->content;
 		while ((*b)->content > min)
 			rb(b);
@@ -118,13 +138,5 @@ int	order_in_b(t_stack**a, t_stack**b)
 		smallest = (*a)->content;
 		ra(a);
 	}
-	// size = ft_stacksize(*b);
-	// while (size < chunksize)
-	// {
-	// 	if ((*a)->content > (*a)->next->content)
-	// 		sa(a);
-	// 	pb(b, a);
-	// 	size = ft_stacksize(*b);
-	// }
 	return (smallest);
 }

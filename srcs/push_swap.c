@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/07 22:01:40 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/08 19:32:08 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void	sort_stack(t_stack*a, t_stack*b)
 	if (chunk_min < median)
 	{
 		if (!b)
-			low_median_push_b(&a, &b, chunk_min, chunk_max);
+			ra_count = low_median_push_b(&a, &b);
+		while (ra_count-- > 0 && safe > 1)
+			rra(&a);
 		if (ft_stacksize(b) > 20)
 			chunk_min = top_median_push_a(&b, &a, chunk_min);
 		else

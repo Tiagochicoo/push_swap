@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/25 17:43:44 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/08 19:37:05 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,26 +68,36 @@ int	top_median_push_a(t_stack**b, t_stack**a, int min)
 	return (smallest);
 }
 
-void	low_median_push_b(t_stack**a, t_stack**b, int min, int max)
+int	low_median_push_b(t_stack**a, t_stack**b)
 {
 	int	mid;
+	int	min;
+	int	max;
 	int	med;
+	int	ra_count;
 	static int	iter = 1;
 
+	ra_count = 0;
+	min = ft_smallest(a)->content;
+	max = ft_biggest(a)->content;
 	mid = (ft_stacksize(*a) * (iter % 2)) / 2;
 	med = ft_stack_median(a, min, max);
 	if (min == INT_MIN)
 		min = INT_MAX;
-	while (mid > 0 && (*a)->content < min)
+	while (mid > 0)
 	{
-		if ((*a)->content == min)
-			return ;
+		// if ((*a)->content == min)
+		// 	return (ra_count);
 		if ((*a)->content < med && mid--)
 			pb(b, a);
 		else
+		{
 			ra(a);
+			ra_count++;
+		}
 	}
 	iter++;
+	return (ra_count);
 }
 
 void	quarter_push_a(t_stack**b, t_stack**a)

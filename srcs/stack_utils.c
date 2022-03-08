@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/23 22:39:25 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/07 20:13:01 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,12 +113,10 @@ int	order_in_b(t_stack**a, t_stack**b, int min_a)
 	while (*b)
 	{
 		min = ft_smallest(b)->content;
-		if (ft_stacksize(*b) == 1 && (*b)->content > min_a)
+		if (ft_stacksize(*b) == 1)
 			pa(a, b);
 		while ((*b) && (*b)->content > min)
 			rb(b);
-		while ((*b) && (*a)->content < (*b)->content)
-			ra(a);
 		if (ft_stacksize(*b) > 1)
 		{
 			pa(a, b);

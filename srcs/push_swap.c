@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/24 23:24:09 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/07 22:01:40 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	sort_stack(t_stack*a, t_stack*b)
 		else
 			chunk_min = order_in_b(&a, &b, chunk_min);
 	}
-	
 	safe++;
 	if (!check_order(a))
 		sort_stack(a, b);

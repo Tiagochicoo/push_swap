@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/07 19:42:35 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/08 19:42:20 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,16 @@
 void	sort_stack(t_stack*a, t_stack*b)
 {
 	int			size;
+	int			ra_count;
 	static int	count = 0;
 
 	if (count > 5000)
 		return ;
+	ra_count = 0;
 	if (!b)
-		low_median_push_b(&a, &b);
+		ra_count = low_median_push_b(&a, &b);
+	while (ra_count-- > 0 && count > 1)
+		rra(&a);
 	if (ft_stacksize(b) > 20)
 		top_median_push_a(&b, &a);
 	if (ft_stacksize(b) <= 20)

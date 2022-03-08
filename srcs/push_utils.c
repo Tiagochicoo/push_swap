@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/07 20:07:05 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/08 19:40:12 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,13 @@ void	top_median_push_a(t_stack**b, t_stack**a)
 	}
 }
 
-void	low_median_push_b(t_stack**a, t_stack**b)
+int	low_median_push_b(t_stack**a, t_stack**b)
 {
 	int	mid;
 	int	med;
+	int	ra_count;
 
+	ra_count = 0;
 	mid = ft_stacksize(*a) / 2;
 	med = ft_stack_median(a);
 	while (mid > 0)
@@ -71,8 +73,12 @@ void	low_median_push_b(t_stack**a, t_stack**b)
 		if ((*a)->content < med && mid--)
 			pb(b, a);
 		else
+		{
 			ra(a);
+			ra_count++;
+		}
 	}
+	return (ra_count);
 }
 
 void	top_median_push_b(t_stack**a, t_stack**b)

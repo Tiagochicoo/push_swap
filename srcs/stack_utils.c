@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/09 22:16:06 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/09 23:02:53 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,17 +112,23 @@ void	order_in_b(t_stack**a, t_stack**b)
 		min = ft_smallest(b)->content;
 		while ((*b)->content > min)
 			rb(b);
-		// while ((*a)->content < (*b)->content)
-		// 	ra(a);
 		pa(a, b);
 		ra(a);
 	}
-	// size = ft_stacksize(*b);
-	// while (size < chunksize)
-	// {
-	// 	if ((*a)->content > (*a)->next->content)
-	// 		sa(a);
-	// 	pb(b, a);
-	// 	size = ft_stacksize(*b);
-	// }
+}
+
+void	order_in_b2(t_stack**a, t_stack**b)
+{
+	int	min;
+	int	size;
+	
+	min = 0;
+	while (*b)
+	{
+		min = ft_smallest(b)->content;
+		while ((*b)->content < min)
+			rb(b);
+		pa(a, b);
+		ra(a);
+	}
 }

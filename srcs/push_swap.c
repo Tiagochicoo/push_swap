@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/09 22:24:49 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/09 23:09:12 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ void	sort_stack(t_stack*a, t_stack*b)
 		else
 			order_in_b(&a, &b);
 	}
+	// if (count > 100)
+	// {
+	// 	if (!b)
+	// 		top_median_push_b(&a, &b);
+	// 	if (ft_stacksize(b) > quarter)
+	// 		low_median_push_a(&b, &a);
+	// 	else
+	// 		order_in_b2(&a, &b);
+	// }
 	count++;
 	if (!check_order(a))
 		sort_stack(a, b);

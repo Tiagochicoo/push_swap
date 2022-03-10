@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/10 17:17:16 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:58:59 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	sort_stack(t_stack*a, t_stack*b)
 	if (count > 5000) // JUST FOR TESTING RECURSION PROTECTION
 		return ;
 	median = ft_stack_median(&a);
-	if (min < median)
+	if (count < 10)
 	{
-		if (!b)
+		if (!b && !check_order(a))
 		{
 			low_median_push_b(&a, &b, stop);
 			stop = a->content;
@@ -39,9 +39,9 @@ void	sort_stack(t_stack*a, t_stack*b)
 		else
 			order_in_b(&a, &b);
 	}
-	if (count > 50)
+	if (count > 9)
 	{
-		if (!b)
+		if (!b && !check_order(a))
 		{
 			top_median_push_b(&a, &b, stop2);
 			stop2 = a->content;
@@ -50,6 +50,8 @@ void	sort_stack(t_stack*a, t_stack*b)
 			top_median_push_a(&b, &a);
 		else
 			order_in_b(&a, &b);
+		if (check_order(a))
+			return ;
 	}
 	count++;
 	if (!check_order(a))

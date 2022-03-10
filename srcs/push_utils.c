@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/10 17:55:51 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/10 18:36:02 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	top_median_push_a(t_stack**b, t_stack**a)
 
 			pa(a, b);
 		}
-		else if ((*b) == ft_smallest(b))
+		else if ((*b)->content == ft_smallest(b))
 		{
 			pa(a, b);
 			ra(a);

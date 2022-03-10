@@ -6,18 +6,20 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/10 18:04:25 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/10 18:53:52 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack	*ft_biggest(t_stack**head)
+int	ft_biggest(t_stack**head)
 {
 	t_stack	*temp;
+	t_stack	*temp2;
 	int		biggest;
 
-	temp = *head;
+	temp = ft_stackdup(*head);
+	temp2 = temp;
 	biggest = INT_MIN;
 	while (temp->next != NULL)
 	{
@@ -25,16 +27,19 @@ t_stack	*ft_biggest(t_stack**head)
 			biggest = temp->content;
 		temp = temp->next;
 	}
-	return (ft_stacknew(biggest));
+	free_stack(&temp2);
+	return (biggest);
 }
 
-t_stack	*ft_smallest(t_stack**head)
+int	ft_smallest(t_stack**head)
 {
 	t_stack	*temp;
+	t_stack	*temp2;
 	int		smallest;
 
 	smallest = INT_MAX;
-	temp = *head;
+	temp = ft_stackdup(*head);
+	temp2 = temp;
 	while (temp->content || temp->content == 0)
 	{
 		if (temp->content < smallest)
@@ -42,9 +47,13 @@ t_stack	*ft_smallest(t_stack**head)
 		if (temp->next != NULL)
 			temp = temp->next;
 		else
-			return (ft_stacknew(smallest));
+		{
+			free_stack(&temp2);
+			return (smallest);
+		}
 	}
-	return (ft_stacknew(smallest));
+	free_stack(&temp2);
+	return (smallest);
 }
 
 int	ft_stack_median(t_stack**head)
@@ -109,13 +118,13 @@ void	order_in_b(t_stack**a, t_stack**b)
 	min = 0;
 	while (*b)
 	{
-		min = ft_smallest(b)->content;
+		min = ft_smallest(b);
 		if (ft_stacksize(*b) == 1)
 			pa(a, b);
-		if ((*a)->content == ft_biggest(a)->content)
+		if ((*a)->content == ft_biggest(a))
 			ra(a);
 		while ((*b) && (*b)->content > min)
-			rb(b);
+			rrb(b);
 		if (ft_stacksize(*b) > 1)
 		{
 			pa(a, b);
@@ -132,7 +141,7 @@ void	order_in_b2(t_stack**a, t_stack**b)
 	min = 0;
 	while (*b)
 	{
-		min = ft_smallest(b)->content;
+		min = ft_smallest(b);
 		while ((*b)->content < min)
 			rb(b);
 		pa(a, b);

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/09 23:03:19 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/10 17:13:25 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_stacksize(t_stack*lst);
 void	low_median_push_a(t_stack**b, t_stack**a);
 void	low_median_push_b(t_stack**a, t_stack**b, int stop);
 void	top_median_push_a(t_stack**b, t_stack**a);
-void	top_median_push_b(t_stack**a, t_stack**b);
+void	top_median_push_b(t_stack**a, t_stack**b, int stop);
 void	quarter_push_a(t_stack**src, t_stack**dest);
 void	quarter_push_b(t_stack**src, t_stack**dest);
 void	order_in_b(t_stack**a, t_stack**b);

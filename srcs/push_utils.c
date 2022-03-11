@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/10 18:36:02 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/10 20:32:15 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,10 @@ void	top_median_push_a(t_stack**b, t_stack**a)
 			flag++;
 		if (flag == 2)
 			return ;
-		if ((*b)->content > med && mid--)
+		if ((*b)->content > med && mid-- && ft_stacksize(*b) > 1)
 		{
 			while ((*b)->content < (*b)->next->content)
 				sb(b);
-
 			pa(a, b);
 		}
 		else if ((*b)->content == ft_smallest(b))
@@ -92,9 +91,14 @@ void	low_median_push_b(t_stack**a, t_stack**b, int stop)
 {
 	int	mid;
 	int	med;
+	static int	flag = 0;
 
 	mid = ft_stacksize(*a) / 2;
 	med = ft_stack_median(a);
+	if ((*a)->next->content == stop)
+		flag++;
+	if (flag == 1)
+		return ;
 	while (mid > 0 && (*a)->content != stop)
 	{
 		if ((*a)->content < med && mid--)

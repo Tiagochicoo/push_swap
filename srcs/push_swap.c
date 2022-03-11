@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/10 18:51:50 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/10 20:33:36 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,31 @@
 
 void	sort_stack(t_stack*a, t_stack*b)
 {
-	int			biggest;
-	static int	min = INT_MIN;
 	static int	count = 0;
-	int			median;
-	int			quarter;
 	static int	stop = INT_MAX;
 	static int	stop2 = INT_MAX;
+	int			quarter;
 
-	quarter = ft_stacksize(a) / 4;
-	biggest = ft_biggest(&a);
-	if (min == biggest) //BASE CASE
-		return ;
 	if (count > 5000) // JUST FOR TESTING RECURSION PROTECTION
 		return ;
-	median = ft_stack_median(&a);
-	if (count < 50)
+	if (!b && !check_order(a))
 	{
-		if (!b && !check_order(a))
+		if (count < 50)
 		{
 			low_median_push_b(&a, &b, stop);
 			stop = a->content;
 		}
-		if (ft_stacksize(b) > quarter)
-			top_median_push_a(&b, &a);
 		else
-			order_in_b(&a, &b);
-	}
-	if (count > 49)
-	{
-		if (!b && !check_order(a))
 		{
 			top_median_push_b(&a, &b, stop2);
 			stop2 = a->content;
 		}
-		if (ft_stacksize(b) > quarter)
-			top_median_push_a(&b, &a);
-		else
-			order_in_b(&a, &b);
-		if (check_order(a))
-			return ;
 	}
+	if (ft_stacksize(b) > 20)
+		top_median_push_a(&b, &a);
+	else
+		order_in_b(&a, &b);
+	
 	count++;
 	if (!check_order(a))
 		sort_stack(a, b);

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/18 22:25:36 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/14 22:19:51 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,22 @@ int	check_order(t_stack *a)
 	return (1);
 }
 
-int	check_int(char*arg)
+int	check_int(char**argv)
 {
-	int	num;
+	int		i;
+	int		num;
+	char 	*str;
 
-	num = ft_atoi(arg);
-	if (num < INT_MAX && num > INT_MIN)
-		return (1);
-	else
-		return (0);
-	return (0);
+	i = 1;
+	while (argv[i])
+	{
+		num = ft_atoi(argv[i]);
+		str = ft_itoa(num);
+		if (ft_strcmp(argv[i], str) > 0)
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	check_arg(char**argv)
@@ -47,7 +53,7 @@ int	check_arg(char**argv)
 	i = 1;
 	while (argv[i])
 	{
-		if (ft_isnumber(argv[i]) == 0 || check_int(argv[i]) == 0)
+		if (ft_isnumber(argv[i]) == 0)
 			return (0);
 		i++;
 	}
@@ -85,7 +91,8 @@ int	check_args(int argc, char**argv)
 	flag = 0;
 	flag += check_dup(argv);
 	flag += check_arg(argv);
-	if (flag < 2)
+	flag += check_int(argv);
+	if (flag < 3)
 	{
 		write(1, "Error\n", 6);
 		return (0);

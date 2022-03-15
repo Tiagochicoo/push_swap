@@ -6,11 +6,16 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/14 12:44:31 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:48:18 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	sort_6(t_stack*a, t_stack*b)
+{
+
+}
 
 void	sort_stack(t_stack*a, t_stack*b)
 {
@@ -35,7 +40,7 @@ void	sort_stack(t_stack*a, t_stack*b)
 			stop2 = a->content;
 		}
 	}
-	if (ft_stacksize(b) > 25)
+	if (ft_stacksize(b) > 20)
 		top_median_push_a(&b, &a);
 	else
 		order_in_b(&a, &b);
@@ -57,7 +62,7 @@ int	main(int argc, char**argv)
 	{
 		if (argc < 2)
 			return (0);
-		else if (argc < 7)
+		else if (argc <= 7)
 			sort_5_or_less(a, b);
 		else
 			sort_stack(a, b);

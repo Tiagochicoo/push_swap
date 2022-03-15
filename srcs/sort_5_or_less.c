@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/13 12:48:47 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:32:52 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,19 @@ void	sort_5_args(t_stack**a, t_stack**b)
 		pa(a, b);
 }
 
+void	sort_6_args(t_stack**a, t_stack**b)
+{
+	low_median_push_b(a, b, INT_MAX);
+	sort_3_args(a);
+	while (*b)
+	{
+		if ((*b)->content == ft_biggest(b))
+			pa(a, b);
+		else
+			rb(b);
+	}
+}
+
 void	sort_5_or_less(t_stack*a, t_stack*b)
 {
 	int	size;
@@ -119,4 +132,6 @@ void	sort_5_or_less(t_stack*a, t_stack*b)
 		sort_4_args(&a, &b);
 	else if (size == 5)
 		sort_5_args(&a, &b);
+	else if (size == 6)
+		sort_6_args(&a, &b);
 }

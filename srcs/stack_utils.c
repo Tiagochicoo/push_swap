@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/10 19:43:45 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:43:21 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ int	ft_biggest(t_stack**head)
 	temp = ft_stackdup(*head);
 	temp2 = temp;
 	biggest = INT_MIN;
-	while (temp->next != NULL)
+	while (temp)
 	{
 		if (temp->content > biggest)
 			biggest = temp->content;
-		temp = temp->next;
+		if (temp->next != NULL)
+			temp = temp->next;
+		else
+			break ;
 	}
 	free_stack(&temp2);
 	return (biggest);

@@ -6,11 +6,14 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/15 19:51:20 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/15 20:27:05 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+//test this
+//./push_swap `ruby -e "puts (0..50).to_a.shuffle.join(' ')"` | ./checker_Mac `ruby -e "puts (0..50).to_a.shuffle.join(' ')"`
 
 void	sort_stack(t_stack*a, t_stack*b)
 {

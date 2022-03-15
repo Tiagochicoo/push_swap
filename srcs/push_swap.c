@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/15 15:48:18 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/15 19:47:10 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	sort_6(t_stack*a, t_stack*b)
-{
-
-}
 
 void	sort_stack(t_stack*a, t_stack*b)
 {
@@ -25,7 +20,7 @@ void	sort_stack(t_stack*a, t_stack*b)
 	int			quarter;
 
 	quarter = ft_stacksize(a) / 4;
-	if (count > 5000) // JUST FOR TESTING RECURSION PROTECTION
+	if (count > 100)
 		return ;
 	if (!b && !check_order(a))
 	{
@@ -40,7 +35,7 @@ void	sort_stack(t_stack*a, t_stack*b)
 			stop2 = a->content;
 		}
 	}
-	if (ft_stacksize(b) > 20)
+	if (ft_stacksize(b) > 45)
 		top_median_push_a(&b, &a);
 	else
 		order_in_b(&a, &b);
@@ -48,6 +43,8 @@ void	sort_stack(t_stack*a, t_stack*b)
 	count++;
 	if (!check_order(a))
 		sort_stack(a, b);
+	else
+		return ;
 }
 
 int	main(int argc, char**argv)

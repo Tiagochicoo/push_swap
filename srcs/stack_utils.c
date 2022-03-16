@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/15 15:43:21 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/16 14:34:42 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,43 +111,4 @@ t_stack	*ft_stackdup(t_stack*head)
 		head = head->next;
 	}
 	return (new);
-}
-
-void	order_in_b(t_stack**a, t_stack**b)
-{
-	int	min;
-	int	size;
-	
-	min = 0;
-	while (*b)
-	{
-		min = ft_smallest(b);
-		if (ft_stacksize(*b) == 1)
-			pa(a, b);
-		if ((*a)->content == ft_biggest(a))
-			ra(a);
-		while ((*b) && (*b)->content > min)
-			rb(b);
-		if (ft_stacksize(*b) > 1)
-		{
-			pa(a, b);
-			ra(a);
-		}
-	}
-}
-
-void	order_in_b2(t_stack**a, t_stack**b)
-{
-	int	min;
-	int	size;
-	
-	min = 0;
-	while (*b)
-	{
-		min = ft_smallest(b);
-		while ((*b)->content < min)
-			rb(b);
-		pa(a, b);
-		ra(a);
-	}
 }

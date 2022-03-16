@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/15 15:32:52 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/16 14:31:07 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,6 @@ void	sort_3_args(t_stack**a)
 			sa(a);
 		else if (first > second && second > third)
 			sa(a);
-	}
-}
-
-void	sort_3_args_b(t_stack**b)
-{
-	int		first;
-	int		second;
-	int		third;
-
-	while (!check_order(*b))
-	{
-		first = (*b)->content;
-		second = (*b)->next->content;
-		third = (*b)->next->next->content;
-		if (first > second && first > third && second < third)
-			rb(b);
-		else if (first < second && second > third)
-			rra(b);
-		else if (first > second && second < third)
-			sb(b);
-		else if (first > second && second > third)
-			sb(b);
 	}
 }
 
@@ -104,19 +82,6 @@ void	sort_5_args(t_stack**a, t_stack**b)
 		sb(b);
 	while ((*b))
 		pa(a, b);
-}
-
-void	sort_6_args(t_stack**a, t_stack**b)
-{
-	low_median_push_b(a, b, INT_MAX);
-	sort_3_args(a);
-	while (*b)
-	{
-		if ((*b)->content == ft_biggest(b))
-			pa(a, b);
-		else
-			rb(b);
-	}
 }
 
 void	sort_5_or_less(t_stack*a, t_stack*b)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/15 20:03:32 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/16 14:32:03 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ void	top_median_push_a(t_stack**b, t_stack**a)
 
 void	low_median_push_b(t_stack**a, t_stack**b, int stop)
 {
-	int	mid;
-	int	med;
+	int			mid;
+	int			med;
 	static int	flag = 0;
 
 	mid = ft_stacksize(*a) / 2;
@@ -119,44 +119,6 @@ void	top_median_push_b(t_stack**a, t_stack**b, int stop)
 	{
 		if ((*a)->content > med && mid--)
 			pb(b, a);
-		else
-			ra(a);
-	}
-}
-
-void	quarter_push_a(t_stack**b, t_stack**a)
-{
-	int	qrt;
-	int	med;
-
-	qrt = ft_stacksize(*b) / 4;
-	med = ft_stack_quarter(b);
-	while (qrt)
-	{
-		if ((*b)->content < med)
-		{
-			qrt--;
-			pa(a, b);
-		}
-		else
-			rb(b);
-	}
-}
-
-void	quarter_push_b(t_stack**a, t_stack**b)
-{
-	int	qrt;
-	int	med;
-
-	qrt = ft_stacksize(*a) / 4;
-	med = ft_stack_quarter(a);
-	while (qrt)
-	{
-		if ((*a)->content < med)
-		{
-			qrt--;
-			pb(b, a);
-		}
 		else
 			ra(a);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/15 19:45:35 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/16 14:59:46 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,12 @@ void	rrb(t_stack**b);
 void	pa(t_stack**a, t_stack**b);
 void	pb(t_stack**b, t_stack**a);
 void	sort_5_or_less(t_stack*a, t_stack*b);
+void	sort_6_args(t_stack**a, t_stack**b);
 int		ft_biggest(t_stack**head);
 int		ft_smallest(t_stack**head);
 int		ft_stack_median(t_stack**head);
 int		is_ordered_loop(t_stack**head);
+int		sort_lower(t_stack**a, t_stack**b, int stop);
+int		sort_top(t_stack**a, t_stack**b, int stop);
 
 #endif

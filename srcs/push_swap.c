@@ -3,46 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/15 20:27:05 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:00:46 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-//test this
-//./push_swap `ruby -e "puts (0..50).to_a.shuffle.join(' ')"` | ./checker_Mac `ruby -e "puts (0..50).to_a.shuffle.join(' ')"`
 
 void	sort_stack(t_stack*a, t_stack*b)
 {
 	static int	count = 0;
 	static int	stop = INT_MAX;
 	static int	stop2 = INT_MAX;
-	int			quarter;
 
-	quarter = ft_stacksize(a) / 4;
 	if (count > 100)
 		return ;
-	if (!b && !check_order(a))
-	{
-		if (count < 50)
-		{
-			low_median_push_b(&a, &b, stop);
-			stop = a->content;
-		}
-		else
-		{
-			top_median_push_b(&a, &b, stop2);
-			stop2 = a->content;
-		}
-	}
-	if (ft_stacksize(b) > 45)
-		top_median_push_a(&b, &a);
+	if (count < 50)
+		stop = sort_lower(&a, &b, stop);
 	else
-		order_in_b(&a, &b);
-	
+		stop2 = sort_top(&a, &b, stop2);
 	count++;
 	if (!check_order(a))
 		sort_stack(a, b);

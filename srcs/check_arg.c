@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/14 22:19:51 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/16 14:36:27 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	check_int(char**argv)
 {
 	int		i;
 	int		num;
-	char 	*str;
+	char	*str;
 
 	i = 1;
 	while (argv[i])

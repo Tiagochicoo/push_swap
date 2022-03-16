@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 11:18:14 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/16 14:36:27 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:30:08 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ int	check_int(char**argv)
 		num = ft_atoi(argv[i]);
 		str = ft_itoa(num);
 		if (ft_strcmp(argv[i], str) > 0)
+		{
+			free(str);
 			return (0);
+		}
+		free(str);
 		i++;
 	}
 	return (1);

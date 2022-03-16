@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/16 16:16:42 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/16 20:21:50 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ int		ft_stack_median(t_stack**head);
 int		is_ordered_loop(t_stack**head);
 int		sort_lower(t_stack**a, t_stack**b, int stop);
 int		sort_top(t_stack**a, t_stack**b, int stop);
+int		up_down(t_stack*b, int min);
 
 #endif

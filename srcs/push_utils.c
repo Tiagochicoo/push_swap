@@ -3,32 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/16 16:16:58 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/16 20:22:46 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_stack_quarter(t_stack**head)
+int	up_down(t_stack*b, int min)
 {
-	t_stack	*temp;
+	t_stack *temp;
 	t_stack	*temp2;
 	int		med;
-	int		mid;
+	int		count;
 
-	med = 0;
-	mid = ft_stacksize(*head) / 4;
-	temp = ft_stackdup(*head);
+	med = ft_stack_median(&b);
+	temp = ft_stackdup(b);
 	temp2 = temp;
-	ft_stacksort(temp);
-	while (mid--)
+	while (temp->next && temp->content != min && count++)
 		temp = temp->next;
-	med = temp->content;
-	free_stack(&temp2);
-	return (med);
+	if (count > ft_stacksize(b))
+	{
+		free(temp2);
+		return (1);
+	}
+	free(temp2);
+	return (0);
 }
 
 void	low_median_push_a(t_stack**b, t_stack**a)
@@ -63,7 +65,6 @@ int	top_median_push_a(t_stack**b, t_stack**a)
 	int	flag;
 	int	count;
 
-	flag = 0;
 	count = 0;
 	mid = ft_stacksize(*b) / 2;
 	med = ft_stack_median(b);
@@ -80,6 +81,8 @@ int	top_median_push_a(t_stack**b, t_stack**a)
 		}
 		else
 			rb(b);
+		if (count == 1)
+			count = (*a)->content;
 	}
 	return (count);
 }
@@ -90,7 +93,7 @@ void	low_median_push_b(t_stack**a, t_stack**b, int stop)
 	int			med;
 	static int	flag = 0;
 
-	mid = ft_stacksize(*a) / 2;
+	mid =  ft_stacksize(*a) / 2;
 	med = ft_stack_median(a);
 	if ((*a)->next->content == stop && flag++ == 1)
 		return ;

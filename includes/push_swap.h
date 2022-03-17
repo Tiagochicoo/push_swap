@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/16 16:16:42 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:37:09 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_stack	*ft_stacklast(t_stack*lst);
 int		ft_stacksize(t_stack*lst);
 void	low_median_push_a(t_stack**b, t_stack**a);
 void	low_median_push_b(t_stack**a, t_stack**b, int stop);
-int		top_median_push_a(t_stack**b, t_stack**a);
+void	top_median_push_a(t_stack**b, t_stack**a);
 void	top_median_push_b(t_stack**a, t_stack**b, int stop);
 void	quarter_push_a(t_stack**src, t_stack**dest);
 void	quarter_push_b(t_stack**src, t_stack**dest);

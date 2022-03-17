@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 16:48:38 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:52:08 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,17 @@ void	sort_6_args(t_stack**a, t_stack**b)
 
 int	sort_lower(t_stack**a, t_stack**b, int stop)
 {
+	int	i;
+
+	i = 20;
+	if (ft_stacksize(*a) > 100)
+		i = 45;
 	if (!*b && !check_order(*a))
 	{
 		low_median_push_b(a, b, stop);
 		stop = (*a)->content;
 	}
-	if (ft_stacksize(*b) > 45)
+	if (ft_stacksize(*b) > i)
 		top_median_push_a(b, a);
 	else
 		order_in_b(a, b);
@@ -93,12 +98,17 @@ int	sort_lower(t_stack**a, t_stack**b, int stop)
 
 int	sort_top(t_stack**a, t_stack**b, int stop2)
 {
+	int	i;
+
+	i = 20;
+	if (ft_stacksize(*a) > 100)
+		i = 45;
 	if (!*b && !check_order(*a))
 	{
 		top_median_push_b(a, b, stop2);
 		stop2 = (*a)->content;
 	}
-	if (ft_stacksize(*b) > 45)
+	if (ft_stacksize(*b) > i)
 		top_median_push_a(b, a);
 	else
 		order_in_b(a, b);

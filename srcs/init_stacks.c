@@ -45,13 +45,11 @@ t_stack	*init_a(int argc, char**argv, t_stack*a)
 {
 	int		i;
 	int		content;
-	// t_stack	*temp;
 
 	i = 1;
 	while (i < argc)
 	{
 		content = ft_atoi(argv[i]);
-		// temp = ft_stacknew(content);
 		ft_stackadd_back(&a, ft_stacknew(content));
 		i++;
 	}

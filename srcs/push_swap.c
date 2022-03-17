@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 16:41:57 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 19:33:35 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char**argv)
 		if (argc < 2)
 			return (0);
 		else if (argc <= 7)
-			sort_5_or_less(a, b);
+			a = sort_5_or_less(a, b);
 		else
 			sort_stack(a, b);
 	}

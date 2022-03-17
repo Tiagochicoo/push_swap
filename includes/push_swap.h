@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 16:40:24 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 19:22:13 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int		check_arg(char**argv);
 void	convert_to_int(t_stack*a);
 t_stack	*init_a(int argc, char**argv, t_stack*a);
 int		check_order(t_stack *a);
-void	sort_2_args(t_stack*head);
-void	sort_3_args(t_stack**a);
+t_stack	*sort_2_args(t_stack*head);
+t_stack	*sort_3_args(t_stack**a);
 void	sort_3_args_b(t_stack**b);
-void	sort_4_args(t_stack**a, t_stack**b);
+t_stack	*sort_4_args(t_stack**a, t_stack**b);
 void	print_args(t_stack*head);
 void	sa(t_stack**a);
 void	sb(t_stack**b);
@@ -58,8 +58,8 @@ void	rra(t_stack**a);
 void	rrb(t_stack**b);
 void	pa(t_stack**a, t_stack**b);
 void	pb(t_stack**b, t_stack**a);
-void	sort_5_or_less(t_stack*a, t_stack*b);
-void	sort_6_args(t_stack**a, t_stack**b);
+t_stack	*sort_5_or_less(t_stack*a, t_stack*b);
+t_stack	*sort_6_args(t_stack**a, t_stack**b);
 int		ft_biggest(t_stack**head);
 int		ft_smallest(t_stack**head);
 int		ft_stack_median(t_stack**head);

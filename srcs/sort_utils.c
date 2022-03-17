@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 17:28:55 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:32:11 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	sort_3_args_b(t_stack**b)
 	}
 }
 
-void	sort_6_args(t_stack**a, t_stack**b)
+t_stack	*sort_6_args(t_stack**a, t_stack**b)
 {
 	low_median_push_b(a, b, INT_MAX);
 	sort_3_args(a);
@@ -75,6 +75,7 @@ void	sort_6_args(t_stack**a, t_stack**b)
 		else
 			rb(b);
 	}
+	return (*a);
 }
 
 int	sort_lower(t_stack**a, t_stack**b, int stop)

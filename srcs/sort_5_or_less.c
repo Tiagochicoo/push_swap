@@ -6,13 +6,13 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/16 20:22:12 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 17:50:08 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_2_args(t_stack*head)
+t_stack	*sort_2_args(t_stack*head)
 {
 	int	one;
 	int	two;
@@ -21,9 +21,10 @@ void	sort_2_args(t_stack*head)
 	two = head->next->content;
 	if (one > two)
 		sa(&head);
+	return (head);
 }
 
-void	sort_3_args(t_stack**a)
+t_stack	*sort_3_args(t_stack**a)
 {
 	int		first;
 	int		second;
@@ -43,9 +44,10 @@ void	sort_3_args(t_stack**a)
 		else if (first > second && second > third)
 			sa(a);
 	}
+	return (*a);
 }
 
-void	sort_4_args(t_stack**a, t_stack**b)
+t_stack	*sort_4_args(t_stack**a, t_stack**b)
 {
 	int	i;
 	int	j;
@@ -72,9 +74,10 @@ void	sort_4_args(t_stack**a, t_stack**b)
 		while (j-- > 0)
 			rra(a);
 	}
+	return (*a);
 }
 
-void	sort_5_args(t_stack**a, t_stack**b)
+t_stack	*sort_5_args(t_stack**a, t_stack**b)
 {
 	low_median_push_b(a, b, INT_MAX);
 	sort_3_args(a);
@@ -82,21 +85,23 @@ void	sort_5_args(t_stack**a, t_stack**b)
 		sb(b);
 	while ((*b))
 		pa(a, b);
+	return (*a);
 }
 
-void	sort_5_or_less(t_stack*a, t_stack*b)
+t_stack	*sort_5_or_less(t_stack*a, t_stack*b)
 {
 	int	size;
 
 	size = ft_stacksize(a);
 	if (size == 2)
-		sort_2_args(a);
+		a = sort_2_args(a);
 	else if (size == 3)
-		sort_3_args(&a);
+		a = sort_3_args(&a);
 	else if (size == 4)
-		sort_4_args(&a, &b);
+		a = sort_4_args(&a, &b);
 	else if (size == 5)
-		sort_5_args(&a, &b);
+		a = sort_5_args(&a, &b);
 	else if (size == 6)
-		sort_6_args(&a, &b);
+		a = sort_6_args(&a, &b);
+	return (a);
 }

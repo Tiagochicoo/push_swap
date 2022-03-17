@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 17:17:01 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 17:30:34 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	up_down(t_stack*b, int min)
 	int		med;
 	int		count;
 
+	count = 0;
 	med = ft_stack_median(&b);
 	temp = ft_stackdup(b);
 	temp2 = temp;
@@ -26,10 +27,10 @@ int	up_down(t_stack*b, int min)
 		temp = temp->next;
 	if (count > ft_stacksize(b))
 	{
-		free(temp2);
+		free_stack(&temp2);
 		return (1);
 	}
-	free(temp2);
+	free_stack(&temp2);
 	return (0);
 }
 

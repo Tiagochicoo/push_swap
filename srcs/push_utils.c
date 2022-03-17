@@ -6,29 +6,31 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 16:37:00 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:41:22 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_stack_quarter(t_stack**head)
+int	up_down(t_stack*b, int min)
 {
-	t_stack	*temp;
+	t_stack *temp;
 	t_stack	*temp2;
 	int		med;
-	int		mid;
+	int		count;
 
-	med = 0;
-	mid = ft_stacksize(*head) / 4;
-	temp = ft_stackdup(*head);
+	med = ft_stack_median(&b);
+	temp = ft_stackdup(b);
 	temp2 = temp;
-	ft_stacksort(temp);
-	while (mid--)
+	while (temp->next && temp->content != min && count++)
 		temp = temp->next;
-	med = temp->content;
-	free_stack(&temp2);
-	return (med);
+	if (count > ft_stacksize(b))
+	{
+		free(temp2);
+		return (1);
+	}
+	free(temp2);
+	return (0);
 }
 
 void	low_median_push_a(t_stack**b, t_stack**a)
@@ -67,7 +69,7 @@ void	top_median_push_a(t_stack**b, t_stack**a)
 	med = ft_stack_median(b);
 	while (mid > 0)
 	{
-		if (mid == 1 && flag++ == 2)
+		if (mid == 1 && flag++ == 1)
 			return ;
 		if ((*b)->content > med && mid-- && ft_stacksize(*b) > 1)
 			pa(a, b);
@@ -87,7 +89,7 @@ void	low_median_push_b(t_stack**a, t_stack**b, int stop)
 	int			med;
 	static int	flag = 0;
 
-	mid = ft_stacksize(*a) / 2;
+	mid =  ft_stacksize(*a) / 2;
 	med = ft_stack_median(a);
 	if ((*a)->next->content == stop && flag++ == 1)
 		return ;

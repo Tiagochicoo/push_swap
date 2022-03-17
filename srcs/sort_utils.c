@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 16:41:50 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:48:38 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,6 @@ void	sort_6_args(t_stack**a, t_stack**b)
 
 int	sort_lower(t_stack**a, t_stack**b, int stop)
 {
-	static int	count[5] = {INT_MAX, 0, 0, 0, 0};
-	static int	i = 0;
 	if (!*b && !check_order(*a))
 	{
 		low_median_push_b(a, b, stop);

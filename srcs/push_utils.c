@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 19:59:31 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 21:59:54 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 int	up_down(t_stack*b, int min)
 {
 	t_stack	*temp;
-	t_stack	*temp2;
+	t_stack	*head;
 	int		med;
 	int		count;
 
 	count = 0;
 	med = ft_stack_median(&b);
 	temp = ft_stackdup(b);
-	temp2 = temp;
+	head = temp;
 	while (temp->next && temp->content != min && count++)
 		temp = temp->next;
 	if (count > ft_stacksize(b))
 	{
-		free_stack(&temp2);
+		free_stack(&head);
 		return (1);
 	}
-	free_stack(&temp2);
+	free_stack(&head);
 	return (0);
 }
 

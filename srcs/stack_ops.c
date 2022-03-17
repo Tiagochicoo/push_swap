@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:52:37 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 19:32:52 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 21:58:02 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ t_stack	*ft_stacklast(t_stack *lst)
 	else
 		return (NULL);
 	while (temp->next != NULL)
-	{
 		temp = temp->next;
-	}
 	return (temp);
 }
 

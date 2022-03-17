@@ -6,13 +6,13 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 19:33:35 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 22:12:10 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_stack(t_stack*a, t_stack*b)
+void	sort_stack(t_stack**a, t_stack*b)
 {
 	static int	count = 0;
 	static int	stop = INT_MAX;
@@ -21,11 +21,11 @@ void	sort_stack(t_stack*a, t_stack*b)
 	if (count > 100)
 		return ;
 	if (count < 50)
-		stop = sort_lower(&a, &b, stop);
+		stop = sort_lower(a, &b, stop);
 	else
-		stop2 = sort_top(&a, &b, stop2);
+		stop2 = sort_top(a, &b, stop2);
 	count++;
-	if (!check_order(a))
+	if (!check_order(*a))
 		sort_stack(a, b);
 	else
 		return ;
@@ -46,7 +46,7 @@ int	main(int argc, char**argv)
 		else if (argc <= 7)
 			a = sort_5_or_less(a, b);
 		else
-			sort_stack(a, b);
+			sort_stack(&a, b);
 	}
 	free_stack(&a);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 19:03:57 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/17 19:59:31 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ void	low_median_push_a(t_stack**b, t_stack**a)
 	med = ft_stack_median(b);
 	while (mid)
 	{
-		if (mid == 1)
-			flag++;
-		if (flag == 2)
+		if (mid == 1 && flag++ == 1)
 			return ;
 		if ((*b)->content < med)
 		{

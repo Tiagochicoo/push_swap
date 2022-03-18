@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/18 22:33:49 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/18 22:41:28 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	sort_lower(t_stack**a, t_stack**b, int stop)
 	int	i;
 
 	i = 19;
-	if (ft_stacksize(*a) > 100)
+	if (ft_stacksize(*a) > 120)
 		i = 42;
 	if (!*b && !check_order(*a))
 	{
@@ -105,6 +105,8 @@ int	sort_lower(t_stack**a, t_stack**b, int stop)
 			stop = stop1;
 		}
 		low_median_push_b(a, b, stop);
+		if ((*a)->content == ft_biggest(a))
+			ra(a);
 		stop = (*a)->content;
 		if (count < 1)
 			stop1 = stop;

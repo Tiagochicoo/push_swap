@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 22:09:39 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/18 21:20:14 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	ra(t_stack**a);
 void	rb(t_stack**b);
 void	rra(t_stack**a);
 void	rrb(t_stack**b);
+void	rr(t_stack**a, t_stack**b);
 void	pa(t_stack**a, t_stack**b);
 void	pb(t_stack**b, t_stack**a);
 t_stack	*sort_5_or_less(t_stack*a, t_stack*b);

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 22:12:10 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/18 22:25:16 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sort_stack(t_stack**a, t_stack*b)
 	static int	stop = INT_MAX;
 	static int	stop2 = INT_MAX;
 
-	if (count > 100)
+	if (count > 1000)
 		return ;
 	if (count < 50)
 		stop = sort_lower(a, &b, stop);

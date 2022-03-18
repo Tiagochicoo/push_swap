@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   a_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/02/20 17:28:40 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/18 21:20:48 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,25 @@ void	rra(t_stack**a)
 	last->next = (*a);
 	(*a) = last;
 	ft_putendl_fd("rra", 2);
+}
+
+void	rr_s(t_stack**head)
+{
+	t_stack	*first;
+	t_stack	*last;
+
+	first = *head;
+	last = *head;
+	while (last->next != NULL)
+		last = last->next;
+	*head = first->next;
+	first->next = NULL;
+	last->next = first;
+}
+
+void	rr(t_stack**a, t_stack**b)
+{
+	rr_s(a);
+	rr_s(b);
+	ft_putendl_fd("rr", 2);
 }

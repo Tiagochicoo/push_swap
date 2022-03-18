@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 19:57:28 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/18 22:33:49 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	order_in_b(t_stack**a, t_stack**b)
 			ra(a);
 		while ((*b) && (*b)->content > min)
 		{
-			if (rotate == 1)
+			if (rotate)
 				rb(b);
 			else
 				rrb(b);
@@ -80,6 +80,11 @@ t_stack	*sort_6_args(t_stack**a, t_stack**b)
 
 int	sort_lower(t_stack**a, t_stack**b, int stop)
 {
+	static int	count = 0;
+	static int	count1 = 0;
+	static int	stop1 = INT_MAX;
+	static int	stop2 = INT_MAX;
+	static int	stop3 = INT_MAX;
 	int	i;
 
 	i = 19;
@@ -87,30 +92,91 @@ int	sort_lower(t_stack**a, t_stack**b, int stop)
 		i = 42;
 	if (!*b && !check_order(*a))
 	{
+		if (stop3 != INT_MAX && count1++ == 0)
+		{
+			stop = stop3;
+		}
+		else if (stop2 != INT_MAX && count1++ == 2)
+		{
+			stop = stop2;
+		}
+		else if (stop1 != INT_MAX && count1++ < 6)
+		{
+			stop = stop1;
+		}
 		low_median_push_b(a, b, stop);
 		stop = (*a)->content;
+		if (count < 1)
+			stop1 = stop;
+		else if (count < 2)
+			stop2 = stop;
+		else if (count < 3)
+			stop3 = stop;
 	}
 	if (ft_stacksize(*b) > i)
+	{
+		if (count == 0)
+			stop1 = (*a)->content;
+		else if (count == 1)
+			stop2 = (*a)->content;
+		else if (count == 2)
+			stop3 = (*a)->content;
 		top_median_push_a(b, a);
+		count++;
+	}
 	else
 		order_in_b(a, b);
 	return (stop);
 }
 
-int	sort_top(t_stack**a, t_stack**b, int stop2)
+int	sort_top(t_stack**a, t_stack**b, int stop)
 {
+	static int	count = 0;
+	static int	count1 = 0;
+	static int	stop1 = INT_MAX;
+	static int	stop2 = INT_MAX;
+	static int	stop3 = INT_MAX;
 	int	i;
 
 	i = 20;
 	if (ft_stacksize(*a) > 100)
-		i = 45;
+		i = 50;
 	if (!*b && !check_order(*a))
 	{
-		top_median_push_b(a, b, stop2);
-		stop2 = (*a)->content;
+		if (stop3 != INT_MAX && count1++ == 0)
+		{
+			stop = stop3;
+		}
+		else if (stop2 != INT_MAX && count1++ == 2)
+		{
+			stop = stop2;
+		}
+		else if (stop1 != INT_MAX && count1++ < 7)
+		{
+			stop = stop1;
+		}
+		else
+			stop = ft_smallest(a);
+		top_median_push_b(a, b, stop);
+		stop = (*a)->content;
+		if (count < 1)
+			stop1 = stop;
+		else if (count < 2)
+			stop2 = stop;
+		else if (count < 3)
+			stop3 = stop;
 	}
 	if (ft_stacksize(*b) > i)
+	{
+		if (count == 0)
+			stop1 = (*a)->content;
+		else if (count == 1)
+			stop2 = (*a)->content;
+		else if (count == 2)
+			stop3 = (*a)->content;
 		top_median_push_a(b, a);
+		count++;
+	}
 	else
 		order_in_b(a, b);
 	return (stop2);

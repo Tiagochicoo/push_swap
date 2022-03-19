@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   a_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/18 21:20:48 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/19 13:39:13 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	pa(t_stack**a, t_stack**b)
 	*b = (*b)->next;
 	temp->next = *a;
 	*a = temp;
-	ft_putendl_fd("pa", 2);
+	// ft_putendl_fd("pa", 2);
+	write(1, "pa\n", 3);
 }
 
 void	sa(t_stack**head)
@@ -33,7 +34,7 @@ void	sa(t_stack**head)
 	*head = (*head)->next;
 	temp->next = (*head)->next;
 	(*head)->next = temp;
-	ft_putendl_fd("sa", 2);
+	write(1, "sa\n", 3);
 }
 
 void	ra(t_stack**head)
@@ -48,7 +49,7 @@ void	ra(t_stack**head)
 	*head = first->next;
 	first->next = NULL;
 	last->next = first;
-	ft_putendl_fd("ra", 2);
+	write(1, "ra\n", 3);
 }
 
 void	rra(t_stack**a)
@@ -66,7 +67,7 @@ void	rra(t_stack**a)
 	sec_last->next = NULL;
 	last->next = (*a);
 	(*a) = last;
-	ft_putendl_fd("rra", 2);
+	write(1, "rra\n", 4);
 }
 
 void	rr_s(t_stack**head)

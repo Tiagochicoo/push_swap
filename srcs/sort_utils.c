@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/19 13:08:48 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/19 13:29:00 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ int	sort_lower(t_stack**a, t_stack**b, int stop)
 	{
 		if (stop3 != INT_MAX && count1++ == 0)
 			stop = stop3;
-		else if (stop2 != INT_MAX && count1++ < 15)
+		else if (stop2 != INT_MAX && count1++ < 12)
 			stop = stop2;
-		else if (stop1 != INT_MAX && count1++ > 9)
+		else if (stop1 != INT_MAX && count1++ < 20)
 			stop = stop1;
 		low_median_push_b(a, b, stop);
 		if ((*a)->content == ft_biggest(a))
@@ -145,7 +145,7 @@ int	sort_top(t_stack**a, t_stack**b, int stop)
 			stop = stop3;
 		else if (stop2 != INT_MAX && count1++ < 12)
 			stop = stop2;
-		else if (stop1 != INT_MAX && count1++ > 9)
+		else if (stop1 != INT_MAX && count1++ < 20)
 			stop = stop1;
 		top_median_push_b(a, b, stop);
 		if ((*a)->content == ft_biggest(a))

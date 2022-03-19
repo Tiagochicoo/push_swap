@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/18 22:41:28 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/19 11:56:40 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,17 +93,11 @@ int	sort_lower(t_stack**a, t_stack**b, int stop)
 	if (!*b && !check_order(*a))
 	{
 		if (stop3 != INT_MAX && count1++ == 0)
-		{
 			stop = stop3;
-		}
-		else if (stop2 != INT_MAX && count1++ == 2)
-		{
+		else if (stop2 != INT_MAX && count1++ < 5)
 			stop = stop2;
-		}
-		else if (stop1 != INT_MAX && count1++ < 6)
-		{
+		else if (stop1 != INT_MAX && count1++ < 8)
 			stop = stop1;
-		}
 		low_median_push_b(a, b, stop);
 		if ((*a)->content == ft_biggest(a))
 			ra(a);

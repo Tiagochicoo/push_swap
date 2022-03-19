@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/19 11:56:40 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/19 13:08:48 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ int	sort_lower(t_stack**a, t_stack**b, int stop)
 	{
 		if (stop3 != INT_MAX && count1++ == 0)
 			stop = stop3;
-		else if (stop2 != INT_MAX && count1++ < 5)
+		else if (stop2 != INT_MAX && count1++ < 15)
 			stop = stop2;
-		else if (stop1 != INT_MAX && count1++ < 8)
+		else if (stop1 != INT_MAX && count1++ > 9)
 			stop = stop1;
 		low_median_push_b(a, b, stop);
 		if ((*a)->content == ft_biggest(a))
@@ -117,6 +117,8 @@ int	sort_lower(t_stack**a, t_stack**b, int stop)
 			stop2 = (*a)->content;
 		else if (count == 2)
 			stop3 = (*a)->content;
+		else if (count >= 3)
+			stop2 = (*a)->content;
 		top_median_push_a(b, a);
 		count++;
 	}
@@ -135,25 +137,19 @@ int	sort_top(t_stack**a, t_stack**b, int stop)
 	int	i;
 
 	i = 20;
-	if (ft_stacksize(*a) > 100)
+	if (ft_stacksize(*a) > 120)
 		i = 50;
 	if (!*b && !check_order(*a))
 	{
 		if (stop3 != INT_MAX && count1++ == 0)
-		{
 			stop = stop3;
-		}
-		else if (stop2 != INT_MAX && count1++ == 2)
-		{
+		else if (stop2 != INT_MAX && count1++ < 12)
 			stop = stop2;
-		}
-		else if (stop1 != INT_MAX && count1++ < 7)
-		{
+		else if (stop1 != INT_MAX && count1++ > 9)
 			stop = stop1;
-		}
-		else
-			stop = ft_smallest(a);
 		top_median_push_b(a, b, stop);
+		if ((*a)->content == ft_biggest(a))
+			ra(a);
 		stop = (*a)->content;
 		if (count < 1)
 			stop1 = stop;
@@ -170,6 +166,8 @@ int	sort_top(t_stack**a, t_stack**b, int stop)
 			stop2 = (*a)->content;
 		else if (count == 2)
 			stop3 = (*a)->content;
+		else if (count >= 3)
+			stop2 = (*a)->content;
 		top_median_push_a(b, a);
 		count++;
 	}

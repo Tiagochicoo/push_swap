@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/18 22:25:16 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/19 12:22:52 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	sort_stack(t_stack**a, t_stack*b)
 	static int	stop = INT_MAX;
 	static int	stop2 = INT_MAX;
 
-	if (count > 1000)
+	if (count > 5000)
 		return ;
-	if (count < 50)
+	if (count < 20)
 		stop = sort_lower(a, &b, stop);
 	else
 		stop2 = sort_top(a, &b, stop2);

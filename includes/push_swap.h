@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 18:53:19 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 20:01:45 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_stop
 	int	stop1;
 	int	stop2;
 	int	stop3;
+	int	count;
+	int	count1;
 }			t_stop;
 
 t_stack	*ft_stacknew(int content);

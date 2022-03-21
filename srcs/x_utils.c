@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:07:04 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 18:52:44 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 20:02:14 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,28 @@ t_stop	*init_stop(t_stop*stop)
 	stop->stop1 = INT_MAX;
 	stop->stop2 = INT_MAX;
 	stop->stop3 = INT_MAX;
+	stop->count = 0;
+	stop->count1 = 0;
 	return (stop);
 }
 
 t_stop	*stop_func(t_stop*stop)
 {
-	static int	count = 0;
-
-	if (stop->stop3 != INT_MAX && count++ == 0)
+	if (stop->stop3 != INT_MAX && stop->count1 == 0)
+	{
 		stop->stop = stop->stop3;
-	else if (stop->stop2 != INT_MAX && count++ < 12)
+		stop->count1++;
+	}
+	else if (stop->stop2 != INT_MAX && stop->count1 < 12)
+	{
 		stop->stop = stop->stop2;
-	else if (stop->stop1 != INT_MAX && count++ < 20)
+		stop->count1++;
+	}
+	else if (stop->stop1 != INT_MAX && stop->count1 < 20)
+	{
 		stop->stop = stop->stop1;
+		stop->count1++;
+	}
 	return (stop);
 }
 

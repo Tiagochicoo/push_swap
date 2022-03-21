@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 18:59:15 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 20:03:30 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ t_stack	*sort_6_args(t_stack**a, t_stack**b)
 
 void	sort_lower(t_stack**a, t_stack**b, t_stop*stop, int i)
 {
-	static int	count = 0;
-
 	i = 19;
 	if (ft_stacksize(*a) > 120)
 		i = 42;
@@ -84,13 +82,13 @@ void	sort_lower(t_stack**a, t_stack**b, t_stop*stop, int i)
 		if ((*a)->content == ft_biggest(a))
 			ra(a);
 		stop->stop = (*a)->content;
-		stop = stop_func2(count, stop);
+		stop = stop_func2(stop->count, stop);
 	}
 	if (ft_stacksize(*b) > i)
 	{
-		stop = stop_func3(count, stop, (*a)->content);
+		stop = stop_func3(stop->count, stop, (*a)->content);
 		top_median_push_a(b, a);
-		count++;
+		stop->count++;
 	}
 	else
 		order_in_b(a, b);
@@ -98,8 +96,6 @@ void	sort_lower(t_stack**a, t_stack**b, t_stop*stop, int i)
 
 void	sort_top(t_stack**a, t_stack**b, t_stop*stop, int i)
 {
-	static int	count = 0;
-
 	i = 20;
 	if (ft_stacksize(*a) > 120)
 		i = 50;
@@ -111,9 +107,9 @@ void	sort_top(t_stack**a, t_stack**b, t_stop*stop, int i)
 	}
 	if (ft_stacksize(*b) > i)
 	{
-		stop = stop_func3(count, stop, (*a)->content);
+		stop = stop_func4(stop->count, stop, (*a)->content);
 		top_median_push_a(b, a);
-		count++;
+		stop->count++;
 	}
 	else
 		order_in_b(a, b);

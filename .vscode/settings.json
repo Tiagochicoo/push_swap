@@ -23,7 +23,12 @@
 		"memory": "c",
 		"utility": "c",
 		"stdio.h": "c",
-		"limits": "c"
+		"limits": "c",
+		"__bit_reference": "c",
+		"algorithm": "c",
+		"bitset": "c",
+		"chrono": "c",
+		"unordered_map": "c"
 	},
 	// The number of spaces a tab is equal to.
 	"editor.tabSize": 4,

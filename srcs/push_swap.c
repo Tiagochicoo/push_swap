@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 18:39:14 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 18:54:58 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ void	sort_stack(t_stack**a, t_stack*b)
 {
 	static int	count = 0;
 	t_stop		*stop;
-	static int	stop2 = INT_MAX;
+	t_stop		*stop2;
 	int			i;
 
 	i = 15;
 	if (ft_stacksize(*a) > 120)
 		i = 20;
 	stop = init_stop(stop);
+	stop2 = init_stop(stop2);
 	while (!check_order(*a))
 	{
 		if (count > 1000)
@@ -30,10 +31,11 @@ void	sort_stack(t_stack**a, t_stack*b)
 		if (count < i)
 			sort_lower(a, &b, stop, i);
 		else
-			stop2 = sort_top(a, &b, stop2, i);
+			sort_top(a, &b, stop2, i);
 		count++;
 	}
 	free(stop);
+	free(stop2);
 }
 
 int	main(int argc, char**argv)

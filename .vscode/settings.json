@@ -1,49 +1,5 @@
 {
-	"files.associations": {
-		"unistd.h": "c",
-		"mlx.h": "c",
-		"fdf.h": "c",
-		"libft.h": "c",
-		"push_swap.h": "c",
-		"complex": "c",
-		"stdbool.h": "c",
-		"array": "cpp",
-		"*.tcc": "cpp",
-		"deque": "cpp",
-		"list": "cpp",
-		"string": "cpp",
-		"vector": "cpp",
-		"optional": "cpp",
-		"string_view": "cpp",
-		"fstream": "cpp",
-		"istream": "cpp",
-		"streambuf": "cpp",
-		"regex": "cpp",
-		"random": "c",
-		"memory": "c",
-		"utility": "c",
-		"stdio.h": "c",
-		"limits": "c"
-	},
-	// The number of spaces a tab is equal to.
-	"editor.tabSize": 4,
-
-	// Insert spaces when pressing Tab.
-	"editor.insertSpaces": false,
-
-	// When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
-	"editor.detectIndentation": true,
-	"makefile.launchConfigurations": [
-		{
-			"cwd": "/Users/tpereira/Desktop/42Cursus/push_swap",
-			"binaryPath": "/Users/tpereira/Desktop/42Cursus/push_swap/push_swap",
-			"binaryArgs": [
-				"1",
-				"2",
-				"3",
-				"4",
-				"5"
-			]
-		}
-	]
+    "files.associations": {
+        "algorithm": "c"
+    }
 }

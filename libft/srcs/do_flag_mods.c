@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 21:04:15 by tpereira          #+#    #+#             */
-/*   Updated: 2021/05/22 15:15:37 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:17:33 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	get_zero_field_len(t_arg *arg_struct)
 {
 	int	len;
 
-	len =arg_struct->fieldwidth - ft_strlen(arg_struct->str);
+	len = arg_struct->fieldwidth - ft_strlen(arg_struct->str);
 	if (arg_struct->flags->has_spaceflag || arg_struct->flags->has_plusflag
 		|| arg_struct->is_negative)
 		len = len - 1;

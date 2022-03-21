@@ -3,38 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/07 20:13:01 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 20:46:55 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack	*ft_biggest(t_stack**head)
+int	ft_biggest(t_stack**head)
 {
 	t_stack	*temp;
+	t_stack	*temp2;
 	int		biggest;
 
-	temp = *head;
+	temp = ft_stackdup(*head);
+	temp2 = temp;
 	biggest = INT_MIN;
-	while (temp->next != NULL)
+	while (temp)
 	{
 		if (temp->content > biggest)
 			biggest = temp->content;
-		temp = temp->next;
+		if (temp->next != NULL)
+			temp = temp->next;
+		else
+			break ;
 	}
-	return (ft_stacknew(biggest));
+	free_stack(&temp2);
+	return (biggest);
 }
 
-t_stack	*ft_smallest(t_stack**head)
+int	ft_smallest(t_stack**head)
 {
 	t_stack	*temp;
+	t_stack	*temp2;
 	int		smallest;
 
 	smallest = INT_MAX;
-	temp = *head;
+	temp = ft_stackdup(*head);
+	temp2 = temp;
 	while (temp->content || temp->content == 0)
 	{
 		if (temp->content < smallest)
@@ -42,9 +50,13 @@ t_stack	*ft_smallest(t_stack**head)
 		if (temp->next != NULL)
 			temp = temp->next;
 		else
-			return (ft_stacknew(smallest));
+		{
+			free_stack(&temp2);
+			return (smallest);
+		}
 	}
-	return (ft_stacknew(smallest));
+	free_stack(&temp2);
+	return (smallest);
 }
 
 int	ft_stack_median(t_stack**head, int min, int max)
@@ -100,29 +112,4 @@ t_stack	*ft_stackdup(t_stack*head)
 		head = head->next;
 	}
 	return (new);
-}
-
-int	order_in_b(t_stack**a, t_stack**b, int min_a)
-{
-	int	min;
-	int	size;
-	int	smallest;
-	
-	min = 0;
-	smallest = 0;	
-	while (*b)
-	{
-		min = ft_smallest(b)->content;
-		if (ft_stacksize(*b) == 1)
-			pa(a, b);
-		while ((*b) && (*b)->content > min)
-			rb(b);
-		if (ft_stacksize(*b) > 1)
-		{
-			pa(a, b);
-			smallest = (*a)->content;
-			ra(a);
-		}
-	}
-	return (smallest);
 }

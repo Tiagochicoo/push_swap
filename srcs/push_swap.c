@@ -3,44 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/08 19:32:08 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 20:45:26 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_stack(t_stack*a, t_stack*b)
+void	sort_stack(t_stack**a, t_stack*b)
 {
-	int			biggest;
-	int			median;
-	static int	chunk_min = INT_MIN;
-	static int	chunk_max = INT_MAX;
-	static int	safe = 0;
-	static int	ra_count = 0; //RA count
+	static int	count = 0;
+	t_stop		*stop;
+	t_stop		*stop2;
+	int			i;
 
-	biggest = ft_biggest(&a)->content;
-	if (chunk_min == biggest) //BASE CASE
-		return ;
-	if (safe > 5000) // JUST FOR TESTING RECURSION PROTECTION
-		return ;
-	median = ft_stack_median(&a, chunk_min, chunk_max);
-	if (chunk_min < median)
+	i = 15;
+	if (ft_stacksize(*a) > 120)
+		i = 20;
+	stop = init_stop(stop);
+	stop2 = init_stop(stop2);
+	while (!check_order(*a))
 	{
-		if (!b)
-			ra_count = low_median_push_b(&a, &b);
-		while (ra_count-- > 0 && safe > 1)
-			rra(&a);
-		if (ft_stacksize(b) > 20)
-			chunk_min = top_median_push_a(&b, &a, chunk_min);
+		if (count > 1000)
+			return ;
+		if (count < i)
+			sort_lower(a, &b, stop, i);
 		else
-			chunk_min = order_in_b(&a, &b, chunk_min);
+			sort_top(a, &b, stop2, i);
+		count++;
 	}
-	safe++;
-	if (!check_order(a))
-		sort_stack(a, b);
+	free(stop);
+	free(stop2);
 }
 
 int	main(int argc, char**argv)
@@ -55,12 +50,11 @@ int	main(int argc, char**argv)
 	{
 		if (argc < 2)
 			return (0);
-		else if (argc < 7)
-			sort_5_or_less(a, b);
+		else if (argc <= 7)
+			a = sort_5_or_less(a, b);
 		else
-			sort_stack(a, b);
+			sort_stack(&a, b);
 	}
-	else
-		free_stack(&a);
+	free_stack(&a);
 	return (0);
 }

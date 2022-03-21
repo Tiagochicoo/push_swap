@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 17:58:24 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 18:34:00 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_stack	*sort_6_args(t_stack**a, t_stack**b)
 	return (*a);
 }
 
-int	sort_lower(t_stack**a, t_stack**b, int stop, int i)
+void	sort_lower(t_stack**a, t_stack**b, t_stop*stop, int i)
 {
 	static int	count = 0;
 	static int	stop1 = INT_MAX;
@@ -82,17 +82,12 @@ int	sort_lower(t_stack**a, t_stack**b, int stop, int i)
 		i = 42;
 	if (!*b && !check_order(*a))
 	{
-		stop = stop_func(stop, stop1, stop2, stop3);
-		low_median_push_b(a, b, stop);
+		stop = stop_func(stop);
+		low_median_push_b(a, b, (stop)->stop);
 		if ((*a)->content == ft_biggest(a))
 			ra(a);
-		stop = (*a)->content;
-		if (count < 1)
-			stop1 = stop;
-		else if (count < 2)
-			stop2 = stop;
-		else if (count < 3)
-			stop3 = stop;
+		stop->stop = (*a)->content;
+		stop = stop_func2(count, stop);
 	}
 	if (ft_stacksize(*b) > i)
 	{
@@ -109,7 +104,6 @@ int	sort_lower(t_stack**a, t_stack**b, int stop, int i)
 	}
 	else
 		order_in_b(a, b);
-	return (stop);
 }
 
 int	sort_top(t_stack**a, t_stack**b, int stop, int i)

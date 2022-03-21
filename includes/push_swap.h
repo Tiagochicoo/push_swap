@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 18:05:33 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 18:38:18 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ typedef struct s_stack
 	int				content;
 	struct s_stack	*next;
 }			t_stack;
+
+typedef struct s_stop
+{
+	int	stop;
+	int	stop1;
+	int	stop2;
+	int	stop3;
+}			t_stop;
 
 t_stack	*ft_stacknew(int content);
 void	ft_stackadd_back(t_stack**lst, t_stack*new);
@@ -65,10 +73,11 @@ int		ft_biggest(t_stack**head);
 int		ft_smallest(t_stack**head);
 int		ft_stack_median(t_stack**head);
 int		is_ordered_loop(t_stack**head);
-int		sort_lower(t_stack**a, t_stack**b, int stop, int i);
+void	sort_lower(t_stack**a, t_stack**b, t_stop*stop, int i);
 int		sort_top(t_stack**a, t_stack**b, int stop, int i);
 int		up_down(t_stack*b, int min);
-int		stop_func(int stop, int stop1, int stop2, int stop3);
-int		stop_func2(int count, int stop, int stop0);
+t_stop	*stop_func(t_stop*stop);
+t_stop	*stop_func2(int count, t_stop*stop);
+t_stop	*init_stop(t_stop*stop);
 
 #endif

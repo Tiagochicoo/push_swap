@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:07:04 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 17:55:14 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 18:05:27 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,5 @@ int	stop_func2(int count, int stop, int stop0)
 		stop0 = stop;
 	else if (count < 3)
 		stop0 = stop;
-	return (stop0);
-}
-
-int	stop_func3(int count, int content, int stop0)
-{
-	if (count == 0)
-		stop0 = content;
-	else if (count == 1)
-		stop0 = content;
-	else if (count == 2)
-		stop0 = content;
-	else if (count >= 3)
-		stop0 = content;
 	return (stop0);
 }

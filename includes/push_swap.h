@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/18 21:20:14 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 17:55:43 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,11 @@ int		ft_biggest(t_stack**head);
 int		ft_smallest(t_stack**head);
 int		ft_stack_median(t_stack**head);
 int		is_ordered_loop(t_stack**head);
-int		sort_lower(t_stack**a, t_stack**b, int stop);
-int		sort_top(t_stack**a, t_stack**b, int stop);
+int		sort_lower(t_stack**a, t_stack**b, int stop, int i);
+int		sort_top(t_stack**a, t_stack**b, int stop, int i);
 int		up_down(t_stack*b, int min);
+int		stop_func(int stop, int stop1, int stop2, int stop3);
+int		stop_func2(int count, int stop, int stop0);
+int		stop_func3(int count, int content, int stop0);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 16:53:42 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 17:43:56 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void	top_median_push_a(t_stack**b, t_stack**a)
 			return ;
 		if ((*b)->content > med && mid-- && ft_stacksize(*b) > 1)
 			pa(a, b);
-		else if ((*b)->content == ft_smallest(b) && (*b)->content < (*a)->content)
+		else if ((*b)->content == ft_smallest(b)
+			&& (*b)->content < (*a)->content)
 		{
 			pa(a, b);
 			ra(a);
@@ -107,20 +108,21 @@ void	top_median_push_b(t_stack**a, t_stack**b, int stop)
 	int	med;
 	int	flag;
 	int	min;
+	int	content;
 
 	flag = 0;
 	min = ft_smallest(a);
 	mid = (ft_stacksize(*a) / 2);
 	med = ft_stack_median(a);
-	if ((*a)->next->content == stop)
-		flag++;
-	if (flag == 1)
+	content = (*a)->content;
+	if (content == stop && flag++ == 1)
 		return ;
-	while (mid > 0 && (*a)->content != stop && (*a)->content != min)
+	while (mid > 0 && content != stop && content != min)
 	{
 		if ((*a)->content > med && mid--)
 			pb(b, a);
 		else
 			ra(a);
+		content = (*a)->content;
 	}
 }

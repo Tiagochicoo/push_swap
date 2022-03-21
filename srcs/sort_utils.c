@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 18:05:11 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 16:37:59 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 17:58:24 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,26 +70,19 @@ t_stack	*sort_6_args(t_stack**a, t_stack**b)
 	return (*a);
 }
 
-int	sort_lower(t_stack**a, t_stack**b, int stop)
+int	sort_lower(t_stack**a, t_stack**b, int stop, int i)
 {
 	static int	count = 0;
-	static int	count1 = 0;
 	static int	stop1 = INT_MAX;
 	static int	stop2 = INT_MAX;
 	static int	stop3 = INT_MAX;
-	int			i;
 
 	i = 19;
 	if (ft_stacksize(*a) > 120)
 		i = 42;
 	if (!*b && !check_order(*a))
 	{
-		if (stop3 != INT_MAX && count1++ == 0)
-			stop = stop3;
-		else if (stop2 != INT_MAX && count1++ < 12)
-			stop = stop2;
-		else if (stop1 != INT_MAX && count1++ < 20)
-			stop = stop1;
+		stop = stop_func(stop, stop1, stop2, stop3);
 		low_median_push_b(a, b, stop);
 		if ((*a)->content == ft_biggest(a))
 			ra(a);
@@ -119,14 +112,13 @@ int	sort_lower(t_stack**a, t_stack**b, int stop)
 	return (stop);
 }
 
-int	sort_top(t_stack**a, t_stack**b, int stop)
+int	sort_top(t_stack**a, t_stack**b, int stop, int i)
 {
 	static int	count = 0;
 	static int	count1 = 0;
 	static int	stop1 = INT_MAX;
 	static int	stop2 = INT_MAX;
 	static int	stop3 = INT_MAX;
-	int			i;
 
 	i = 20;
 	if (ft_stacksize(*a) > 120)
@@ -140,8 +132,6 @@ int	sort_top(t_stack**a, t_stack**b, int stop)
 		else if (stop1 != INT_MAX && count1++ < 20)
 			stop = stop1;
 		top_median_push_b(a, b, stop);
-		if ((*a)->content == ft_biggest(a))
-			ra(a);
 		stop = (*a)->content;
 	}
 	if (ft_stacksize(*b) > i)

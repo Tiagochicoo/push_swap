@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/17 17:50:08 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/21 16:27:31 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,8 @@ t_stack	*sort_4_args(t_stack**a, t_stack**b)
 		while ((*b) != NULL)
 		{
 			size = ft_stacksize(*a);
-			while ((*a)->content < (*b)->content && i++ < size)
-			{
+			while ((*a)->content < (*b)->content && i++ < size && j++)
 				ra(a);
-				j++;
-			}
 			pa(a, b);
 		}
 		while (j-- > 0)

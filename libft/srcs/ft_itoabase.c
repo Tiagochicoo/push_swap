@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoabase.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 08:53:07 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/22 08:14:44 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/22 18:20:30 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_itoabase(long n, int base)
 		str[0] = '0';
 	while (n != 0)
 	{
-		str[--len] = rep_str[(n % base) *i];
+		str[--len] = rep_str[(n % base) * i];
 		n /= base;
 	}
 	return (str);

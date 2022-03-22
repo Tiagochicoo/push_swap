@@ -6,7 +6,7 @@
 #    By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 10:19:16 by tpereira          #+#    #+#              #
-#    Updated: 2022/03/22 18:17:07 by tpereira         ###   ########.fr        #
+#    Updated: 2022/03/22 18:21:58 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ all :
 c100 :
 	@printf "\e[34m█▓▒░	     100 ARGS - checker_Mac	    ░▒▓█ \e[0m\n"
 	@for ((i=1; i <= 10; ++i)) do ARG="$(100ARG)"; ./push_swap $(ARG) | ./checker_Mac $(ARG); done
-	
+
 c500 :
 	@printf "\e[34m█▓▒░	     500 ARGS - checker_Mac	    ░▒▓█ \e[0m\n"
 	@for ((i=1; i <= 10; ++i)) do ARG="$(500ARG)"; ./push_swap $(ARG) | ./checker_Mac $(ARG); done

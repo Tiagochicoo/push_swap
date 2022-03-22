@@ -6,7 +6,7 @@
 #    By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 10:19:16 by tpereira          #+#    #+#              #
-#    Updated: 2022/03/22 16:28:47 by tpereira         ###   ########.fr        #
+#    Updated: 2022/03/22 17:36:25 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,13 @@ all :
 	@printf "\e[38;5;46m█▓▒░   push_swap build successfull  ░▒▓█ \e[0m\n"
 	@printf "\e[38;5;46m ╚════════════════════════════════════╝\e[0m\n"
 
-yes : all
-	./push_swap 1 2 3 4 5
+100 : all
+	@printf "\e[34m█▓▒░	     Testing 100 ARGS	    ░▒▓█ \e[0m\n"
+	@for ((i=1; i <= 50; ++i)) do ./push_swap `ruby -e "puts (-1000..1000).to_a.shuffle.first(100).join(' ')"` | wc -l; done
 
-no : all
-	./push_swap 5 4 3 2 1
+500 : all
+	@printf "\e[34m█▓▒░	     Testing 500 ARGS	    ░▒▓█ \e[0m\n"
+	@for ((i=1; i <= 10; ++i)) do ./push_swap `ruby -e "puts (-1000..1000).to_a.shuffle.first(500).join(' ')"` | wc -l; done
 
 clean :
 	@make -s clean -C libft

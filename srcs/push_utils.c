@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/22 08:15:22 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/22 17:21:27 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	top_median_push_b(t_stack**a, t_stack**b, int stop)
 	mid = (ft_stacksize(*a) / 2);
 	med = ft_stack_median(a);
 	content = (*a)->content;
-	if (content == stop && flag++ == 1)
+	if (content == stop && flag++ == 2)
 		return ;
 	while (mid > 0 && content != stop && content != min)
 	{

@@ -3,25 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   x_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:07:04 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 20:24:42 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/22 08:11:01 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stop	*init_stop(t_stop*stop)
+void	init_stop(t_stop*stop)
 {
-	stop = (t_stop *)malloc(sizeof(t_stop));
 	stop->stop = INT_MAX;
 	stop->stop1 = INT_MAX;
 	stop->stop2 = INT_MAX;
 	stop->stop3 = INT_MAX;
 	stop->count = 0;
 	stop->count1 = 0;
-	return (stop);
 }
 
 t_stop	*stop_func(t_stop*stop)

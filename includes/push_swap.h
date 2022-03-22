@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:49:43 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 20:01:45 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/22 08:10:22 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	quarter_push_a(t_stack**src, t_stack**dest);
 void	quarter_push_b(t_stack**src, t_stack**dest);
 void	order_in_b(t_stack**a, t_stack**b);
 void	order_in_b2(t_stack**a, t_stack**b);
-int		check_args(int argc, char**argv);
+int		check_args(char**argv);
 int		check_arg(char**argv);
 void	convert_to_int(t_stack*a);
 t_stack	*init_a(int argc, char**argv, t_stack*a);
@@ -78,7 +78,7 @@ int		is_ordered_loop(t_stack**head);
 void	sort_lower(t_stack**a, t_stack**b, t_stop*stop, int i);
 void	sort_top(t_stack**a, t_stack**b, t_stop*stop, int i);
 int		up_down(t_stack*b, int min);
-t_stop	*init_stop(t_stop*stop);
+void	init_stop(t_stop*stop);
 t_stop	*stop_func(t_stop*stop);
 t_stop	*stop_func2(int count, t_stop*stop);
 t_stop	*stop_func3(int count, t_stop*stop, int content);

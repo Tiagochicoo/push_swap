@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 17:43:56 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/22 08:15:22 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ int	up_down(t_stack*b, int min)
 {
 	t_stack	*temp;
 	t_stack	*head;
-	int		med;
 	int		count;
 
 	count = 0;
-	med = ft_stack_median(&b);
 	temp = ft_stackdup(b);
 	head = temp;
 	while (temp->next && temp->content != min && count++)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_5_or_less.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:32:54 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 16:27:31 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/22 08:15:34 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ t_stack	*sort_4_args(t_stack**a, t_stack**b)
 {
 	int	i;
 	int	j;
-	int	num;
 	int	size;
 
 	i = 0;
@@ -60,7 +59,6 @@ t_stack	*sort_4_args(t_stack**a, t_stack**b)
 	{
 		pb(b, a);
 		sort_3_args(a);
-		num = (*a)->content;
 		while ((*b) != NULL)
 		{
 			size = ft_stacksize(*a);

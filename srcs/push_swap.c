@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 09:50:42 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/21 20:02:30 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/22 08:11:12 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ void	sort_stack(t_stack**a, t_stack*b)
 	int			i;
 
 	i = 15;
+	stop = (t_stop *)malloc(sizeof(t_stop));
+	stop2 = (t_stop *)malloc(sizeof(t_stop));
 	if (ft_stacksize(*a) > 120)
 		i = 20;
-	stop = init_stop(stop);
-	stop2 = init_stop(stop2);
+	init_stop(stop);
+	init_stop(stop2);
 	while (!check_order(*a))
 	{
 		if (count > 1000)
@@ -46,7 +48,7 @@ int	main(int argc, char**argv)
 	a = NULL;
 	b = NULL;
 	a = init_a(argc, argv, a);
-	if (check_args(argc, argv) && !check_order(a))
+	if (check_args(argv) && !check_order(a))
 	{
 		if (argc < 2)
 			return (0);

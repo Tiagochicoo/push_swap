@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 10:28:08 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/22 17:21:27 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/25 19:58:45 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,21 @@ void	low_median_push_a(t_stack**b, t_stack**a)
 	}
 }
 
-void	top_median_push_a(t_stack**b, t_stack**a)
+int	top_median_push_a(t_stack**b, t_stack**a)
 {
 	int	mid;
+	int	mid2;
 	int	med;
 	int	flag;
 
 	flag = 0;
 	mid = ft_stacksize(*b) / 2;
+	mid2 = ft_stacksize(*b) / 2;
 	med = ft_stack_median(b);
 	while (mid > 0)
 	{
 		if (mid == 1 && flag++ == 1)
-			return ;
+			return (mid2);
 		if ((*b)->content > med && mid-- && ft_stacksize(*b) > 1)
 			pa(a, b);
 		else if ((*b)->content == ft_smallest(b)
@@ -79,25 +81,32 @@ void	top_median_push_a(t_stack**b, t_stack**a)
 		else
 			rb(b);
 	}
+	return (mid2);
 }
 
-void	low_median_push_b(t_stack**a, t_stack**b, int stop)
+int	low_median_push_b(t_stack**a, t_stack**b, t_stop*stop)
 {
 	int			mid;
 	int			med;
 	static int	flag = 0;
+	int			count;
 
+	count = 0;
 	mid = ft_stacksize(*a) / 2;
-	med = ft_stack_median(a);
-	if ((*a)->next->content == stop && flag++ == 1)
-		return ;
-	while (mid > 0 && (*a)->content != stop)
+	med = stop->a_median;
+	if ((*a)->next->content == stop->stop && flag++ == 1)
+		return (count);
+	while (mid > 0 && (*a)->content != stop->stop)
 	{
 		if ((*a)->content < med && mid--)
 			pb(b, a);
 		else
+		{
+			count++;
 			ra(a);
+		}
 	}
+	return (count);
 }
 
 void	top_median_push_b(t_stack**a, t_stack**b, int stop)

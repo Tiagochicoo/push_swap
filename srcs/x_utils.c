@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:07:04 by tpereira          #+#    #+#             */
-/*   Updated: 2022/03/22 08:11:01 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/03/25 19:58:05 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	init_stop(t_stop*stop)
 {
+	stop->a_median = INT_MIN;
 	stop->stop = INT_MAX;
 	stop->stop1 = INT_MAX;
 	stop->stop2 = INT_MAX;

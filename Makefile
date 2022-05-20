@@ -12,16 +12,18 @@
 
 PUSH_SWAP   = push_swap
 CC 			= gcc
-CFLAGS 		= -Wall -Wextra -Werror
+CFLAGS 		= -Wall -Wextra -Werror -g
+SRCS		= ./srcs/*.c
+LIB			= libft/libft.a
 100ARG		= `ruby -e "puts (-1000..1000).to_a.shuffle.first(100).join(' ')"`
 500ARG		= `ruby -e "puts (-1000..1000).to_a.shuffle.first(500).join(' ')"`
 
 all :
 	@make -s -C libft
-	@gcc -g $(CFLAGS) ./srcs/*.c libft/libft.a -o $(PUSH_SWAP)
+	@$(CC) $(CFLAGS) $(SRCS) $(LIB) -o $(PUSH_SWAP)
 	@printf "\e[38;5;46m ╔════════════════════════════════════╗\e[0m\n"
 	@printf "\e[38;5;46m█▓▒░	     Compiled Libft	    ░▒▓█ \e[0m\n"
-	@printf "\e[38;5;46m█▓▒░   push_swap build successfull  ░▒▓█ \e[0m\n"
+	@printf "\e[38;5;46m█▓▒░   push_swap build successful   ░▒▓█ \e[0m\n"
 	@printf "\e[38;5;46m ╚════════════════════════════════════╝\e[0m\n"
 
 c100 :
